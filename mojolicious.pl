@@ -1,5 +1,7 @@
 #!/usr/bin/env perl
 
+use lib 'mojo/lib';
+
 use Mojolicious::Lite;
 
 app->secret('foo');
