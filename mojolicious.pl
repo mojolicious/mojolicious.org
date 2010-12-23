@@ -9,6 +9,10 @@ app->secret('foo');
 # Documentation browser under "/perldoc" (this plugin requires Perl 5.10)
 plugin 'pod_renderer';
 
+# Analytics
+$Mojolicious::Plugin::PodRenderer::MOJOBAR
+  .= "% content_for header => include 'analytics';";
+
 # Proxy for "planet.perl.org"
 get '/blog/atom/perl/atom.xml' => sub {
     my $self = shift;
