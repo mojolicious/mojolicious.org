@@ -9,7 +9,27 @@ app->secret('foo');
 # Documentation browser under "/perldoc" (this plugin requires Perl 5.10)
 plugin 'pod_renderer';
 
-get '/' => 'index';
+# Proxy for planet.perl.org
+get '/blog/atom/perl/atom.xml' => sub {
+    my $self = shift;
+    $self->client->async->max_redirects(5)->get(
+        'http://feeds.feedburner.com/kraih' => sub {
+            $self->render(text => shift->res->body, format => 'rss');
+        }
+    )->start;
+};
+
+# Welcome to Mojolicious
+get '/' => sub {
+    my $self = shift;
+
+    #  Shortcut for "latest.mojolicio.us"
+    return $self->redirect_to('http://github.com/kraih/mojo/tarball/master')
+      if $self->req->url->base->host =~ /^latest\./;
+
+    # Index
+    $self->render('index');
+};
 
 app->start;
 __DATA__
