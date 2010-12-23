@@ -191,7 +191,7 @@ h1, h2, h3 {
     margin-left: 5em;
     margin-right: 5em;
     padding: 3em;
-    padding-top: 6em;
+    padding-top: 7em;
 }
 #sidebar {
     float: right;
@@ -251,6 +251,7 @@ pre {
     text-shadow: #333 0 1px 0;
     padding-bottom: 1.5em;
     padding-top: 1.5em;
+    white-space: pre-wrap;
 }
 #footer {
     margin-top: 1.5em;
