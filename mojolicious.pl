@@ -9,7 +9,7 @@ app->secret('foo');
 # Documentation browser under "/perldoc" (this plugin requires Perl 5.10)
 plugin 'pod_renderer';
 
-# Proxy for planet.perl.org
+# Proxy for "planet.perl.org"
 get '/blog/atom/perl/atom.xml' => sub {
     my $self = shift;
     $self->client->async->max_redirects(5)->get(
