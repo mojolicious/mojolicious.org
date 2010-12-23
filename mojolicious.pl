@@ -172,7 +172,11 @@ __DATA__
     <h2>Installation</h2>
     <p>All you need is a oneliner.</p>
     <pre>    curl -L cpanmin.us | perl - http://latest.mojolicio.us</pre>
-    <p>Have fun!</p>
+    <h2>Want to know more?</h2>
+    <p>
+        Take a look at our excellent
+        <a href="http://mojolicio.us/perldoc">documentation</a>!
+    </p>
 </div>
 <div id="footer">
     %= link_to 'http://mojolicio.us' => begin
