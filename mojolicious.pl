@@ -18,7 +18,7 @@ get '/blog/atom/perl/atom.xml' => sub {
     my $self = shift;
     $self->client->async->max_redirects(5)->get(
         'http://feeds.feedburner.com/kraih' => sub {
-            $self->render(text => shift->res->body, format => 'rss');
+            $self->render(data => shift->res->body, format => 'rss');
         }
     )->start;
 };
