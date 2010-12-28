@@ -100,7 +100,7 @@ __DATA__
         </li>
         <li>
             Very clean, portable and Object Oriented pure Perl API without
-            any hidden magic and no requirements besides Perl 5.10.
+            any hidden magic and no requirements besides Perl 5.8.7.
         </li>
         <li>
             Full stack HTTP 1.1 and WebSocket client/server implementation
