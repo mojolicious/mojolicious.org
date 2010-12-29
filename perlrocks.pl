@@ -81,8 +81,8 @@ sub irc_announce {
 
 sub irc_connect {
 
-    # Buffers
-    my ($in, $out) = '';
+    # Buffer
+    my $buffer = '';
 
     # Server connection
     $irc = $client->ioloop->connect(
@@ -109,10 +109,10 @@ sub irc_connect {
             my ($self, $id, $chunk) = @_;
 
             # Append to buffer
-            $in .= $chunk;
+            $buffer .= $chunk;
 
             # Parse
-            while (my $line = get_line $in) {
+            while (my $line = get_line $buffer) {
 
                 # Ping
                 $self->write($id => "PONG $1\r\n")
