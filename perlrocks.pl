@@ -1,0 +1,208 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+
+use lib 'mojo/lib';
+
+use Getopt::Long 'GetOptions';
+use Mojo::Client;
+use Mojo::JSON;
+use Mojo::Util qw/encode get_line html_unescape/;
+
+# Twitter
+my $PATTERN  = 'mojolicious,mojo+perl,perlrocks';
+my $STREAM   = "stream.twitter.com/1/statuses/filter.json?track=$PATTERN";
+my $USER     = '';
+my $PASSWORD = '';
+
+# Google Translate
+my $TRANSLATE = 'http://ajax.googleapis.com/ajax/services/language/translate';
+
+# IRC
+my $SERVER  = 'irc.perl.org';
+my $PORT    = 6667;
+my $CHANNEL = '#mojo';
+my $NICK    = '';
+
+# Options
+my $help;
+GetOptions(
+    'channel=s'  => sub { $CHANNEL  = $_[1] },
+    help         => sub { $help     = 1 },
+    'nick=s'     => sub { $NICK     = $_[1] },
+    'password=s' => sub { $PASSWORD = $_[1] },
+    'pattern=s'  => sub { $PATTERN  = $_[1] },
+    'port=s'     => sub { $PORT     = $_[1] },
+    'server=s'   => sub { $SERVER   = $_[1] },
+    'user=s'     => sub { $USER     = $_[1] },
+);
+
+# Check user and password
+$help = 1 unless $USER && $PASSWORD;
+
+# Usage
+die <<"EOF" if $help;
+usage: $0 [OPTIONS]
+
+  perlrocks.pl --user perlrocks --password s3cret
+  perlrocks.pl --user perlrocks --password s3cret --nick mojorocks
+
+These options are available:
+  --channel    IRC channel to announce on.
+  --help       Show this message.
+  --nick       IRC nick.
+  --password   Twitter password.
+  --pattern    Pattern to search for on Twitter.
+  --port       IRC port to connect to.
+  --server     IRC server to connect to.
+  --user       Twitter user.
+EOF
+
+# Client
+my $client = Mojo::Client->new(keep_alive_timeout => 300)->async;
+
+# Twitter stream
+twitter_stream();
+
+# IRC
+my $irc;
+irc_connect() if $NICK;
+
+# Mainloop
+$client->ioloop->start;
+
+sub irc_announce {
+    my $message = shift;
+    $message =~ s/\n/\ /g;
+    encode 'UTF-8', $message;
+    $client->ioloop->write($irc => "PRIVMSG $CHANNEL :$message\r\n") if $irc;
+}
+
+sub irc_connect {
+
+    # Buffers
+    my ($in, $out) = '';
+
+    # Server connection
+    $irc = $client->ioloop->connect(
+        address    => $SERVER,
+        port       => $PORT,
+        on_connect => sub {
+            my ($self, $id) = @_;
+
+            # Connected
+            print "Connected to IRC server.\n";
+
+            # Increase connection timeout
+            $self->connection_timeout($id => 3000);
+
+            # Identify
+            $self->write(
+                $id => qq/USER $NICK "mojolicio.us" "$NICK" :$NICK\r\n/);
+            $self->write($id => "NICK $NICK\r\n");
+
+            # Join channel
+            $self->write($id => "JOIN $CHANNEL\r\n");
+        },
+        on_read => sub {
+            my ($self, $id, $chunk) = @_;
+
+            # Append to buffer
+            $in .= $chunk;
+
+            # Parse
+            while (my $line = get_line $in) {
+
+                # Ping
+                $self->write($id => "PONG $1\r\n")
+                  if $line =~ /^PING\s+\:(\S+)/;
+            }
+        },
+        on_error => sub { irc_connect() },
+        on_hup   => sub { irc_connect() }
+    );
+}
+
+sub twitter_stream {
+
+    # Streaming
+    print "Starting Twitter stream.\n";
+
+    # Prepare transaction for streaming response
+    my $tx = $client->build_tx(GET => "$USER:$PASSWORD\@$STREAM");
+    $tx->res->body(
+        sub {
+
+            # JSON
+            return unless my $tweet = Mojo::JSON->new->decode(pop);
+
+            # Google Translate
+            google_translate($tweet);
+        }
+    );
+
+    # Connect to Twitter
+    $client->start(
+        $tx => sub {
+            my $self = shift;
+
+            # Error
+            warn $self->tx->error unless $self->tx->success;
+
+            # Reconnect
+            twitter_stream();
+        }
+    );
+}
+
+sub google_translate {
+    my $tweet = shift;
+
+    # Extract information
+    my $name = $tweet->{user}->{screen_name};
+    my $id   = $tweet->{id};
+    my $url  = "http://twitter.com/$name/status/$id";
+    my $lang = $tweet->{user}->{lang};
+
+    # New tweet
+    print qq/New tweet from "$name" ($lang).\n/;
+
+    # Text
+    my $text = $tweet->{text};
+    $lang = '' if $lang eq 'en';
+
+    # Retweet
+    if ($text =~ /(?:^\s*RT|via\s*\@)/) {
+        print "Just a retweet!\n";
+        return;
+    }
+
+    # Translate
+    $client->get(
+        Mojo::URL->new($TRANSLATE)
+          ->query([v => '1.0', q => $text, langpair => "$lang|en"]) => sub {
+            my $self = shift;
+
+            # JSON
+            return unless my $json = $self->res->json;
+
+            # Translation
+            my $translated = $json->{responseData}->{translatedText};
+            $text = $translated if $translated;
+
+            # Detected language
+            my $detected = $json->{responseData}->{detectedSourceLanguage};
+            $lang = $detected if $detected;
+            $lang = $lang ? $lang ne 'en' ? " ($lang)" : '' : '';
+
+            # Announce
+            html_unescape $text;
+            print qq/"$text"$lang\n/;
+            irc_announce(
+                qq/\x{0002}Twitter:\x{000F} "$text"$lang --$name $url/);
+        }
+    )->start;
+}
+
+1;
