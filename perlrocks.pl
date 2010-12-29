@@ -12,7 +12,7 @@ use Mojo::Util qw/encode get_line html_unescape/;
 
 # Twitter
 my $PATTERN  = 'mojolicious,mojo+perl,perlrocks';
-my $STREAM   = "stream.twitter.com/1/statuses/filter.json?track=$PATTERN";
+my $STREAM   = "stream.twitter.com/1/statuses/filter.json";
 my $USER     = '';
 my $PASSWORD = '';
 
@@ -130,7 +130,8 @@ sub twitter_stream {
     print "Starting Twitter stream.\n";
 
     # Prepare transaction for streaming response
-    my $tx = $client->build_tx(GET => "$USER:$PASSWORD\@$STREAM");
+    my $tx =
+      $client->build_tx(GET => "$USER:$PASSWORD\@$STREAM?track=$PATTERN");
     $tx->res->body(
         sub {
 
