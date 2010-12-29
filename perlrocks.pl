@@ -185,20 +185,20 @@ sub google_translate {
             my $self = shift;
 
             # JSON
-            return unless my $json = $self->res->json;
+            return unless my $t = $self->res->json;
 
             # Translation
-            my $translated = $json->{responseData}->{translatedText};
+            my $translated = $t->{responseData}->{translatedText};
             $text = $translated if $translated;
 
             # Detected language
-            my $detected = $json->{responseData}->{detectedSourceLanguage};
+            my $detected = $t->{responseData}->{detectedSourceLanguage};
             $lang = $detected if $detected;
             $lang = $lang ? $lang ne 'en' ? " ($lang)" : '' : '';
 
             # Announce
             html_unescape $text;
-            print qq/"$text"$lang\n/;
+            print qq/"$text"$lang --$name $url\n/;
             irc_announce(
                 qq/\x{0002}Twitter:\x{000F} "$text"$lang --$name $url/);
         }
