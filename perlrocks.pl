@@ -162,7 +162,7 @@ sub google_translate {
 
     # Extract information
     my $name = $tweet->{user}->{screen_name};
-    my $id   = $tweet->{id};
+    my $id   = $tweet->{id_str};
     my $url  = "http://twitter.com/$name/status/$id";
     my $lang = $tweet->{user}->{lang};
 
