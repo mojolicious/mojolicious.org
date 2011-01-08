@@ -168,10 +168,13 @@ __DATA__
     &lt;%= link_to clock =&gt; begin %&gt;
         The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
     &lt;% end %&gt;</pre>
-    <p>Single file prototypes like this one can easily grow into well structured applications.</p>
+    <p>
+        Single file prototypes like this one can easily grow into well
+        structured applications.
+    </p>
     <h2>Installation</h2>
     <p>All you need is a oneliner.</p>
-    <pre>    curl -L cpanmin.us | perl - http://latest.mojolicio.us</pre>
+    <pre>    curl -L cpanmin.us | perl - -S http://latest.mojolicio.us</pre>
     <h1>Want to know more?</h1>
     <p>
         Take a look at our excellent
