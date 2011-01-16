@@ -155,12 +155,10 @@ __DATA__
     # WebSocket echo service
     websocket &#39;/echo&#39; =&gt; sub {
         my $self = shift;
-        $self-&gt;on_message(
-            sub {
-                my ($self, $message) = @_;
-                $self-&gt;send_message(&quot;echo: $message&quot;);
-            }
-        );
+        $self-&gt;on_message(sub {
+            my ($self, $message) = @_;
+            $self-&gt;send_message(&quot;echo: $message&quot;);
+        });
     };
 
     app-&gt;start;
@@ -240,12 +238,10 @@ __DATA__
     # WebSocket echo service
     sub echo {
         my $self = shift;
-        $self-&gt;on_message(
-            sub {
-                my ($self, $message) = @_;
-                $self-&gt;send_message(&quot;echo: $message&quot;);
-            }
-        );
+        $self-&gt;on_message(sub {
+            my ($self, $message) = @_;
+            $self-&gt;send_message(&quot;echo: $message&quot;);
+        });
     }
 
     1;</pre>
