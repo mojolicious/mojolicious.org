@@ -182,7 +182,7 @@ __DATA__
     # Runs once on application startup
     sub startup {
         my $self = shift;
-        my $r = $self-&gt;routes;
+        my $r    = $self-&gt;routes;
 
         # Route prefix for &quot;MyApp::Example&quot; controller
         my $example = $r-&gt;under(&#39;/example&#39;)-&gt;to(&#39;example#&#39;);
