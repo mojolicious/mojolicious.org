@@ -171,97 +171,93 @@ __DATA__
     &lt;%= link_to clock =&gt; begin %&gt;
         The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
     &lt;% end %&gt;</pre>
-    <p>
-        Single file prototypes like this one can easily grow into well
-        structured applications.
-    </p>
     <h2>Growing</h2>
     <p>
         Single file prototypes like the one above can easily grow into well
         structured applications.
     </p>
     <pre class="prettyprint">    package MyApp;
-        use Mojo::Base &#39;Mojolicious&#39;;
+    use Mojo::Base &#39;Mojolicious&#39;;
 
-        # Runs once on application startup
-        sub startup {
-            my $self = shift;
-            my $r = $self-&gt;routes;
+    # Runs once on application startup
+    sub startup {
+        my $self = shift;
+        my $r = $self-&gt;routes;
 
-            # Route prefix for &quot;MyApp::Example&quot; controller
-            my $example = $r-&gt;under(&#39;/example&#39;)-&gt;to(&#39;example#&#39;);
+        # Route prefix for &quot;MyApp::Example&quot; controller
+        my $example = $r-&gt;under(&#39;/example&#39;)-&gt;to(&#39;example#&#39;);
 
-            # GET routes connecting the controller prefix with actions
-            $example-&gt;get(&#39;/hello&#39;)-&gt;to(&#39;#hello&#39;);
-            $example-&gt;get(&#39;/time&#39;)-&gt;to(&#39;#clock&#39;);
-            $example-&gt;get(&#39;/:offset&#39;)-&gt;to(&#39;#restful&#39;);
+        # GET routes connecting the controller prefix with actions
+        $example-&gt;get(&#39;/hello&#39;)-&gt;to(&#39;#hello&#39;);
+        $example-&gt;get(&#39;/time&#39;)-&gt;to(&#39;#clock&#39;);
+        $example-&gt;get(&#39;/:offset&#39;)-&gt;to(&#39;#restful&#39;);
 
-            # All common verbs are supported
-            $example-&gt;post(&#39;/title&#39;)-&gt;to(&#39;#title&#39;);
+        # All common verbs are supported
+        $example-&gt;post(&#39;/title&#39;)-&gt;to(&#39;#title&#39;);
 
-            # And much more
-            $r-&gt;websocket(&#39;/echo&#39;)-&gt;to(&#39;realtime#echo&#39;);
-        }
+        # And much more
+        $r-&gt;websocket(&#39;/echo&#39;)-&gt;to(&#39;realtime#echo&#39;);
+    }
 
-        1;</pre>
+    1;</pre>
     <p>
         Bigger applications are a lot easier to maintain once routing
         information has been separated from action code, especially when
         working in teams.
     </p>
     <pre class="prettyprint">    package MyApp::Example;
-        use Mojo::Base &#39;Mojolicious::Controller&#39;;
+    use Mojo::Base &#39;Mojolicious::Controller&#39;;
 
-        # Plain text response
-        sub hello { shift-&gt;render(text =&gt; &#39;Hello World!&#39;) }
+    # Plain text response
+    sub hello { shift-&gt;render(text =&gt; &#39;Hello World!&#39;) }
 
-        # Render external template &quot;templates/example/clock.html.ep&quot;
-        sub clock { shift-&gt;render }
+    # Render external template &quot;templates/example/clock.html.ep&quot;
+    sub clock { shift-&gt;render }
 
-        # RESTful web service sending JSON responses
-        sub restful {
-            my $self   = shift;
-            my $offset = $self-&gt;param(&#39;offset&#39;) || 23;
-            $self-&gt;render(json =&gt; {list =&gt; [0 .. $offset]});
-        }
+    # RESTful web service sending JSON responses
+    sub restful {
+        my $self   = shift;
+        my $offset = $self-&gt;param(&#39;offset&#39;) || 23;
+        $self-&gt;render(json =&gt; {list =&gt; [0 .. $offset]});
+    }
 
-        # Scrape information from remote sites
-        sub title {
-            my $self = shift;
-            my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
-            $self-&gt;render(text =&gt;
-                  $self-&gt;client-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;head &gt; title&#39;)-&gt;text);
-        }
+    # Scrape information from remote sites
+    sub title {
+        my $self = shift;
+        my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
+        $self-&gt;render(text =&gt;
+              $self-&gt;client-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;head &gt; title&#39;)-&gt;text);
+    }
 
-        1;</pre>
+    1;</pre>
     <p>
         While the application class is unique, you can have as many
         controllers as you like.
     </p>
     <pre class="prettyprint">    package MyApp::Realtime;
-        use Mojo::Base &#39;Mojolicious::Controller&#39;;
+    use Mojo::Base &#39;Mojolicious::Controller&#39;;
 
-        # WebSocket echo service
-        sub echo {
-            my $self = shift;
-            $self-&gt;on_message(
-                sub {
-                    my ($self, $message) = @_;
-                    $self-&gt;send_message(&quot;echo: $message&quot;);
-                }
-            );
-        }
+    # WebSocket echo service
+    sub echo {
+        my $self = shift;
+        $self-&gt;on_message(
+            sub {
+                my ($self, $message) = @_;
+                $self-&gt;send_message(&quot;echo: $message&quot;);
+            }
+        );
+    }
 
-        1;</pre>
+    1;</pre>
     <p>
         Action code and templates can stay almost exactly the same,
         everything was designed from the ground up for this very unique and
         fun workflow.
     </p>
     <pre class="prettyprint">    % my ($second, $minute, $hour) = (localtime(time))[0, 1, 2];
-        &lt;%= link_to clock =&gt; begin %&gt;
-            The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
-        &lt;% end %&gt;</pre>
+    &lt;%= link_to clock =&gt; begin %&gt;
+        The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
+    &lt;% end %&gt;</pre>
     <h1>Want to know more?</h1>
     <p>
         Take a look at our excellent
