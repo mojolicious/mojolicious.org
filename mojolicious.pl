@@ -45,7 +45,7 @@ __DATA__
 % end
 <div id="banner">
     %= link_to 'http://latest.mojolicio.us' => begin
-        <img src="webinabox.png">
+        <img src="unicorn.png">
     % end
 </div>
 %= include inline => $Mojolicious::Plugin::PodRenderer::MOJOBAR
@@ -268,21 +268,8 @@ __DATA__
 
 @@ css/index.css
 #banner {
-    background-color: #caecf6;
-    background: -moz-linear-gradient(
-        top,
-        #eee 0%,
-        #caecf6 100%
-    );
-    background: -webkit-gradient(
-        linear,
-        0% 0%,
-        0% 100%,
-        from(#eee),
-        to(#caecf6)
-    );
-    border-bottom: 1px solid #fff;
-    padding: 0.5em;
+    background: url(../digitalforest.png) repeat-x;
+    height: 450px;
     text-align: center;
 }
 h1, h2, h3 {
@@ -300,8 +287,9 @@ h1, h2, h3 {
     box-shadow: 0px 0px 2px #ccc;
     margin-left: 5em;
     margin-right: 5em;
+    margin-top: 1em;
     padding: 3em;
-    padding-top: 7em;
+    padding-top: 6em;
 }
 #sidebar {
     float: right;
