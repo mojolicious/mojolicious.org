@@ -340,7 +340,7 @@ body {
     text-shadow: #ddd 0 1px 0;
 }
 pre {
-    background: url("../mojolicious-pinstripe.gif") repeat;
+    background: url("../mojolicious-pinstripe.gif");
     -moz-border-radius: 5px;
     border-radius: 5px;
     color: #eee;
