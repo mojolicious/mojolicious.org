@@ -16,6 +16,7 @@ $Mojolicious::Plugin::PodRenderer::MOJOBAR
 # Proxy for "planet.perl.org"
 get '/blog/atom/perl/atom.xml' => sub {
     my $self = shift;
+    $self->render_later;
     $self->client->async->max_redirects(5)->get(
         'http://feeds.feedburner.com/kraih' => sub {
             $self->render(data => shift->res->body, format => 'rss');
