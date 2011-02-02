@@ -29,7 +29,7 @@ get '/' => sub {
     my $self = shift;
 
     #  Shortcut for "latest.mojolicio.us"
-    return $self->redirect_to('http://github.com/kraih/mojo/tarball/master')
+    return $self->redirect_to('http://www.github.com/kraih/mojo/tarball/master')
       if $self->req->url->base->host =~ /^latest\./;
 
     # Index
@@ -124,7 +124,7 @@ __DATA__
     </ul>
     <h2>Installation</h2>
     <p>All you need is a oneliner.</p>
-    <pre>    curl -L cpanmin.us | perl - -S http://latest.mojolicio.us</pre>
+    <pre>    sudo -s 'curl -L cpanmin.us | perl - Mojolicious'</pre>
     <h2>Duct Tape For The HTML5 Web</h2>
     <p>
         Web development for humans, making hard things possible and
