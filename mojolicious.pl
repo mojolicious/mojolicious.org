@@ -321,7 +321,6 @@ try {
 <!doctype html><html>
     <head>
         <title>Mojolicious Web Framework - Join the Perl revolution!</title>
-        %= base_tag
         %= stylesheet '/css/prettify-mojo.css'
         %= javascript '/js/prettify.js'
         %= stylesheet '/css/default.css'
