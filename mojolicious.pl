@@ -29,7 +29,8 @@ get '/' => sub {
     my $self = shift;
 
     #  Shortcut for "latest.mojolicio.us"
-    return $self->redirect_to('http://www.github.com/kraih/mojo/tarball/master')
+    return $self->redirect_to(
+        'http://www.github.com/kraih/mojo/tarball/master')
       if $self->req->url->base->host =~ /^latest\./;
 
     # Index
@@ -42,11 +43,11 @@ __DATA__
 @@ index.html.ep
 % layout 'default';
 % content_for header => begin
-    %= stylesheet 'css/index.css'
+    %= stylesheet '/css/index.css'
 % end
 <div id="banner">
     %= link_to 'http://latest.mojolicio.us' => begin
-        <img src="unicorn.png">
+        %= image '/unicorn.png'
     % end
 </div>
 %= include inline => $Mojolicious::Plugin::PodRenderer::MOJOBAR
@@ -263,7 +264,7 @@ __DATA__
 </div>
 <div id="footer">
     %= link_to 'http://mojolicio.us' => begin
-        <img src="mojolicious-black.png" alt="Mojolicious logo">
+        %= image '/mojolicious-black.png', alt => 'Mojolicious logo'
     % end
 </div>
 
@@ -321,9 +322,9 @@ try {
     <head>
         <title>Mojolicious Web Framework - Join the Perl revolution!</title>
         %= base_tag
-        %= stylesheet 'css/prettify-mojo.css'
-        %= javascript 'js/prettify.js'
-        %= stylesheet 'css/default.css'
+        %= stylesheet '/css/prettify-mojo.css'
+        %= javascript '/js/prettify.js'
+        %= stylesheet '/css/default.css'
         %= content 'header'
         %= include 'analytics'
     </head>
