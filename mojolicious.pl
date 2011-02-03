@@ -323,40 +323,39 @@ try {
         <title>Mojolicious Web Framework - Join the Perl revolution!</title>
         %= stylesheet '/css/prettify-mojo.css'
         %= javascript '/js/prettify.js'
-        %= stylesheet '/css/default.css'
+        %= stylesheet begin
+            a { color: inherit; }
+            a img { border: 0; }
+            body {
+                background-color: #f5f6f8;
+                color: #333;
+                font: 0.9em Verdana, sans-serif;
+                margin: 0;
+                text-shadow: #ddd 0 1px 0;
+            }
+            pre {
+                background: url(<%= url_for '/mojolicious-pinstripe.gif' %>);
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+                color: #eee;
+                font-family: 'Menlo', 'Monaco', Courier, monospace !important;
+                text-align: left;
+                text-shadow: #333 0 1px 0;
+                padding-bottom: 1.5em;
+                padding-top: 1.5em;
+                white-space: pre-wrap;
+            }
+            #footer {
+                margin-top: 1.5em;
+                text-align: center;
+                width: 100%;
+            }
+        %= end
         %= content 'header'
         %= include 'analytics'
     </head>
     <body onload="prettyPrint()"><%= content %></body>
 </html>
-
-@@ css/default.css
-a { color: inherit; }
-a img { border: 0; }
-body {
-    background-color: #f5f6f8;
-    color: #333;
-    font: 0.9em Verdana, sans-serif;
-    margin: 0;
-    text-shadow: #ddd 0 1px 0;
-}
-pre {
-    background: url(<%= url_for '/mojolicious-pinstripe.gif' %>);
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    color: #eee;
-    font-family: 'Menlo', 'Monaco', Courier, monospace !important;
-    text-align: left;
-    text-shadow: #333 0 1px 0;
-    padding-bottom: 1.5em;
-    padding-top: 1.5em;
-    white-space: pre-wrap;
-}
-#footer {
-    margin-top: 1.5em;
-    text-align: center;
-    width: 100%;
-}
 
 @@ digitalforest.png (base64)
 iVBORw0KGgoAAAANSUhEUgAAAx4AAAHCCAYAAABhWR9DAAAgAElEQVR4Aey9e7BvW1bX9zuPe8+9
