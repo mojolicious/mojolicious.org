@@ -341,7 +341,7 @@ body {
     text-shadow: #ddd 0 1px 0;
 }
 pre {
-    background: url("../mojolicious-pinstripe.gif");
+    background: url(<%= url_for '/mojolicious-pinstripe.gif' %>);
     -moz-border-radius: 5px;
     border-radius: 5px;
     color: #eee;
