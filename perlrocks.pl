@@ -28,14 +28,14 @@ my $NICK    = '';
 # Options
 my $help;
 GetOptions(
-    'channel=s'  => sub { $CHANNEL  = $_[1] },
-    help         => sub { $help     = 1 },
-    'nick=s'     => sub { $NICK     = $_[1] },
-    'password=s' => sub { $PASSWORD = $_[1] },
-    'pattern=s'  => sub { $PATTERN  = $_[1] },
-    'port=s'     => sub { $PORT     = $_[1] },
-    'server=s'   => sub { $SERVER   = $_[1] },
-    'user=s'     => sub { $USER     = $_[1] },
+  'channel=s'  => sub { $CHANNEL  = $_[1] },
+  help         => sub { $help     = 1 },
+  'nick=s'     => sub { $NICK     = $_[1] },
+  'password=s' => sub { $PASSWORD = $_[1] },
+  'pattern=s'  => sub { $PATTERN  = $_[1] },
+  'port=s'     => sub { $PORT     = $_[1] },
+  'server=s'   => sub { $SERVER   = $_[1] },
+  'user=s'     => sub { $USER     = $_[1] },
 );
 
 # Check user and password
@@ -73,137 +73,135 @@ irc_connect() if $NICK;
 $client->ioloop->start;
 
 sub irc_announce {
-    my $message = shift;
-    $message =~ s/\n/\ /g;
-    encode 'UTF-8', $message;
-    $client->ioloop->write($irc => "PRIVMSG $CHANNEL :$message\r\n") if $irc;
+  my $message = shift;
+  $message =~ s/\n/\ /g;
+  encode 'UTF-8', $message;
+  $client->ioloop->write($irc => "PRIVMSG $CHANNEL :$message\r\n") if $irc;
 }
 
 sub irc_connect {
 
-    # Buffer
-    my $buffer = '';
+  # Buffer
+  my $buffer = '';
 
-    # Server connection
-    $irc = $client->ioloop->connect(
-        address    => $SERVER,
-        port       => $PORT,
-        on_connect => sub {
-            my ($self, $id) = @_;
+  # Server connection
+  $irc = $client->ioloop->connect(
+    address    => $SERVER,
+    port       => $PORT,
+    on_connect => sub {
+      my ($self, $id) = @_;
 
-            # Connected
-            print "Connected to IRC server.\n";
+      # Connected
+      print "Connected to IRC server.\n";
 
-            # Increase connection timeout
-            $self->connection_timeout($id => 3000);
+      # Increase connection timeout
+      $self->connection_timeout($id => 3000);
 
-            # Identify
-            $self->write(
-                $id => qq/USER $NICK "mojolicio.us" "$NICK" :$NICK\r\n/);
-            $self->write($id => "NICK $NICK\r\n");
+      # Identify
+      $self->write($id => qq/USER $NICK "mojolicio.us" "$NICK" :$NICK\r\n/);
+      $self->write($id => "NICK $NICK\r\n");
 
-            # Join channel
-            $self->write($id => "JOIN $CHANNEL\r\n");
-        },
-        on_read => sub {
-            my ($self, $id, $chunk) = @_;
+      # Join channel
+      $self->write($id => "JOIN $CHANNEL\r\n");
+    },
+    on_read => sub {
+      my ($self, $id, $chunk) = @_;
 
-            # Append to buffer
-            $buffer .= $chunk;
+      # Append to buffer
+      $buffer .= $chunk;
 
-            # Parse
-            while (my $line = get_line $buffer) {
+      # Parse
+      while (my $line = get_line $buffer) {
 
-                # Ping
-                $self->write($id => "PONG $1\r\n")
-                  if $line =~ /^PING\s+\:(\S+)/;
-            }
-        },
-        on_error => sub { irc_connect() },
-        on_hup   => sub { irc_connect() }
-    );
+        # Ping
+        $self->write($id => "PONG $1\r\n")
+          if $line =~ /^PING\s+\:(\S+)/;
+      }
+    },
+    on_error => sub { irc_connect() },
+    on_hup   => sub { irc_connect() }
+  );
 }
 
 sub twitter_stream {
 
-    # Streaming
-    print "Starting Twitter stream.\n";
+  # Streaming
+  print "Starting Twitter stream.\n";
 
-    # Prepare transaction for streaming response
-    my $tx =
-      $client->build_tx(GET => "$USER:$PASSWORD\@$STREAM?track=$PATTERN");
-    $tx->res->body(
-        sub {
+  # Prepare transaction for streaming response
+  my $tx =
+    $client->build_tx(GET => "$USER:$PASSWORD\@$STREAM?track=$PATTERN");
+  $tx->res->body(
+    sub {
 
-            # JSON
-            return unless my $tweet = Mojo::JSON->new->decode(pop);
+      # JSON
+      return unless my $tweet = Mojo::JSON->new->decode(pop);
 
-            # Google Translate
-            google_translate($tweet);
-        }
-    );
+      # Google Translate
+      google_translate($tweet);
+    }
+  );
 
-    # Connect to Twitter
-    $client->start(
-        $tx => sub {
-            my $self = shift;
+  # Connect to Twitter
+  $client->start(
+    $tx => sub {
+      my $self = shift;
 
-            # Error
-            warn $self->tx->error unless $self->tx->success;
+      # Error
+      warn $self->tx->error unless $self->tx->success;
 
-            # Reconnect
-            twitter_stream();
-        }
-    );
+      # Reconnect
+      twitter_stream();
+    }
+  );
 }
 
 sub google_translate {
-    my $tweet = shift;
+  my $tweet = shift;
 
-    # Extract information
-    my $name = $tweet->{user}->{screen_name};
-    my $id   = $tweet->{id_str};
-    my $url  = "http://twitter.com/$name/status/$id";
-    my $lang = $tweet->{user}->{lang};
+  # Extract information
+  my $name = $tweet->{user}->{screen_name};
+  my $id   = $tweet->{id_str};
+  my $url  = "http://twitter.com/$name/status/$id";
+  my $lang = $tweet->{user}->{lang};
 
-    # New tweet
-    print qq/New tweet from "$name" ($lang).\n/;
+  # New tweet
+  print qq/New tweet from "$name" ($lang).\n/;
 
-    # Text
-    my $text = $tweet->{text};
-    $lang = '' if $lang eq 'en';
+  # Text
+  my $text = $tweet->{text};
+  $lang = '' if $lang eq 'en';
 
-    # Retweet
-    if ($text =~ /(?:^\s*RT|via\s*\@)/) {
-        print "Just a retweet!\n";
-        return;
+  # Retweet
+  if ($text =~ /(?:^\s*RT|via\s*\@)/) {
+    print "Just a retweet!\n";
+    return;
+  }
+
+  # Translate
+  $client->get(
+    Mojo::URL->new($TRANSLATE)
+      ->query([v => '1.0', q => $text, langpair => "$lang|en"]) => sub {
+      my $self = shift;
+
+      # JSON
+      return unless my $t = $self->res->json;
+
+      # Translation
+      my $translated = $t->{responseData}->{translatedText};
+      $text = $translated if $translated;
+
+      # Detected language
+      my $detected = $t->{responseData}->{detectedSourceLanguage};
+      $lang = $detected if $detected;
+      $lang = $lang ? $lang ne 'en' ? " ($lang)" : '' : '';
+
+      # Announce
+      html_unescape $text;
+      print qq/"$text"$lang --$name $url\n/;
+      irc_announce(qq/\x{0002}Twitter:\x{000F} "$text"$lang --$name $url/);
     }
-
-    # Translate
-    $client->get(
-        Mojo::URL->new($TRANSLATE)
-          ->query([v => '1.0', q => $text, langpair => "$lang|en"]) => sub {
-            my $self = shift;
-
-            # JSON
-            return unless my $t = $self->res->json;
-
-            # Translation
-            my $translated = $t->{responseData}->{translatedText};
-            $text = $translated if $translated;
-
-            # Detected language
-            my $detected = $t->{responseData}->{detectedSourceLanguage};
-            $lang = $detected if $detected;
-            $lang = $lang ? $lang ne 'en' ? " ($lang)" : '' : '';
-
-            # Announce
-            html_unescape $text;
-            print qq/"$text"$lang --$name $url\n/;
-            irc_announce(
-                qq/\x{0002}Twitter:\x{000F} "$text"$lang --$name $url/);
-        }
-    )->start;
+  )->start;
 }
 
 1;

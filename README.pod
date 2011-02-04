@@ -7,16 +7,16 @@ The L<Mojolicious> website.
 
 Clone the repository.
 
-    git clone git://github.com/kraih/mojolicio.us.git
-    cd mojolicio.us
+  git clone git://github.com/kraih/mojolicio.us.git
+  cd mojolicio.us
 
 Install L<Mojolicious>.
 
-    curl -L cpanmin.us | perl - http://latest.mojolicio.us
+  curl -L cpanmin.us | perl - http://latest.mojolicio.us
 
 Start hacking.
 
-    ./mojolicious.pl daemon
+  ./mojolicious.pl daemon
 
 =head2 Copyright And License
 

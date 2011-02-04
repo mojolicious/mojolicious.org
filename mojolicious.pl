@@ -15,26 +15,25 @@ $Mojolicious::Plugin::PodRenderer::MOJOBAR
 
 # Proxy for "planet.perl.org"
 get '/blog/atom/perl/atom.xml' => sub {
-    my $self = shift;
-    $self->render_later;
-    $self->client->async->max_redirects(5)->get(
-        'http://feeds.feedburner.com/kraih' => sub {
-            $self->render(data => shift->res->body, format => 'rss');
-        }
-    )->start;
+  my $self = shift;
+  $self->render_later;
+  $self->client->async->max_redirects(5)->get(
+    'http://feeds.feedburner.com/kraih' => sub {
+      $self->render(data => shift->res->body, format => 'rss');
+    }
+  )->start;
 };
 
 # Welcome to Mojolicious
 get '/' => sub {
-    my $self = shift;
+  my $self = shift;
 
-    #  Shortcut for "latest.mojolicio.us"
-    return $self->redirect_to(
-        'http://www.github.com/kraih/mojo/tarball/master')
-      if $self->req->url->base->host =~ /^latest\./;
+  #  Shortcut for "latest.mojolicio.us"
+  return $self->redirect_to('http://www.github.com/kraih/mojo/tarball/master')
+    if $self->req->url->base->host =~ /^latest\./;
 
-    # Index
-    $self->render('index');
+  # Index
+  $self->render('index');
 };
 
 app->start;
@@ -43,261 +42,257 @@ __DATA__
 @@ index.html.ep
 % layout 'default';
 % content_for header => begin
-    %= stylesheet '/css/index.css'
+  %= stylesheet '/css/index.css'
 % end
 <div id="banner">
-    %= link_to 'http://latest.mojolicio.us' => begin
-        %= image '/unicorn.png'
-    % end
+  %= link_to 'http://latest.mojolicio.us' => begin
+    %= image '/unicorn.png'
+  % end
 </div>
 %= include inline => $Mojolicious::Plugin::PodRenderer::MOJOBAR
 <div id="introduction">
-    <div id="sidebar">
+  <div id="sidebar">
+    <p>
+      Love Mojolicious? Perhaps you would like to show your gratitude and
+      support its development with a donation?
+    </p>
+    <form name="_xclick"
+      action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
+      <input type="hidden" name="cmd" value="_xclick">
+      <input type="hidden" name="business" value="kraihx@gmail.com">
+      <input type="hidden" name="item_name"
+        value="Mojolicious Web Framework Development">
+      <input type="hidden" name="currency_code" value="USD">
+      <input type="image"
+        src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif"
+        name="submit"
+        alt="Make payments with PayPal - it's fast, free and secure!">
+    </form>
+  </div>
+  <h1>A next generation web framework for the Perl programming language.</h1>
+  <p>
+    Back in the early days of the web there was this wonderful Perl
+    library called <a href="http://search.cpan.org/perldoc?CGI">CGI</a>,
+    many people only learned Perl because of it.
+    It was simple enough to get started without knowing much about the
+    language and powerful enough to keep you going, learning by doing was
+    much fun.
+    While most of the techniques used are outdated now, the idea behind
+    it is not.
+    <a href="perldoc?Mojolicious">Mojolicious</a> is a new attempt at
+    implementing this idea using state of the art technology.
+  </p>
+  <h2>Features</h2>
+  <ul>
+    <li>
+      An amazing MVC web framework supporting a simplified single file mode
+      through
+      <a href="perldoc?Mojolicious/Lite">Mojolicious::Lite</a>.
+      <blockquote>
         <p>
-            Love Mojolicious? Perhaps you would like to show your gratitude
-            and support its development with a donation?
+          Powerful out of the box with RESTful routes, plugins,
+          Perl-ish templates, session management, signed cookies,
+          testing framework, static file server, I18N, first class
+          unicode support and much more for you to discover.
         </p>
-        <form name="_xclick"
-          action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
-            <input type="hidden" name="cmd" value="_xclick">
-            <input type="hidden" name="business" value="kraihx@gmail.com">
-            <input type="hidden" name="item_name"
-              value="Mojolicious Web Framework Development">
-            <input type="hidden" name="currency_code" value="USD">
-            <input type="image"
-              src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif"
-              name="submit"
-              alt="Make payments with PayPal - it's fast, free and secure!">
-        </form>
-    </div>
-    <h1>
-        A next generation web framework for the Perl programming language.
-    </h1>
-    <p>
-        Back in the early days of the web there was this wonderful Perl
-        library called <a href="http://search.cpan.org/perldoc?CGI">CGI</a>,
-        many people only learned Perl because of it.
-        It was simple enough to get started without knowing much about the
-        language and powerful enough to keep you going, learning by doing was
-        much fun.
-        While most of the techniques used are outdated now, the idea behind
-        it is not.
-        <a href="perldoc?Mojolicious">Mojolicious</a> is a new attempt at
-        implementing this idea using state of the art technology.
-    </p>
-    <h2>Features</h2>
-    <ul>
-        <li>
-            An amazing MVC web framework supporting a simplified single file
-            mode through
-            <a href="perldoc?Mojolicious/Lite">Mojolicious::Lite</a>.
-            <blockquote>
-                <p>
-                    Powerful out of the box with RESTful routes, plugins,
-                    Perl-ish templates, session management, signed cookies,
-                    testing framework, static file server, I18N, first class
-                    unicode support and much more for you to discover.
-                </p>
-            </blockquote>
-        </li>
-        <li>
-            Very clean, portable and Object Oriented pure Perl API without
-            any hidden magic and no requirements besides Perl 5.8.7.
-        </li>
-        <li>
-            Full stack HTTP 1.1 and WebSocket client/server implementation
-            with TLS, Bonjour, IDNA, Comet (long polling), chunking and
-            multipart support.
-        </li>
-        <li>
-            Builtin async IO web server supporting epoll, kqueue, UNIX domain
-            sockets and hot deployment, perfect for embedding.
-        </li>
-        <li>
-            Automatic CGI, FastCGI and
-            <a href="http://plackperl.org">PSGI</a> detection.
-        </li>
-        <li>JSON and XML/HTML5 parser with CSS3 selector support.</li>
-        <li>
-            Fresh code based upon years of experience developing
-            <a href="http://catalystframework.org">Catalyst</a>.
-        </li>
-    </ul>
-    <h2>Installation</h2>
-    <p>All you need is a oneliner.</p>
-    <pre>    sudo -s 'curl -L cpanmin.us | perl - Mojolicious'</pre>
-    <h2>Duct Tape For The HTML5 Web</h2>
-    <p>
-        Web development for humans, making hard things possible and
-        everything fun.
-    </p>
-    <pre class="prettyprint">    use Mojolicious::Lite;
+      </blockquote>
+    </li>
+    <li>
+      Very clean, portable and Object Oriented pure Perl API without any
+      hidden magic and no requirements besides Perl 5.8.7.
+    </li>
+    <li>
+      Full stack HTTP 1.1 and WebSocket client/server implementation with
+      TLS, Bonjour, IDNA, Comet (long polling), chunking and multipart
+      support.
+    </li>
+    <li>
+      Builtin async IO web server supporting epoll, kqueue, UNIX domain
+      sockets and hot deployment, perfect for embedding.
+    </li>
+    <li>
+      Automatic CGI, FastCGI and <a href="http://plackperl.org">PSGI</a>
+      detection.
+    </li>
+    <li>JSON and XML/HTML5 parser with CSS3 selector support.</li>
+    <li>
+      Fresh code based upon years of experience developing
+      <a href="http://catalystframework.org">Catalyst</a>.
+    </li>
+  </ul>
+  <h2>Installation</h2>
+  <p>All you need is a oneliner.</p>
+  <pre>    sudo -s 'curl -L cpanmin.us | perl - Mojolicious'</pre>
+  <h2>Duct Tape For The HTML5 Web</h2>
+  <p>
+    Web development for humans, making hard things possible and everything
+    fun.
+  </p>
+  <pre class="prettyprint">  use Mojolicious::Lite;
 
-    # Simple route with plain text response
-    get &#39;/hello&#39; =&gt; sub { shift-&gt;render(text =&gt; &#39;Hello World!&#39;) };
+  # Simple route with plain text response
+  get &#39;/hello&#39; =&gt; sub { shift-&gt;render(text =&gt; &#39;Hello World!&#39;) };
 
-    # Route to template in DATA section
-    get &#39;/time&#39; =&gt; &#39;clock&#39;;
+  # Route to template in DATA section
+  get &#39;/time&#39; =&gt; &#39;clock&#39;;
 
-    # RESTful web service sending JSON responses
-    get &#39;/:offset&#39; =&gt; sub {
-        my $self   = shift;
-        my $offset = $self-&gt;param(&#39;offset&#39;) || 23;
-        $self-&gt;render(json =&gt; {list =&gt; [0 .. $offset]});
-    };
+  # RESTful web service sending JSON responses
+  get &#39;/:offset&#39; =&gt; sub {
+    my $self   = shift;
+    my $offset = $self-&gt;param(&#39;offset&#39;) || 23;
+    $self-&gt;render(json =&gt; {list =&gt; [0 .. $offset]});
+  };
 
-    # Scrape information from remote sites
-    post &#39;/title&#39; =&gt; sub {
-        my $self = shift;
-        my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
-        $self-&gt;render(text =&gt;
-              $self-&gt;client-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;head &gt; title&#39;)-&gt;text);
-    };
+  # Scrape information from remote sites
+  post &#39;/title&#39; =&gt; sub {
+    my $self = shift;
+    my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
+    $self-&gt;render(text =&gt;
+      $self-&gt;client-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;head &gt; title&#39;)-&gt;text);
+  };
 
-    # WebSocket echo service
-    websocket &#39;/echo&#39; =&gt; sub {
-        my $self = shift;
-        $self-&gt;on_message(sub {
-            my ($self, $message) = @_;
-            $self-&gt;send_message(&quot;echo: $message&quot;);
-        });
-    };
+  # WebSocket echo service
+  websocket &#39;/echo&#39; =&gt; sub {
+    my $self = shift;
+    $self-&gt;on_message(sub {
+      my ($self, $message) = @_;
+      $self-&gt;send_message(&quot;echo: $message&quot;);
+    });
+  };
 
-    app-&gt;start;
-    __DATA__
+  app-&gt;start;
+  __DATA__
 
-    @@ clock.html.ep
-    <%= '%' %> my ($second, $minute, $hour) = (localtime(time))[0, 1, 2];
-    &lt;%= link_to clock =&gt; begin %&gt;
-        The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
-    &lt;% end %&gt;</pre>
-    <h2>Growing</h2>
-    <p>
-        Single file prototypes like the one above can easily grow into well
-        structured applications.
-    </p>
-    <pre class="prettyprint">    package MyApp;
-    use Mojo::Base &#39;Mojolicious&#39;;
+  @@ clock.html.ep
+  <%= '%' %> my ($second, $minute, $hour) = (localtime(time))[0, 1, 2];
+  &lt;%= link_to clock =&gt; begin %&gt;
+    The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
+  &lt;% end %&gt;</pre>
+  <h2>Growing</h2>
+  <p>
+    Single file prototypes like the one above can easily grow into well
+    structured applications.
+  </p>
+  <pre class="prettyprint">  package MyApp;
+  use Mojo::Base &#39;Mojolicious&#39;;
 
-    # Runs once on application startup
-    sub startup {
-        my $self = shift;
-        my $r    = $self-&gt;routes;
+  # Runs once on application startup
+  sub startup {
+    my $self = shift;
+    my $r    = $self-&gt;routes;
 
-        # Route prefix for &quot;MyApp::Example&quot; controller
-        my $example = $r-&gt;under(&#39;/example&#39;)-&gt;to(&#39;example#&#39;);
+    # Route prefix for &quot;MyApp::Example&quot; controller
+    my $example = $r-&gt;under(&#39;/example&#39;)-&gt;to(&#39;example#&#39;);
 
-        # GET routes connecting the controller prefix with actions
-        $example-&gt;get(&#39;/hello&#39;)-&gt;to(&#39;#hello&#39;);
-        $example-&gt;get(&#39;/time&#39;)-&gt;to(&#39;#clock&#39;);
-        $example-&gt;get(&#39;/:offset&#39;)-&gt;to(&#39;#restful&#39;);
+    # GET routes connecting the controller prefix with actions
+    $example-&gt;get(&#39;/hello&#39;)-&gt;to(&#39;#hello&#39;);
+    $example-&gt;get(&#39;/time&#39;)-&gt;to(&#39;#clock&#39;);
+    $example-&gt;get(&#39;/:offset&#39;)-&gt;to(&#39;#restful&#39;);
 
-        # All common verbs are supported
-        $example-&gt;post(&#39;/title&#39;)-&gt;to(&#39;#title&#39;);
+    # All common verbs are supported
+    $example-&gt;post(&#39;/title&#39;)-&gt;to(&#39;#title&#39;);
 
-        # And much more
-        $r-&gt;websocket(&#39;/echo&#39;)-&gt;to(&#39;realtime#echo&#39;);
-    }
+    # And much more
+    $r-&gt;websocket(&#39;/echo&#39;)-&gt;to(&#39;realtime#echo&#39;);
+  }
 
-    1;</pre>
-    <p>
-        Bigger applications are a lot easier to maintain once routing
-        information has been separated from action code, especially when
-        working in teams.
-    </p>
-    <pre class="prettyprint">    package MyApp::Example;
-    use Mojo::Base &#39;Mojolicious::Controller&#39;;
+  1;</pre>
+  <p>
+    Bigger applications are a lot easier to maintain once routing information
+    has been separated from action code, especially when working in teams.
+  </p>
+  <pre class="prettyprint">  package MyApp::Example;
+  use Mojo::Base &#39;Mojolicious::Controller&#39;;
 
-    # Plain text response
-    sub hello { shift-&gt;render(text =&gt; &#39;Hello World!&#39;) }
+  # Plain text response
+  sub hello { shift-&gt;render(text =&gt; &#39;Hello World!&#39;) }
 
-    # Render external template &quot;templates/example/clock.html.ep&quot;
-    sub clock { shift-&gt;render }
+  # Render external template &quot;templates/example/clock.html.ep&quot;
+  sub clock { shift-&gt;render }
 
-    # RESTful web service sending JSON responses
-    sub restful {
-        my $self   = shift;
-        my $offset = $self-&gt;param(&#39;offset&#39;) || 23;
-        $self-&gt;render(json =&gt; {list =&gt; [0 .. $offset]});
-    }
+  # RESTful web service sending JSON responses
+  sub restful {
+    my $self   = shift;
+    my $offset = $self-&gt;param(&#39;offset&#39;) || 23;
+    $self-&gt;render(json =&gt; {list =&gt; [0 .. $offset]});
+  }
 
-    # Scrape information from remote sites
-    sub title {
-        my $self = shift;
-        my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
-        $self-&gt;render(text =&gt;
-              $self-&gt;client-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;head &gt; title&#39;)-&gt;text);
-    }
+  # Scrape information from remote sites
+  sub title {
+    my $self = shift;
+    my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
+    $self-&gt;render(text =&gt;
+      $self-&gt;client-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;head &gt; title&#39;)-&gt;text);
+  }
 
-    1;</pre>
-    <p>
-        While the application class is unique, you can have as many
-        controllers as you like.
-    </p>
-    <pre class="prettyprint">    package MyApp::Realtime;
-    use Mojo::Base &#39;Mojolicious::Controller&#39;;
+  1;</pre>
+  <p>
+    While the application class is unique, you can have as many controllers
+    as you like.
+  </p>
+  <pre class="prettyprint">  package MyApp::Realtime;
+  use Mojo::Base &#39;Mojolicious::Controller&#39;;
 
-    # WebSocket echo service
-    sub echo {
-        my $self = shift;
-        $self-&gt;on_message(sub {
-            my ($self, $message) = @_;
-            $self-&gt;send_message(&quot;echo: $message&quot;);
-        });
-    }
+  # WebSocket echo service
+  sub echo {
+    my $self = shift;
+    $self-&gt;on_message(sub {
+      my ($self, $message) = @_;
+      $self-&gt;send_message(&quot;echo: $message&quot;);
+    });
+  }
 
-    1;</pre>
-    <p>
-        Action code and templates can stay almost exactly the same,
-        everything was designed from the ground up for this very unique and
-        fun workflow.
-    </p>
-    <pre class="prettyprint">    % my ($second, $minute, $hour) = (localtime(time))[0, 1, 2];
-    &lt;%= link_to clock =&gt; begin %&gt;
-        The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
-    &lt;% end %&gt;</pre>
-    <h1>Want to know more?</h1>
-    <p>
-        Take a look at our excellent
-        <a href="http://mojolicio.us/perldoc">documentation</a>!
-    </p>
+  1;</pre>
+  <p>
+    Action code and templates can stay almost exactly the same, everything
+    was designed from the ground up for this very unique and fun workflow.
+  </p>
+  <pre class="prettyprint">  % my ($second, $minute, $hour) = (localtime(time))[0, 1, 2];
+  &lt;%= link_to clock =&gt; begin %&gt;
+    The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
+  &lt;% end %&gt;</pre>
+  <h1>Want to know more?</h1>
+  <p>
+    Take a look at our excellent
+    <a href="http://mojolicio.us/perldoc">documentation</a>!
+  </p>
 </div>
 <div id="footer">
-    %= link_to 'http://mojolicio.us' => begin
-        %= image '/mojolicious-black.png', alt => 'Mojolicious logo'
-    % end
+  %= link_to 'http://mojolicio.us' => begin
+    %= image '/mojolicious-black.png', alt => 'Mojolicious logo'
+  % end
 </div>
 
 @@ css/index.css
 #banner {
-    background: url(../digitalforest.png) repeat-x;
-    height: 450px;
-    text-align: center;
+  background: url(../digitalforest.png) repeat-x;
+  height: 450px;
+  text-align: center;
 }
 h1, h2, h3 {
-    font: 1.5em Georgia, Times, serif;
-    margin: 0;
+  font: 1.5em Georgia, Times, serif;
+  margin: 0;
 }
 #introduction {
-    background-color: #fff;
-    -moz-border-radius-bottomleft: 5px;
-    border-bottom-left-radius: 5px;
-    -moz-border-radius-bottomright: 5px;
-    border-bottom-right-radius: 5px;
-    -moz-box-shadow: 0px 0px 2px #ccc;
-    -webkit-box-shadow: 0px 0px 2px #ccc;
-    box-shadow: 0px 0px 2px #ccc;
-    margin-left: 5em;
-    margin-right: 5em;
-    margin-top: 1em;
-    padding: 3em;
-    padding-top: 6em;
+  background-color: #fff;
+  -moz-border-radius-bottomleft: 5px;
+  border-bottom-left-radius: 5px;
+  -moz-border-radius-bottomright: 5px;
+  border-bottom-right-radius: 5px;
+  -moz-box-shadow: 0px 0px 2px #ccc;
+  -webkit-box-shadow: 0px 0px 2px #ccc;
+  box-shadow: 0px 0px 2px #ccc;
+  margin-left: 5em;
+  margin-right: 5em;
+  margin-top: 1em;
+  padding: 3em;
+  padding-top: 6em;
 }
 #sidebar {
-    float: right;
-    margin-bottom: 3em;
-    margin-left: 3em;
-    width: 150px;
+  float: right;
+  margin-bottom: 3em;
+  margin-left: 3em;
+  width: 150px;
 }
 
 @@ analytics.html.ep
@@ -305,56 +300,56 @@ h1, h2, h3 {
 var gaJsHost =
   (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape(
-    "%3Cscript src='"
-    + gaJsHost
-    + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"
+  "%3Cscript src='"
+  + gaJsHost
+  + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"
 ));
 % end
 %= javascript begin
 try {
-    var pageTracker = _gat._getTracker("UA-7866593-1");
-    pageTracker._trackPageview();
+  var pageTracker = _gat._getTracker("UA-7866593-1");
+  pageTracker._trackPageview();
 } catch(err) {}
 % end
 
 @@ layouts/default.html.ep
 <!doctype html><html>
-    <head>
-        <title>Mojolicious Web Framework - Join the Perl revolution!</title>
-        %= stylesheet '/css/prettify-mojo.css'
-        %= javascript '/js/prettify.js'
-        %= stylesheet begin
-            a { color: inherit; }
-            a img { border: 0; }
-            body {
-                background-color: #f5f6f8;
-                color: #333;
-                font: 0.9em Verdana, sans-serif;
-                margin: 0;
-                text-shadow: #ddd 0 1px 0;
-            }
-            pre {
-                background: url(<%= url_for '/mojolicious-pinstripe.gif' %>);
-                -moz-border-radius: 5px;
-                border-radius: 5px;
-                color: #eee;
-                font-family: 'Menlo', 'Monaco', Courier, monospace !important;
-                text-align: left;
-                text-shadow: #333 0 1px 0;
-                padding-bottom: 1.5em;
-                padding-top: 1.5em;
-                white-space: pre-wrap;
-            }
-            #footer {
-                margin-top: 1.5em;
-                text-align: center;
-                width: 100%;
-            }
-        %= end
-        %= content 'header'
-        %= include 'analytics'
-    </head>
-    <body onload="prettyPrint()"><%= content %></body>
+  <head>
+    <title>Mojolicious Web Framework - Join the Perl revolution!</title>
+    %= stylesheet '/css/prettify-mojo.css'
+    %= javascript '/js/prettify.js'
+    %= stylesheet begin
+      a { color: inherit; }
+      a img { border: 0; }
+      body {
+        background-color: #f5f6f8;
+        color: #333;
+        font: 0.9em Verdana, sans-serif;
+        margin: 0;
+        text-shadow: #ddd 0 1px 0;
+      }
+      pre {
+        background: url(<%= url_for '/mojolicious-pinstripe.gif' %>);
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+        color: #eee;
+        font-family: 'Menlo', 'Monaco', Courier, monospace !important;
+        text-align: left;
+        text-shadow: #333 0 1px 0;
+        padding-bottom: 1.5em;
+        padding-top: 1.5em;
+        white-space: pre-wrap;
+      }
+      #footer {
+        margin-top: 1.5em;
+        text-align: center;
+        width: 100%;
+      }
+    %= end
+    %= content 'header'
+    %= include 'analytics'
+  </head>
+  <body onload="prettyPrint()"><%= content %></body>
 </html>
 
 @@ digitalforest.png (base64)
