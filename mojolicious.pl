@@ -2,9 +2,14 @@
 
 use lib 'mojo/lib';
 
+use Mojo::IOLoop;
 use Mojolicious::Lite;
 
 app->secret('foo');
+
+# Async client
+app->attr(async =>
+    sub { shift->client->clone->ioloop(Mojo::IOLoop->singleton)->async });
 
 # Documentation browser under "/perldoc" (this plugin requires Perl 5.10)
 plugin 'pod_renderer';
@@ -17,11 +22,11 @@ $Mojolicious::Plugin::PodRenderer::MOJOBAR
 get '/blog/atom/perl/atom.xml' => sub {
   my $self = shift;
   $self->render_later;
-  $self->client->async->max_redirects(5)->get(
+  $self->app->async->max_redirects(5)->get(
     'http://feeds.feedburner.com/kraih' => sub {
       $self->render(data => shift->res->body, format => 'rss');
     }
-  )->start;
+  );
 };
 
 # Welcome to Mojolicious
