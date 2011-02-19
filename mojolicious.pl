@@ -198,7 +198,7 @@ __DATA__
     my $r    = $self-&gt;routes;
 
     # Route prefix for &quot;MyApp::Example&quot; controller
-    my $example = $r-&gt;under(&#39;/example&#39;)-&gt;to(&#39;example#&#39;);
+    my $example = $r-&gt;route(&#39;/example&#39;)-&gt;to(&#39;example#&#39;);
 
     # GET routes connecting the controller prefix with actions
     $example-&gt;get(&#39;/hello&#39;)-&gt;to(&#39;#hello&#39;);
