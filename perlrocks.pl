@@ -59,8 +59,12 @@ These options are available:
   --user       Twitter user.
 EOF
 
+# Loop
+my $LOOP = Mojo::IOLoop->singleton;
+
 # Client
-my $client = Mojo::Client->new(keep_alive_timeout => 300)->async;
+my $client =
+  Mojo::Client->new(keep_alive_timeout => 300, ioloop => $LOOP, managed => 0);
 
 # Twitter stream
 twitter_stream();
@@ -70,13 +74,13 @@ my $irc;
 irc_connect() if $NICK;
 
 # Mainloop
-$client->ioloop->start;
+$LOOP->start;
 
 sub irc_announce {
   my $message = shift;
   $message =~ s/\n/\ /g;
   encode 'UTF-8', $message;
-  $client->ioloop->write($irc => "PRIVMSG $CHANNEL :$message\r\n") if $irc;
+  $LOOP->write($irc => "PRIVMSG $CHANNEL :$message\r\n") if $irc;
 }
 
 sub irc_connect {
@@ -85,7 +89,7 @@ sub irc_connect {
   my $buffer = '';
 
   # Server connection
-  $irc = $client->ioloop->connect(
+  $irc = $LOOP->connect(
     address    => $SERVER,
     port       => $PORT,
     on_connect => sub {
