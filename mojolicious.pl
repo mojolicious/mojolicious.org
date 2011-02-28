@@ -67,24 +67,6 @@ __DATA__
 </div>
 %= include inline => $Mojolicious::Plugin::PodRenderer::MOJOBAR
 <div id="introduction">
-  <div id="sidebar">
-    <p>
-      Love Mojolicious? Perhaps you would like to show your gratitude and
-      support its development with a donation?
-    </p>
-    <form name="_xclick"
-      action="https://www.paypal.com/us/cgi-bin/webscr" method="post">
-      <input type="hidden" name="cmd" value="_xclick">
-      <input type="hidden" name="business" value="kraihx@gmail.com">
-      <input type="hidden" name="item_name"
-        value="Mojolicious Web Framework Development">
-      <input type="hidden" name="currency_code" value="USD">
-      <input type="image"
-        src="http://www.paypal.com/en_US/i/btn/btn_donate_LG.gif"
-        name="submit"
-        alt="Make payments with PayPal - it's fast, free and secure!">
-    </form>
-  </div>
   <h1>A next generation web framework for the Perl programming language.</h1>
   <p>
     Back in the early days of the web there was this wonderful Perl
@@ -303,12 +285,6 @@ h1, h2, h3 {
   margin-top: 1em;
   padding: 3em;
   padding-top: 6em;
-}
-#sidebar {
-  float: right;
-  margin-bottom: 3em;
-  margin-left: 3em;
-  width: 150px;
 }
 
 @@ analytics.html.ep
