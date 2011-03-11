@@ -2,7 +2,6 @@
 
 use lib 'mojo/lib';
 
-use Mojo::IOLoop;
 use Mojolicious::Lite;
 
 app->secret('foo');
