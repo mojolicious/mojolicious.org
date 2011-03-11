@@ -6,8 +6,8 @@ use warnings;
 use lib 'mojo/lib';
 
 use Getopt::Long 'GetOptions';
-use Mojo::Client;
 use Mojo::JSON;
+use Mojo::UserAgent;
 use Mojo::Util qw/encode get_line html_unescape/;
 
 # Twitter
@@ -62,9 +62,8 @@ EOF
 # Loop
 my $LOOP = Mojo::IOLoop->singleton;
 
-# Client
-my $client =
-  Mojo::Client->new(keep_alive_timeout => 300, ioloop => $LOOP, managed => 0);
+# User agent
+my $ua = Mojo::UserAgent->new(keep_alive_timeout => 300);
 
 # Twitter stream
 twitter_stream();
@@ -133,8 +132,7 @@ sub twitter_stream {
   print "Starting Twitter stream.\n";
 
   # Prepare transaction for streaming response
-  my $tx =
-    $client->build_tx(GET => "$USER:$PASSWORD\@$STREAM?track=$PATTERN");
+  my $tx = $ua->build_tx(GET => "$USER:$PASSWORD\@$STREAM?track=$PATTERN");
   $tx->res->body(
     sub {
 
@@ -147,12 +145,12 @@ sub twitter_stream {
   );
 
   # Connect to Twitter
-  $client->start(
+  $ua->start(
     $tx => sub {
-      my $self = shift;
+      my $tx = pop;
 
       # Error
-      warn $self->tx->error unless $self->tx->success;
+      warn $tx->error unless $tx->success;
 
       # Reconnect
       twitter_stream();
@@ -183,13 +181,13 @@ sub google_translate {
   }
 
   # Translate
-  $client->get(
+  $ua->get(
     Mojo::URL->new($TRANSLATE)
       ->query([v => '1.0', q => $text, langpair => "$lang|en"]) => sub {
-      my $self = shift;
+      my $tx = pop;
 
       # JSON
-      return unless my $t = $self->res->json;
+      return unless my $t = $tx->res->json;
 
       # Translation
       my $translated = $t->{responseData}->{translatedText};
@@ -205,7 +203,7 @@ sub google_translate {
       print qq/"$text"$lang --$name $url\n/;
       irc_announce(qq/\x{0002}Twitter:\x{000F} "$text"$lang --$name $url/);
     }
-  )->start;
+  );
 }
 
 1;

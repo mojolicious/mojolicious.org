@@ -7,21 +7,6 @@ use Mojolicious::Lite;
 
 app->secret('foo');
 
-# Unmanaged client
-app->attr(
-  unmanaged => sub {
-    my $unmanaged = shift->client->clone;
-
-    # Share event loop
-    $unmanaged->ioloop(Mojo::IOLoop->singleton)->managed(0);
-
-    # Follow redirects
-    $unmanaged->max_redirects(5);
-
-    return $unmanaged;
-  }
-);
-
 # Documentation browser under "/perldoc" (this plugin requires Perl 5.10)
 plugin 'pod_renderer';
 
@@ -33,9 +18,9 @@ $Mojolicious::Plugin::PodRenderer::MOJOBAR
 get '/blog/atom/perl/atom.xml' => sub {
   my $self = shift;
   $self->render_later;
-  $self->app->unmanaged->get(
+  $self->ua->get(
     'http://feeds.feedburner.com/kraih' => sub {
-      $self->render(data => shift->res->body, format => 'rss');
+      $self->render(data => pop->res->body, format => 'rss');
     }
   );
 };
@@ -146,7 +131,7 @@ __DATA__
     my $self = shift;
     my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
     $self-&gt;render(text =&gt;
-      $self-&gt;client-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;head &gt; title&#39;)-&gt;text);
+      $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;head &gt; title&#39;)-&gt;text);
   };
 
   # WebSocket echo service
@@ -220,7 +205,7 @@ __DATA__
     my $self = shift;
     my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
     $self-&gt;render(text =&gt;
-      $self-&gt;client-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;head &gt; title&#39;)-&gt;text);
+      $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;head &gt; title&#39;)-&gt;text);
   }
 
   1;</pre>
