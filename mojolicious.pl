@@ -150,6 +150,12 @@ __DATA__
   &lt;%= link_to clock =&gt; begin %&gt;
     The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
   &lt;% end %&gt;</pre>
+  <p>
+    To run this example with the built in development server just put the
+    code into a file and execute it with "perl".
+  </p>
+  <pre>  % perl example.pl daemon
+  Server available at http://*:3000.</pre>
   <h2>Growing</h2>
   <p>
     Single file prototypes like the one above can easily grow into well
