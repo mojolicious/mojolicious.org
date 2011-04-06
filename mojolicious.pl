@@ -155,7 +155,7 @@ __DATA__
     code into a file and execute it with "perl".
   </p>
   <pre>  % perl example.pl daemon
-  Server available at http://*:3000.</pre>
+  Server available at http://127.0.0.1:3000.</pre>
   <h2>Growing</h2>
   <p>
     Single file prototypes like the one above can easily grow into well
