@@ -104,7 +104,7 @@ __DATA__
   </ul>
   <h2>Installation</h2>
   <p>All you need is a oneliner.</p>
-  <pre>    sudo -s 'curl -L cpanmin.us | perl - Mojolicious'</pre>
+  <pre>    sudo sh -c "curl -L cpanmin.us | perl - Mojolicious"</pre>
   <h2>Duct Tape For The HTML5 Web</h2>
   <p>
     Web development for humans, making hard things possible and everything
