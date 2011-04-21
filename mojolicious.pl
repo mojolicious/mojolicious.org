@@ -113,7 +113,7 @@ __DATA__
   <pre class="prettyprint">  use Mojolicious::Lite;
 
   # Simple route with plain text response
-  get &#39;/hello&#39; =&gt; sub { shift-&gt;render(text =&gt; &#39;Hello World!&#39;) };
+  get &#39;/hello&#39; =&gt; sub { shift-&gt;render_text(&#39;Hello World!&#39;) };
 
   # Route to template in DATA section
   get &#39;/time&#39; =&gt; &#39;clock&#39;;
@@ -122,14 +122,14 @@ __DATA__
   get &#39;/:offset&#39; =&gt; sub {
     my $self   = shift;
     my $offset = $self-&gt;param(&#39;offset&#39;) || 23;
-    $self-&gt;render(json =&gt; {list =&gt; [0 .. $offset]});
+    $self-&gt;render_json({list =&gt; [0 .. $offset]});
   };
 
   # Scrape information from remote sites
   post &#39;/title&#39; =&gt; sub {
     my $self = shift;
     my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
-    $self-&gt;render(text =&gt;
+    $self-&gt;render_text(
       $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;head &gt; title&#39;)-&gt;text);
   };
 
@@ -193,7 +193,7 @@ __DATA__
   use Mojo::Base &#39;Mojolicious::Controller&#39;;
 
   # Plain text response
-  sub hello { shift-&gt;render(text =&gt; &#39;Hello World!&#39;) }
+  sub hello { shift-&gt;render_text(&#39;Hello World!&#39;) }
 
   # Render external template &quot;templates/example/clock.html.ep&quot;
   sub clock { shift-&gt;render }
@@ -202,14 +202,14 @@ __DATA__
   sub restful {
     my $self   = shift;
     my $offset = $self-&gt;param(&#39;offset&#39;) || 23;
-    $self-&gt;render(json =&gt; {list =&gt; [0 .. $offset]});
+    $self-&gt;render_json({list =&gt; [0 .. $offset]});
   }
 
   # Scrape information from remote sites
   sub title {
     my $self = shift;
     my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
-    $self-&gt;render(text =&gt;
+    $self-&gt;render_text(
       $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;head &gt; title&#39;)-&gt;text);
   }
 
