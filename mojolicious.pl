@@ -13,17 +13,6 @@ plugin 'pod_renderer';
 $Mojolicious::Plugin::PodRenderer::MOJOBAR
   .= "% content_for header => include 'analytics';";
 
-# Proxy for "planet.perl.org"
-get '/blog/atom/perl/atom.xml' => sub {
-  my $self = shift;
-  $self->render_later;
-  $self->ua->get(
-    'http://feeds.feedburner.com/kraih' => sub {
-      $self->render(data => pop->res->body, format => 'rss');
-    }
-  );
-};
-
 # Welcome to Mojolicious
 get '/' => sub {
   my $self = shift;
@@ -81,7 +70,8 @@ __DATA__
     </li>
     <li>
       Very clean, portable and Object Oriented pure Perl API without any
-      hidden magic and no requirements besides Perl 5.8.7.
+      hidden magic and no requirements besides Perl 5.8.7 (although 5.10+ is
+      recommended).
     </li>
     <li>
       Full stack HTTP 1.1 and WebSocket client/server implementation with
