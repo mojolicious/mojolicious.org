@@ -11,7 +11,7 @@ plugin 'pod_renderer';
 
 # Analytics
 $Mojolicious::Plugin::PodRenderer::MOJOBAR
-  .= "% content_for header => include 'analytics';";
+  .= "\n% content_for header => include 'analytics';";
 
 # Welcome to Mojolicious
 get '/' => sub {
