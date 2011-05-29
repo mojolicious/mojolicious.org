@@ -120,7 +120,7 @@ __DATA__
     my $self = shift;
     my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
     $self-&gt;render_text(
-      $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;head &gt; title&#39;)-&gt;text);
+      $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;html-&gt;head-&gt;title-&gt;text);
   };
 
   # WebSocket echo service
@@ -200,7 +200,7 @@ __DATA__
     my $self = shift;
     my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
     $self-&gt;render_text(
-      $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;head &gt; title&#39;)-&gt;text);
+      $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;html-&gt;head-&gt;title-&gt;text);
   }
 
   1;</pre>
