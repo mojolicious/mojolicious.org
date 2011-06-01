@@ -10,8 +10,10 @@ app->secret('foo');
 plugin 'pod_renderer';
 
 # Analytics
-$Mojolicious::Plugin::PodRenderer::MOJOBAR
-  .= "\n% content_for header => include 'analytics';";
+hook before_perldoc => sub {
+  my $self = shift;
+  $self->content_for(header => $self->include('analytics'));
+};
 
 # Welcome to Mojolicious
 get '/' => sub {
