@@ -143,7 +143,7 @@ __DATA__
     The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
   &lt;% end %&gt;</pre>
   <p>
-    To run this example with the built in development server just put the
+    To run this example with the built-in development server just put the
     code into a file and execute it with "perl".
   </p>
   <pre>  % perl example.pl daemon
