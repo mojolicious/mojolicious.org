@@ -35,7 +35,7 @@ __DATA__
 % content_for header => begin
   %= stylesheet '/css/index.css'
 % end
-<div id="banner">
+<div id="fun">
   %= link_to 'http://latest.mojolicio.us' => begin
     %= image '/unicorn.png'
   % end
@@ -244,14 +244,14 @@ __DATA__
 </div>
 
 @@ css/index.css
-#banner {
-  background: url(../digitalforest.png) repeat-x;
-  height: 450px;
-  text-align: center;
-}
 h1, h2, h3 {
   font: 1.5em Georgia, Times, serif;
   margin: 0;
+}
+#fun {
+  background: url(../digitalforest.png) repeat-x;
+  height: 450px;
+  text-align: center;
 }
 #introduction {
   background-color: #fff;
