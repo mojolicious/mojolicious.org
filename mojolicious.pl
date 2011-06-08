@@ -44,14 +44,14 @@ __DATA__
 <div id="introduction">
   <h1>A next generation web framework for the Perl programming language.</h1>
   <p>
-    Back in the early days of the web there was this wonderful Perl
-    library called <a href="http://search.cpan.org/perldoc?CGI">CGI</a>,
-    many people only learned Perl because of it.
+    Back in the early days of the web, many people learned Perl because of a
+    wonderful Perl library called
+    <a href="http://search.cpan.org/perldoc?CGI">CGI</a>.
     It was simple enough to get started without knowing much about the
     language and powerful enough to keep you going, learning by doing was
     much fun.
-    While most of the techniques used are outdated now, the idea behind
-    it is not.
+    While most of the techniques used are outdated now, the idea behind it is
+    not.
     <a href="perldoc?Mojolicious">Mojolicious</a> is a new attempt at
     implementing this idea using state of the art technology.
   </p>
@@ -85,7 +85,7 @@ __DATA__
       sockets and hot deployment, perfect for embedding.
     </li>
     <li>
-      Automatic CGI, FastCGI and <a href="http://plackperl.org">PSGI</a>
+      Automatic CGI, FastCGI, and <a href="http://plackperl.org">PSGI</a>
       detection.
     </li>
     <li>JSON and XML/HTML5 parser with CSS3 selector support.</li>
@@ -120,10 +120,10 @@ __DATA__
   </p>
   <pre class="prettyprint">  use Mojolicious::Lite;
 
-  # Simple route with plain text response
+  # Simple plain text response
   get &#39;/&#39; =&gt; sub { shift-&gt;render_text(&#39;Hello World!&#39;) };
 
-  # Route to template in DATA section
+  # Route associating the &quot;/time&quot; URL to template in DATA section
   get &#39;/time&#39; =&gt; &#39;clock&#39;;
 
   # RESTful web service sending JSON responses
@@ -133,7 +133,7 @@ __DATA__
     $self-&gt;render_json({list =&gt; [0 .. $offset]});
   };
 
-  # Scrape information from remote sites
+  # Scrape and return information from remote sites
   post &#39;/title&#39; =&gt; sub {
     my $self = shift;
     my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
@@ -160,36 +160,8 @@ __DATA__
   &lt;% end %&gt;</pre>
   <h2>Growing</h2>
   <p>
-    Single file prototypes like the one above can easily grow into well
-    structured applications.
-  </p>
-  <pre class="prettyprint">  package MyApp;
-  use Mojo::Base &#39;Mojolicious&#39;;
-
-  # Runs once on application startup
-  sub startup {
-    my $self = shift;
-    my $r    = $self-&gt;routes;
-
-    # Route prefix for &quot;MyApp::Example&quot; controller
-    my $example = $r-&gt;route(&#39;/example&#39;)-&gt;to(&#39;example#&#39;);
-
-    # GET routes connecting the controller prefix with actions
-    $example-&gt;get(&#39;/&#39;)-&gt;to(&#39;#hello&#39;);
-    $example-&gt;get(&#39;/time&#39;)-&gt;to(&#39;#clock&#39;);
-    $example-&gt;get(&#39;/:offset&#39;)-&gt;to(&#39;#restful&#39;);
-
-    # All common verbs are supported
-    $example-&gt;post(&#39;/title&#39;)-&gt;to(&#39;#title&#39;);
-
-    # And much more
-    $r-&gt;websocket(&#39;/echo&#39;)-&gt;to(&#39;realtime#echo&#39;);
-  }
-
-  1;</pre>
-  <p>
-    Bigger applications are a lot easier to maintain once routing information
-    has been separated from action code, especially when working in teams.
+    Single file prototypes can easily grow into well-structured applications.
+    A controller collects several actions together.
   </p>
   <pre class="prettyprint">  package MyApp::Example;
   use Mojo::Base &#39;Mojolicious::Controller&#39;;
@@ -234,13 +206,47 @@ __DATA__
 
   1;</pre>
   <p>
-    Action code and templates can stay almost exactly the same, everything
-    was designed from the ground up for this very unique and fun workflow.
+    Larger applications benefit from the separation of actions and routes,
+    especially when working in a team.
+  </p>
+  <pre class="prettyprint">  package MyApp;
+  use Mojo::Base &#39;Mojolicious&#39;;
+
+  # Runs once on application startup
+  sub startup {
+    my $self = shift;
+    my $r    = $self-&gt;routes;
+
+    # Create a route at &quot;/example&quot; for the &quot;MyApp::Example&quot; controller
+    my $example = $r-&gt;route(&#39;/example&#39;)-&gt;to(&#39;example#&#39;);
+
+    # Connect these HTTP GET requests to routes in the controller
+    # (paths are relative to the controller)
+    $example-&gt;get(&#39;/&#39;)-&gt;to(&#39;#hello&#39;);
+    $example-&gt;get(&#39;/time&#39;)-&gt;to(&#39;#clock&#39;);
+    $example-&gt;get(&#39;/:offset&#39;)-&gt;to(&#39;#restful&#39;);
+
+    # All common HTTP verbs are supported
+    $example-&gt;post(&#39;/title&#39;)-&gt;to(&#39;#title&#39;);
+
+    # ... and much, much more
+    # including multiple, auto-discovered controllers
+    $r-&gt;websocket(&#39;/echo&#39;)-&gt;to(&#39;realtime#echo&#39;);
+  }
+
+  1;</pre>
+  <p>
+    Through all of these changes, your action code and templates can stay
+    almost exactly the same.
   </p>
   <pre class="prettyprint">  % my ($second, $minute, $hour) = (localtime(time))[0, 1, 2];
   &lt;%= link_to clock =&gt; begin %&gt;
     The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
   &lt;% end %&gt;</pre>
+  <p>
+    Mojolicious has been designed from the ground up for a fun and unique
+    workflow.
+  </p>
   <h1>Want to know more?</h1>
   <p>
     Take a look at our excellent
