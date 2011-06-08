@@ -97,6 +97,19 @@ __DATA__
   <h2>Installation</h2>
   <p>All you need is a oneliner.</p>
   <pre>    sudo sh -c "curl -L cpanmin.us | perl - Mojolicious"</pre>
+  <h2>Getting Started</h2> 
+  <p>These three lines are a whole web application.</p> 
+  <pre class="prettyprint">  use Mojolicious::Lite;
+
+  get &#39;/&#39; =&gt; sub { shift-&gt;render_text(&#39;Hello World!&#39;) };
+
+  app-&gt;start;</pre> 
+  <p>
+    To run this example with the built-in development server just put the
+    code into a file and execute it with "perl".
+  </p>
+  <pre>  % perl example.pl daemon
+  Server available at http://127.0.0.1:3000.</pre>
   <h2>Duct Tape For The HTML5 Web</h2>
   <p>
     Web development for humans, making hard things possible and everything
@@ -105,7 +118,7 @@ __DATA__
   <pre class="prettyprint">  use Mojolicious::Lite;
 
   # Simple route with plain text response
-  get &#39;/hello&#39; =&gt; sub { shift-&gt;render_text(&#39;Hello World!&#39;) };
+  get &#39;/&#39; =&gt; sub { shift-&gt;render_text(&#39;Hello World!&#39;) };
 
   # Route to template in DATA section
   get &#39;/time&#39; =&gt; &#39;clock&#39;;
@@ -142,12 +155,6 @@ __DATA__
   &lt;%= link_to clock =&gt; begin %&gt;
     The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
   &lt;% end %&gt;</pre>
-  <p>
-    To run this example with the built-in development server just put the
-    code into a file and execute it with "perl".
-  </p>
-  <pre>  % perl example.pl daemon
-  Server available at http://127.0.0.1:3000.</pre>
   <h2>Growing</h2>
   <p>
     Single file prototypes like the one above can easily grow into well
@@ -165,7 +172,7 @@ __DATA__
     my $example = $r-&gt;route(&#39;/example&#39;)-&gt;to(&#39;example#&#39;);
 
     # GET routes connecting the controller prefix with actions
-    $example-&gt;get(&#39;/hello&#39;)-&gt;to(&#39;#hello&#39;);
+    $example-&gt;get(&#39;/&#39;)-&gt;to(&#39;#hello&#39;);
     $example-&gt;get(&#39;/time&#39;)-&gt;to(&#39;#clock&#39;);
     $example-&gt;get(&#39;/:offset&#39;)-&gt;to(&#39;#restful&#39;);
 
