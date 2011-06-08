@@ -108,7 +108,7 @@ __DATA__
     To run this example with the built-in development server just put the
     code into a file and execute it with "perl".
   </p>
-  <pre>  % perl example.pl daemon
+  <pre>  % perl hello.pl daemon
   Server available at http://127.0.0.1:3000.
 
   <%= '%' %> curl http://127.0.0.1:3000/
