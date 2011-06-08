@@ -109,7 +109,10 @@ __DATA__
     code into a file and execute it with "perl".
   </p>
   <pre>  % perl example.pl daemon
-  Server available at http://127.0.0.1:3000.</pre>
+  Server available at http://127.0.0.1:3000.
+
+  <%= '%' %> curl http://127.0.0.1:3000/
+  Hello World!</pre>
   <h2>Duct Tape For The HTML5 Web</h2>
   <p>
     Web development for humans, making hard things possible and everything
