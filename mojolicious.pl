@@ -230,7 +230,7 @@ __DATA__
     $example-&gt;post(&#39;/title&#39;)-&gt;to(&#39;#title&#39;);
 
     # ... and much, much more
-    # including multiple, auto-discovered controllers
+    # (including multiple, auto-discovered controllers)
     $r-&gt;websocket(&#39;/echo&#39;)-&gt;to(&#39;realtime#echo&#39;);
   }
 
