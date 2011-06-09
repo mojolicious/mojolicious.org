@@ -52,7 +52,7 @@ __DATA__
     much fun.
     While most of the techniques used are outdated now, the idea behind it is
     not.
-    <a href="perldoc?Mojolicious">Mojolicious</a> is a new attempt at
+    <a href="perldoc/Mojolicious">Mojolicious</a> is a new attempt at
     implementing this idea using state of the art technology.
   </p>
   <h2>Features</h2>
@@ -60,7 +60,7 @@ __DATA__
     <li>
       An amazing MVC web framework supporting a simplified single file mode
       through
-      <a href="perldoc?Mojolicious/Lite">Mojolicious::Lite</a>.
+      <a href="perldoc/Mojolicious/Lite">Mojolicious::Lite</a>.
       <blockquote>
         <p>
           Powerful out of the box with RESTful routes, plugins,
