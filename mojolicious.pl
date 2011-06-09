@@ -81,7 +81,7 @@ __DATA__
       support.
     </li>
     <li>
-      Builtin async IO web server supporting epoll, kqueue, UNIX domain
+      Built-in async IO web server supporting epoll, kqueue, UNIX domain
       sockets and hot deployment, perfect for embedding.
     </li>
     <li>
