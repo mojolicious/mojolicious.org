@@ -179,7 +179,7 @@ __DATA__
     $self-&gt;render_json({list =&gt; [0 .. $offset]});
   }
 
-  # Scrape information from remote sites
+  # Scrape and return information from remote sites
   sub title {
     my $self = shift;
     my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
@@ -220,7 +220,7 @@ __DATA__
     # Create a route at &quot;/example&quot; for the &quot;MyApp::Example&quot; controller
     my $example = $r-&gt;route(&#39;/example&#39;)-&gt;to(&#39;example#&#39;);
 
-    # Connect these HTTP GET requests to routes in the controller
+    # Connect these HTTP GET routes to actions in the controller
     # (paths are relative to the controller)
     $example-&gt;get(&#39;/&#39;)-&gt;to(&#39;#hello&#39;);
     $example-&gt;get(&#39;/time&#39;)-&gt;to(&#39;#clock&#39;);
