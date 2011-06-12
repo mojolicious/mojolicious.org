@@ -127,7 +127,7 @@ __DATA__
   get &#39;/time&#39; =&gt; &#39;clock&#39;;
 
   # RESTful web service sending JSON responses
-  get &#39;/:offset&#39; =&gt; sub {
+  get &#39;/list/:offset&#39; =&gt; sub {
     my $self   = shift;
     my $offset = $self-&gt;param(&#39;offset&#39;) || 23;
     $self-&gt;render_json({list =&gt; [0 .. $offset]});
@@ -224,7 +224,7 @@ __DATA__
     # (paths are relative to the controller)
     $example-&gt;get(&#39;/&#39;)-&gt;to(&#39;#hello&#39;);
     $example-&gt;get(&#39;/time&#39;)-&gt;to(&#39;#clock&#39;);
-    $example-&gt;get(&#39;/:offset&#39;)-&gt;to(&#39;#restful&#39;);
+    $example-&gt;get(&#39;/list/:offset&#39;)-&gt;to(&#39;#restful&#39;);
 
     # All common HTTP verbs are supported
     $example-&gt;post(&#39;/title&#39;)-&gt;to(&#39;#title&#39;);
