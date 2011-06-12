@@ -173,9 +173,8 @@ __DATA__
 
   # RESTful web service sending JSON responses
   sub restful {
-    my $self   = shift;
-    my $offset = $self-&gt;param(&#39;offset&#39;) || 23;
-    $self-&gt;render_json({list =&gt; [0 .. $offset]});
+    my $self = shift;
+    $self-&gt;render_json({list =&gt; [0 .. $self-&gt;param(&#39;offset&#39;)]});
   }
 
   # Scrape and return information from remote sites
