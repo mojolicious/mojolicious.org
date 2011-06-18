@@ -85,7 +85,7 @@ __DATA__
       sockets and hot deployment, perfect for embedding.
     </li>
     <li>
-      Automatic CGI, FastCGI, and <a href="http://plackperl.org">PSGI</a>
+      Automatic CGI, FastCGI and <a href="http://plackperl.org">PSGI</a>
       detection.
     </li>
     <li>JSON and XML/HTML5 parser with CSS3 selector support.</li>
@@ -105,7 +105,7 @@ __DATA__
 
   app-&gt;start;</pre> 
   <p>
-    To run this example with the built-in development server just put the
+    To run this example with the built-in development web server just put the
     code into a file and execute it with "perl".
   </p>
   <pre>  % perl hello.pl daemon
