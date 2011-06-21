@@ -11,7 +11,7 @@ use Mojo::UserAgent;
 use Mojo::Util qw/encode get_line html_unescape/;
 
 # Twitter
-my $PATTERN  = 'mojolicious,mojo+perl,perlrocks';
+my $PATTERN  = 'mojolicious,mojo+perl';
 my $STREAM   = "stream.twitter.com/1/statuses/filter.json";
 my $USER     = '';
 my $PASSWORD = '';
