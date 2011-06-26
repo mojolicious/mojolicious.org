@@ -101,7 +101,7 @@ __DATA__
   <p>These three lines are a whole web application.</p> 
   <pre class="prettyprint">  use Mojolicious::Lite;
 
-  get &#39;/&#39; =&gt; sub { shift-&gt;render_text(&#39;Hello World!&#39;) };
+  get &#39;/&#39; =&gt; {text =&gt; '&#39;Hello World!&#39;};
 
   app-&gt;start;</pre> 
   <p>
