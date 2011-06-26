@@ -95,7 +95,7 @@ __DATA__
     </li>
   </ul>
   <h2>Installation</h2>
-  <p>All you need is a oneliner.</p>
+  <p>All you need is a oneliner, it takes less than a minute.</p>
   <pre>    sudo sh -c "curl -L cpanmin.us | perl - Mojolicious"</pre>
   <h2>Getting Started</h2> 
   <p>These three lines are a whole web application.</p> 
