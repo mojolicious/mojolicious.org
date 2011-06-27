@@ -121,7 +121,10 @@ __DATA__
   <pre class="prettyprint">  use Mojolicious::Lite;
 
   # Simple plain text response
-  get &#39;/&#39; =&gt; sub { shift-&gt;render_text(&#39;Hello World!&#39;) };
+  get &#39;/&#39; =&gt; sub {
+    my $self = shift;
+    $self-&gt;render_text(&#39;Hello World!&#39;);
+  };
 
   # Route associating the &quot;/time&quot; URL to template in DATA section
   get &#39;/time&#39; =&gt; &#39;clock&#39;;
@@ -166,10 +169,13 @@ __DATA__
   use Mojo::Base &#39;Mojolicious::Controller&#39;;
 
   # Plain text response
-  sub hello { shift-&gt;render_text(&#39;Hello World!&#39;) }
+  sub hello {
+    my $self = shift;
+    $self-&gt;render_text(&#39;Hello World!&#39;);
+  }
 
   # Render external template &quot;templates/example/clock.html.ep&quot;
-  sub clock { shift-&gt;render }
+  sub clock { }
 
   # RESTful web service sending JSON responses
   sub restful {
