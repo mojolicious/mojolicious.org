@@ -72,7 +72,7 @@ __DATA__
     </li>
     <li>
       Very clean, portable and Object Oriented pure Perl API without any
-      hidden magic and no requirements besides Perl 5.8.7 (although 5.10+ is
+      hidden magic and no requirements besides Perl 5.8.7 (although 5.12+ is
       recommended).
     </li>
     <li>
