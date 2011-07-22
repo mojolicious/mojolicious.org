@@ -46,7 +46,7 @@ __DATA__
   <p>
     Back in the early days of the web, many people learned Perl because of a
     wonderful Perl library called
-    <a href="http://search.cpan.org/perldoc?CGI">CGI</a>.
+    <a href="http://metacpan.org/module/CGI">CGI</a>.
     It was simple enough to get started without knowing much about the
     language and powerful enough to keep you going, learning by doing was
     much fun.
