@@ -81,8 +81,9 @@ __DATA__
       support.
     </li>
     <li>
-      Built-in async IO web server supporting epoll, kqueue, UNIX domain
-      sockets and hot deployment, perfect for embedding.
+      Built-in async IO web server supporting
+      <a href="http://libev.schmorp.de">libev</a> and hot deployment, perfect
+      for embedding.
     </li>
     <li>
       Automatic CGI, FastCGI and <a href="http://plackperl.org">PSGI</a>
