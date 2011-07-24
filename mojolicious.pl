@@ -41,85 +41,88 @@ __DATA__
   % end
 </div>
 %= include inline => $Mojolicious::Plugin::PodRenderer::MOJOBAR
-<div id="introduction">
-  <h1>A next generation web framework for the Perl programming language.</h1>
-  <p>
-    Back in the early days of the web, many people learned Perl because of a
-    wonderful Perl library called
-    <a href="http://metacpan.org/module/CGI">CGI</a>.
-    It was simple enough to get started without knowing much about the
-    language and powerful enough to keep you going, learning by doing was
-    much fun.
-    While most of the techniques used are outdated now, the idea behind it is
-    not.
-    <a href="perldoc/Mojolicious">Mojolicious</a> is a new attempt at
-    implementing this idea using state of the art technology.
-  </p>
-  <h2>Features</h2>
-  <ul>
-    <li>
-      An amazing MVC web framework supporting a simplified single file mode
-      through
-      <a href="perldoc/Mojolicious/Lite">Mojolicious::Lite</a>.
-      <blockquote>
-        <p>
-          Powerful out of the box with RESTful routes, plugins,
-          Perl-ish templates, session management, signed cookies,
-          testing framework, static file server, I18N, first class
-          unicode support and much more for you to discover.
-        </p>
-      </blockquote>
-    </li>
-    <li>
-      Very clean, portable and Object Oriented pure Perl API without any
-      hidden magic and no requirements besides Perl 5.8.7 (although 5.12+ is
-      recommended).
-    </li>
-    <li>
-      Full stack HTTP 1.1 and WebSocket client/server implementation with
-      IPv6, TLS, Bonjour, IDNA, Comet (long polling), chunking and multipart
-      support.
-    </li>
-    <li>
-      Built-in async IO web server supporting
-      <a href="http://libev.schmorp.de">libev</a> and hot deployment, perfect
-      for embedding.
-    </li>
-    <li>
-      Automatic CGI, FastCGI and <a href="http://plackperl.org">PSGI</a>
-      detection.
-    </li>
-    <li>JSON and HTML5/XML parser with CSS3 selector support.</li>
-    <li>
-      Fresh code based upon years of experience developing
-      <a href="http://catalystframework.org">Catalyst</a>.
-    </li>
-  </ul>
-  <h2>Installation</h2>
-  <p>All you need is a oneliner, it takes less than a minute.</p>
-  <pre>    sudo sh -c "curl -L cpanmin.us | perl - Mojolicious"</pre>
-  <h2>Getting Started</h2> 
-  <p>These three lines are a whole web application.</p> 
-  <pre class="prettyprint">  use Mojolicious::Lite;
+<div id="wrapperlicious">
+  <div id="introduction">
+    <h1>
+      A next generation web framework for the Perl programming language.
+    </h1>
+    <p>
+      Back in the early days of the web, many people learned Perl because of
+      a wonderful Perl library called
+      <a href="http://metacpan.org/module/CGI">CGI</a>.
+      It was simple enough to get started without knowing much about the
+      language and powerful enough to keep you going, learning by doing was
+      much fun.
+      While most of the techniques used are outdated now, the idea behind it
+      is not.
+      <a href="perldoc/Mojolicious">Mojolicious</a> is a new attempt at
+      implementing this idea using state of the art technology.
+    </p>
+    <h2>Features</h2>
+    <ul>
+      <li>
+        An amazing MVC web framework supporting a simplified single file mode
+        through
+        <a href="perldoc/Mojolicious/Lite">Mojolicious::Lite</a>.
+        <blockquote>
+          <p>
+            Powerful out of the box with RESTful routes, plugins,
+            Perl-ish templates, session management, signed cookies,
+            testing framework, static file server, I18N, first class
+            unicode support and much more for you to discover.
+          </p>
+        </blockquote>
+      </li>
+      <li>
+        Very clean, portable and Object Oriented pure Perl API without any
+        hidden magic and no requirements besides Perl 5.8.7 (although 5.12+
+        is recommended).
+      </li>
+      <li>
+        Full stack HTTP 1.1 and WebSocket client/server implementation with
+        IPv6, TLS, Bonjour, IDNA, Comet (long polling), chunking and
+        multipart support.
+      </li>
+      <li>
+        Built-in async IO web server supporting
+        <a href="http://libev.schmorp.de">libev</a> and hot deployment,
+        perfect for embedding.
+      </li>
+      <li>
+        Automatic CGI, FastCGI and <a href="http://plackperl.org">PSGI</a>
+        detection.
+      </li>
+      <li>JSON and HTML5/XML parser with CSS3 selector support.</li>
+      <li>
+        Fresh code based upon years of experience developing
+        <a href="http://catalystframework.org">Catalyst</a>.
+      </li>
+    </ul>
+    <h2>Installation</h2>
+    <p>All you need is a oneliner, it takes less than a minute.</p>
+    <pre>    sudo sh -c "curl -L cpanmin.us | perl - Mojolicious"</pre>
+    <h2>Getting Started</h2> 
+    <p>These three lines are a whole web application.</p> 
+    <pre class="prettyprint">  use Mojolicious::Lite;
 
   get &#39;/&#39; =&gt; {text =&gt; &#39;Hello World!&#39;};
 
   app-&gt;start;</pre> 
-  <p>
-    To run this example with the built-in development web server just put the
-    code into a file and execute it with "perl".
-  </p>
-  <pre>  % perl hello.pl daemon
+    <p>
+      To run this example with the built-in development web server just put
+      the code into a file and execute it with "perl".
+    </p>
+    <pre>  % perl hello.pl daemon
   Server available at http://127.0.0.1:3000.
 
   <%= '%' %> curl http://127.0.0.1:3000/
   Hello World!</pre>
-  <h2>Duct Tape For The HTML5 Web</h2>
-  <p>
-    Web development for humans, making hard things possible and everything
-    fun.
-  </p>
-  <pre class="prettyprint">  use Mojolicious::Lite;
+    <h2>Duct Tape For The HTML5 Web</h2>
+    <p>
+      Web development for humans, making hard things possible and everything
+      fun.
+    </p>
+    <pre class="prettyprint">  use Mojolicious::Lite;
 
   # Simple plain text response
   get &#39;/&#39; =&gt; sub {
@@ -161,12 +164,13 @@ __DATA__
   &lt;%= link_to clock =&gt; begin %&gt;
     The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
   &lt;% end %&gt;</pre>
-  <h2>Growing</h2>
-  <p>
-    Single file prototypes can easily grow into well-structured applications.
-    A controller collects several actions together.
-  </p>
-  <pre class="prettyprint">  package MyApp::Example;
+    <h2>Growing</h2>
+    <p>
+      Single file prototypes can easily grow into well-structured
+      applications.
+      A controller collects several actions together.
+    </p>
+    <pre class="prettyprint">  package MyApp::Example;
   use Mojo::Base &#39;Mojolicious::Controller&#39;;
 
   # Plain text response
@@ -193,11 +197,11 @@ __DATA__
   }
 
   1;</pre>
-  <p>
-    While the application class is unique, you can have as many controllers
-    as you like.
-  </p>
-  <pre class="prettyprint">  package MyApp::Realtime;
+    <p>
+      While the application class is unique, you can have as many controllers
+      as you like.
+    </p>
+    <pre class="prettyprint">  package MyApp::Realtime;
   use Mojo::Base &#39;Mojolicious::Controller&#39;;
 
   # WebSocket echo service
@@ -210,11 +214,11 @@ __DATA__
   }
 
   1;</pre>
-  <p>
-    Larger applications benefit from the separation of actions and routes,
-    especially when working in a team.
-  </p>
-  <pre class="prettyprint">  package MyApp;
+    <p>
+      Larger applications benefit from the separation of actions and routes,
+      especially when working in a team.
+    </p>
+    <pre class="prettyprint">  package MyApp;
   use Mojo::Base &#39;Mojolicious&#39;;
 
   # Runs once on application startup
@@ -240,23 +244,24 @@ __DATA__
   }
 
   1;</pre>
-  <p>
-    Through all of these changes, your action code and templates can stay
-    almost exactly the same.
-  </p>
-  <pre class="prettyprint">  % my ($second, $minute, $hour) = (localtime(time))[0, 1, 2];
+    <p>
+      Through all of these changes, your action code and templates can stay
+      almost exactly the same.
+    </p>
+    <pre class="prettyprint">  % my ($second, $minute, $hour) = (localtime(time))[0, 1, 2];
   &lt;%= link_to clock =&gt; begin %&gt;
     The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
   &lt;% end %&gt;</pre>
-  <p>
-    Mojolicious has been designed from the ground up for a fun and unique
-    workflow.
-  </p>
-  <h1>Want to know more?</h1>
-  <p>
-    Take a look at our excellent
-    <a href="http://mojolicio.us/perldoc">documentation</a>!
-  </p>
+    <p>
+      Mojolicious has been designed from the ground up for a fun and unique
+      workflow.
+    </p>
+    <h1>Want to know more?</h1>
+    <p>
+      Take a look at our excellent
+      <a href="http://mojolicio.us/perldoc">documentation</a>!
+    </p>
+  </div>
 </div>
 <div id="footer">
   %= link_to 'http://mojolicio.us' => begin
@@ -289,6 +294,10 @@ h1, h2, h3 {
   padding: 3em;
   padding-top: 6em;
 }
+#wrapperlicious {
+  max-width: 1000px;
+  margin: 0 auto;
+}
 
 @@ analytics.html.ep
 %= javascript begin
@@ -320,6 +329,7 @@ try {
         background-color: #f5f6f8;
         color: #333;
         font: 0.9em Verdana, sans-serif;
+        line-height: 1.5;
         margin: 0;
         text-shadow: #ddd 0 1px 0;
       }
