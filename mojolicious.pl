@@ -160,7 +160,7 @@ __DATA__
   __DATA__
 
   @@ clock.html.ep
-  <%= '%' %> my ($second, $minute, $hour) = (localtime(time))[0, 1, 2];
+  <%= '%' %> my ($second, $minute, $hour) = map { sprintf("%02s", $_) } (localtime(time))[0, 1, 2];
   &lt;%= link_to clock =&gt; begin %&gt;
     The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
   &lt;% end %&gt;</pre>
