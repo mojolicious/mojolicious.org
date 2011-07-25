@@ -160,9 +160,10 @@ __DATA__
   __DATA__
 
   @@ clock.html.ep
-  <%= '%' %> my ($second, $minute, $hour) = (localtime(time))[0, 1, 2];
+  <%= '%' %> use Time::Piece;
+  <%= '%' %> my $now = localtime;
   &lt;%= link_to clock =&gt; begin %&gt;
-    The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
+    The time is &lt;%= $now-&gt;hms %&gt;.
   &lt;% end %&gt;</pre>
     <h2>Growing</h2>
     <p>
@@ -248,9 +249,10 @@ __DATA__
       Through all of these changes, your action code and templates can stay
       almost exactly the same.
     </p>
-    <pre class="prettyprint">  % my ($second, $minute, $hour) = (localtime(time))[0, 1, 2];
+    <pre class="prettyprint">  % use Time::Piece;
+  <%= '%' %> my $now = localtime;
   &lt;%= link_to clock =&gt; begin %&gt;
-    The time is &lt;%= $hour %&gt;:&lt;%= $minute %&gt;:&lt;%= $second %&gt;.
+    The time is &lt;%= $now-&gt;hms %&gt;.
   &lt;% end %&gt;</pre>
     <p>
       Mojolicious has been designed from the ground up for a fun and unique
