@@ -84,7 +84,7 @@ __DATA__
         multipart support.
       </li>
       <li>
-        Built-in async IO web server supporting
+        Built-in async I/O web server supporting
         <a href="http://libev.schmorp.de">libev</a> and hot deployment,
         perfect for embedding.
       </li>
