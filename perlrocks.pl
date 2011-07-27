@@ -77,7 +77,7 @@ sub irc_announce {
   $message =~ s/\n/\ /g;
   encode 'UTF-8', $message;
   Mojo::IOLoop->singleton->write($irc => "PRIVMSG $CHANNEL :$message\r\n")
-    if $irc;
+   if $irc;
 }
 
 sub irc_connect {
@@ -116,7 +116,7 @@ sub irc_connect {
 
         # Ping
         $self->write($id => "PONG $1\r\n")
-          if $line =~ /^PING\s+\:(\S+)/;
+         if $line =~ /^PING\s+\:(\S+)/;
       }
     },
     on_close => sub { irc_connect() },
@@ -181,7 +181,7 @@ sub google_translate {
   # Translate
   $ua->get(
     Mojo::URL->new($TRANSLATE)
-      ->query([v => '1.0', q => $text, langpair => "$lang|en"]) => sub {
+     ->query([v => '1.0', q => $text, langpair => "$lang|en"]) => sub {
       my $tx = pop;
 
       # JSON
