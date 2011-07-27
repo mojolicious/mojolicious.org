@@ -21,7 +21,7 @@ get '/' => sub {
 
   #  Shortcut for "latest.mojolicio.us"
   return $self->redirect_to('http://www.github.com/kraih/mojo/tarball/master')
-   if $self->req->url->base->host =~ /^latest\./;
+    if $self->req->url->base->host =~ /^latest\./;
 
   # Index
   $self->render('index');
@@ -144,7 +144,7 @@ __DATA__
     my $self = shift;
     my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
     $self-&gt;render_text(
-     $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;html-&gt;head-&gt;title-&gt;text);
+      $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;html-&gt;head-&gt;title-&gt;text);
   };
 
   # WebSocket echo service
@@ -194,7 +194,7 @@ __DATA__
     my $self = shift;
     my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
     $self-&gt;render_text(
-     $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;html-&gt;head-&gt;title-&gt;text);
+      $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;html-&gt;head-&gt;title-&gt;text);
   }
 
   1;</pre>
