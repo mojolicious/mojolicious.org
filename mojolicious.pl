@@ -110,9 +110,9 @@ __DATA__
   app-&gt;start;</pre> 
     <p>
       To run this example with the built-in development web server just put
-      the code into a file and execute it with "perl".
+      the code into a file and start it with "morbo".
     </p>
-    <pre>  $ perl hello.pl daemon
+    <pre>  $ morbo hello.pl
   Server available at http://127.0.0.1:3000.
 
   $ curl http://127.0.0.1:3000/
