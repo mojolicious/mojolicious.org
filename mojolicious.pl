@@ -100,7 +100,7 @@ __DATA__
     </ul>
     <h2>Installation</h2>
     <p>All you need is a oneliner, it takes less than a minute.</p>
-    <pre>    sudo sh -c "curl -L cpanmin.us | perl - Mojolicious"</pre>
+    <pre>  $ sudo sh -c "curl -L cpanmin.us | perl - Mojolicious"</pre>
     <h2>Getting Started</h2> 
     <p>These three lines are a whole web application.</p> 
     <pre class="prettyprint">  use Mojolicious::Lite;
@@ -112,10 +112,10 @@ __DATA__
       To run this example with the built-in development web server just put
       the code into a file and execute it with "perl".
     </p>
-    <pre>  % perl hello.pl daemon
+    <pre>  $ perl hello.pl daemon
   Server available at http://127.0.0.1:3000.
 
-  <%= '%' %> curl http://127.0.0.1:3000/
+  $ curl http://127.0.0.1:3000/
   Hello World!</pre>
     <h2>Duct Tape For The HTML5 Web</h2>
     <p>
