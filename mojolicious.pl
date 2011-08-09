@@ -117,7 +117,7 @@ __DATA__
 
   $ curl http://127.0.0.1:3000/
   Hello World!</pre>
-    <h2>Duct Tape For The HTML5 Web</h2>
+    <h2>Duct Tape For The Web</h2>
     <p>
       Web development for humans, making hard things possible and everything
       fun.
