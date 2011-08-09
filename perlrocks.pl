@@ -1,7 +1,6 @@
 #!/usr/bin/env perl
-use Mojo::Base -strict;
-
 use lib 'mojo/lib';
+use Mojo::Base -strict;
 
 use Getopt::Long 'GetOptions';
 use Mojo::JSON;
