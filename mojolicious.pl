@@ -7,7 +7,7 @@ use Mojolicious::Lite;
 app->secret('foo');
 
 # Documentation browser under "/perldoc" (this plugin requires Perl 5.10)
-plugin 'pod_renderer';
+plugin 'PODRenderer';
 
 # Analytics
 hook before_perldoc => sub {
@@ -40,7 +40,7 @@ __DATA__
     %= image '/unicorn.png'
   % end
 </div>
-%= include inline => $Mojolicious::Plugin::PodRenderer::MOJOBAR
+%= include inline => $Mojolicious::Plugin::PODRenderer::MOJOBAR
 <div id="wrapperlicious">
   <div id="introduction">
     <h1>
