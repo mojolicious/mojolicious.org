@@ -76,7 +76,8 @@ __DATA__
       <li>
         Very clean, portable and Object Oriented pure Perl API without any
         hidden magic and no requirements besides Perl 5.8.7 (although 5.12+
-        is recommended).
+        is recommended, and optional CPAN modules will be used to provide
+        advanced functionality if they are installed).
       </li>
       <li>
         Full stack HTTP 1.1 and WebSocket client/server implementation with
