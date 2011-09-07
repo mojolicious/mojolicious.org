@@ -133,7 +133,8 @@ __DATA__
 
 @@ css/index.css
 h1, h2, h3 {
-  font: 1.5em Georgia, Times, serif;
+  color: #2a2a2a;
+  font-size: 1.5em;
   margin: 0;
 }
 #fun {
@@ -185,15 +186,16 @@ try {
     %= stylesheet '/css/prettify-mojo.css'
     %= javascript '/js/prettify.js'
     %= stylesheet begin
-      a { color: inherit; }
-      a img { border: 0; }
+      a { color: inherit }
+      a:hover { color: #2a2a2a }
+      a img { border: 0 }
       body {
         background-color: #f5f6f8;
-        color: #333;
-        font: 0.9em Verdana, sans-serif;
+        color: #445555;
+        font: 0.9em 'Helvetica Neue', 'Helvetica', sans-serif;
+        font-weight: normal;
         line-height: 1.5;
         margin: 0;
-        text-shadow: #ddd 0 1px 0;
       }
       pre {
         background: url(<%= url_for '/mojolicious-pinstripe.gif' %>);
