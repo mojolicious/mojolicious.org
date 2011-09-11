@@ -90,8 +90,7 @@ __DATA__
         perfect for embedding.
       </li>
       <li>
-        Automatic CGI, FastCGI and <a href="http://plackperl.org">PSGI</a>
-        detection.
+        Automatic CGI and <a href="http://plackperl.org">PSGI</a> detection.
       </li>
       <li>JSON and HTML5/XML parser with CSS3 selector support.</li>
       <li>
