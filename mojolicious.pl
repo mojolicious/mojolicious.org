@@ -122,7 +122,7 @@ __DATA__
 
   $ curl http://127.0.0.1:3000/
   Hello World!</pre>
-    <h2>Duct Tape For The Web</h2>
+    <h2>Duct Tape For The HTML5 Web</h2>
     <p>
       Web development for humans, making hard things possible and everything
       fun.
@@ -239,7 +239,9 @@ try {
 @@ layouts/default.html.ep
 <!doctype html><html>
   <head>
-    <title>Mojolicious Web Framework - Join the Perl revolution!</title>
+    <title>
+      Mojolicious Web Framework - Perl Duct Tape For The HTML5 Web!
+    </title>
     %= stylesheet '/css/prettify-mojo.css'
     %= javascript '/js/prettify.js'
     %= stylesheet begin
