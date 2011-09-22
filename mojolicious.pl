@@ -122,7 +122,60 @@ __DATA__
 
   $ curl http://127.0.0.1:3000/
   Hello World!</pre>
-    <h1>Want to know more?</h1>
+    <h2>Duct Tape For The Web</h2>
+    <p>
+      Web development for humans, making hard things possible and everything
+      fun.
+    </p>
+    <pre class="prettyprint">  use Mojolicious::Lite;
+
+  # Simple plain text response
+  get &#39;/&#39; =&gt; {text =&gt; &#39;Hello World!&#39;};
+
+  # Route associating &quot;/time&quot; with template in DATA section
+  get &#39;/time&#39; =&gt; &#39;clock&#39;;
+
+  # RESTful web service with JSON and text representation
+  get &#39;/list/:offset&#39; =&gt; sub {
+    my $self = shift;
+    my $numbers = [0 .. $self-&gt;param(&#39;offset&#39;)];
+    $self-&gt;respond_to(
+      json =&gt; {json =&gt; $numbers}},
+      txt  =&gt; {text =&gt; join(&#39;,&#39;, @$numbers)}
+    );
+  };
+
+  # Scrape information from remote sites
+  post &#39;/title&#39; =&gt; sub {
+    my $self = shift;
+    my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
+    $self-&gt;render_text(
+      $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;html-&gt;head-&gt;title-&gt;text);
+  };
+
+  # WebSocket echo service
+  websocket &#39;/echo&#39; =&gt; sub {
+    my $self = shift;
+    $self-&gt;on_message(sub {
+      my ($self, $message) = @_;
+      $self-&gt;send_message(&quot;echo: $message&quot;);
+    });
+  };
+
+  app-&gt;start;
+  __DATA__
+
+  @@ clock.html.ep
+  %% use Time::Piece;
+  %% my $now = localtime;
+  %%= link_to clock =&gt; begin
+    The time is &lt;%= $now-&gt;hms %&gt;.
+  %% end</pre>
+    <p>
+      Single file prototypes like this one can easily grow into
+      well-structured applications.
+    </p>
+    <h1>Want To Know More?</h1>
     <p>
       Take a look at our excellent
       <a href="http://mojolicio.us/perldoc">documentation</a>!
