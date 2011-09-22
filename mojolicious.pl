@@ -122,7 +122,7 @@ __DATA__
 
   $ curl http://127.0.0.1:3000/
   Hello World!</pre>
-    <h2>Duct Tape For The HTML5 Web</h2>
+    <h2>Duct tape for the HTML5 web</h2>
     <p>
       Web development for humans, making hard things possible and everything
       fun.
@@ -175,7 +175,7 @@ __DATA__
       Single file prototypes like this one can easily grow into
       well-structured applications.
     </p>
-    <h1>Want To Know More?</h1>
+    <h1>Want to know more?</h1>
     <p>
       Take a look at our excellent
       <a href="http://mojolicio.us/perldoc">documentation</a>!
