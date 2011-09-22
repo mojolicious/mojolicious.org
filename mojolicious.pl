@@ -240,7 +240,7 @@ try {
 <!doctype html><html>
   <head>
     <title>
-      Mojolicious Web Framework - Perl Duct Tape For The HTML5 Web!
+      Mojolicious Web Framework - Perl duct tape for the HTML5 web!
     </title>
     %= stylesheet '/css/prettify-mojo.css'
     %= javascript '/js/prettify.js'
