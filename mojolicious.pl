@@ -137,10 +137,10 @@ __DATA__
 
   # RESTful web service with JSON and text representation
   get &#39;/list/:offset&#39; =&gt; sub {
-    my $self = shift;
+    my $self    = shift;
     my $numbers = [0 .. $self-&gt;param(&#39;offset&#39;)];
     $self-&gt;respond_to(
-      json =&gt; {json =&gt; $numbers}},
+      json =&gt; {json =&gt; $numbers},
       txt  =&gt; {text =&gt; join(&#39;,&#39;, @$numbers)}
     );
   };
