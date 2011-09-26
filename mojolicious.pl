@@ -66,8 +66,8 @@ __DATA__
     <h2>Features</h2>
     <ul>
       <li>
-        An amazing MVC web framework supporting a simplified single file mode
-        through
+        An amazing real-time web framework supporting a simplified single
+        file mode through
         <a href="perldoc/Mojolicious/Lite">Mojolicious::Lite</a>.
         <blockquote>
           <p>
