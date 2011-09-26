@@ -168,9 +168,7 @@ __DATA__
   @@ clock.html.ep
   %% use Time::Piece;
   %% my $now = localtime;
-  %%= link_to clock =&gt; begin
-    The time is &lt;%= $now-&gt;hms %&gt;.
-  %% end</pre>
+  The time is &lt;%= $now-&gt;hms %&gt;.</pre>
     <p>
       Single file prototypes like this one can easily grow into
       well-structured applications.
