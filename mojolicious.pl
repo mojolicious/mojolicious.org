@@ -238,7 +238,7 @@ try {
 <!doctype html><html>
   <head>
     <title>
-      Mojolicious real-time web framework - Perl duct tape for the HTML5 web
+      Mojolicious - Perl real-time web framework
     </title>
     %= stylesheet '/css/prettify-mojo.css'
     %= javascript '/js/prettify.js'
