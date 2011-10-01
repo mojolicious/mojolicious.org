@@ -80,7 +80,7 @@ __DATA__
       </li>
       <li>
         Very clean, portable and Object Oriented pure Perl API without any
-        hidden magic and no requirements besides Perl 5.8.7 (although 5.12+
+        hidden magic and no requirements besides Perl 5.10.1 (although 5.12+
         is recommended, and optional CPAN modules will be used to provide
         advanced functionality if they are installed).
       </li>
