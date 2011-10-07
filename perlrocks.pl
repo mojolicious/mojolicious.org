@@ -148,7 +148,7 @@ sub twitter_stream {
       warn $tx->error unless $tx->success;
 
       # Reconnect
-      twitter_stream();
+      Mojo::IOLoop->timer(5 => sub { twitter_stream() });
     }
   );
 }
