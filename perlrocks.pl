@@ -127,7 +127,8 @@ sub twitter_stream {
   print "Starting Twitter stream.\n";
 
   # Prepare transaction for streaming response
-  my $tx = $ua->build_tx(GET => "$USER:$PASSWORD\@$STREAM?track=$PATTERN");
+  my $tx =
+    $ua->build_tx(GET => "https://$USER:$PASSWORD\@$STREAM?track=$PATTERN");
   $tx->res->body(
     sub {
 
