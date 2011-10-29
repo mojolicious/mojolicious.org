@@ -156,7 +156,7 @@ __DATA__
   # WebSocket echo service
   websocket &#39;/echo&#39; =&gt; sub {
     my $self = shift;
-    $self-&gt;on_message(sub {
+    $self-&gt;on(message =&gt; sub {
       my ($self, $message) = @_;
       $self-&gt;send_message(&quot;echo: $message&quot;);
     });
