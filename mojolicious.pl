@@ -10,9 +10,9 @@ app->secret('foo');
 plugin 'PODRenderer';
 
 # Analytics
-hook before_perldoc => sub {
+hook after_static_dispatch => sub {
   my $self = shift;
-  $self->content_for(header => $self->include('analytics'));
+  $self->content_for(perldoc => $self->render_partial('analytics'));
 };
 
 # Welcome to Mojolicious
