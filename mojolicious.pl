@@ -45,7 +45,7 @@ __DATA__
     %= image '/unicorn.png'
   % end
 </div>
-%= include inline => $Mojolicious::Plugin::PODRenderer::MOJOBAR
+%= include inline => $Mojolicious::Controller::MOJOBAR
 <div id="wrapperlicious">
   <div id="introduction">
     <h1>
