@@ -249,7 +249,7 @@ try {
       body {
         background-color: #f5f6f8;
         color: #445555;
-        font: 0.9em 'Helvetica Neue', 'Helvetica', sans-serif;
+        font: 0.9em 'Helvetica Neue', Helvetica, sans-serif;
         font-weight: normal;
         line-height: 1.5;
         margin: 0;
@@ -259,7 +259,7 @@ try {
         -moz-border-radius: 5px;
         border-radius: 5px;
         color: #eee;
-        font: 0.8em 'Consolas', 'Menlo', 'Monaco', Courier, monospace;
+        font: 0.8em Consolas, Menlo, Monaco, Courier, monospace;
         text-align: left;
         text-shadow: #333 0 1px 0;
         padding-bottom: 1.5em;
