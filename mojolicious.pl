@@ -158,7 +158,7 @@ __DATA__
     my $self = shift;
     $self-&gt;on(message =&gt; sub {
       my ($self, $message) = @_;
-      $self-&gt;send_message(&quot;echo: $message&quot;);
+      $self-&gt;send(&quot;echo: $message&quot;);
     });
   };
 
