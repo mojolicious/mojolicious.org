@@ -19,6 +19,10 @@ hook after_static_dispatch => sub {
 get '/' => sub {
   my $self = shift;
 
+  #  Shortcut for "get.mojolicio.us"
+  return $self->render('installer', format => 'txt')
+    if $self->req->url->base->host =~ /^get\./;
+
   #  Shortcut for "latest.mojolicio.us"
   return $self->redirect_to('http://www.github.com/kraih/mojo/tarball/master')
     if $self->req->url->base->host =~ /^latest\./;
@@ -29,6 +33,10 @@ get '/' => sub {
 
 app->start;
 __DATA__
+
+@@ installer.txt.ep
+#!/bin/sh
+curl -L cpanmin.us | perl - -n -S  Mojolicious
 
 @@ index.html.ep
 % layout 'default';
@@ -105,7 +113,7 @@ __DATA__
     </ul>
     <h2>Installation</h2>
     <p>All you need is a oneliner, it takes less than a minute.</p>
-    <pre>  $ sudo sh -c "curl -L cpanmin.us | perl - -n Mojolicious"</pre>
+    <pre>  $ curl get.mojolicio.us | sh</pre>
     <h2>Getting Started</h2> 
     <p>These three lines are a whole web application.</p> 
     <pre class="prettyprint">  use Mojolicious::Lite;
