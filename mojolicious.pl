@@ -105,7 +105,7 @@ __DATA__
     </ul>
     <h2>Installation</h2>
     <p>All you need is a oneliner, it takes less than a minute.</p>
-    <pre>  $ sudo sh -c "curl -L cpanmin.us | perl - Mojolicious"</pre>
+    <pre>  $ sudo sh -c "curl -L cpanmin.us | perl - -n Mojolicious"</pre>
     <h2>Getting Started</h2> 
     <p>These three lines are a whole web application.</p> 
     <pre class="prettyprint">  use Mojolicious::Lite;
