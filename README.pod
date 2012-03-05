@@ -7,20 +7,20 @@ The L<Mojolicious> website.
 
 Clone the repository.
 
-  git clone git://github.com/kraih/mojolicio.us.git
-  cd mojolicio.us
+  $ git clone git://github.com/kraih/mojolicio.us.git
+  $ cd mojolicio.us
 
 Install L<Mojolicious>.
 
-  curl -L cpanmin.us | perl - http://latest.mojolicio.us
+  $ curl get.mojolicio.us | sh
 
 Start hacking.
 
-  ./mojolicious.pl daemon
+  $ morbo mojolicious.pl
 
 =head2 Copyright And License
 
-Copyright (C) 2010-2011, Sebastian Riedel.
+Copyright (C) 2010-2012, Sebastian Riedel.
 
 Licensed under the CC-NC-ND License, Version 3.0
 L<http://creativecommons.org/licenses/by-nc-nd/3.0>.
