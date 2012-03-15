@@ -36,7 +36,7 @@ __DATA__
 
 @@ installer.txt.ep
 #!/bin/sh
-curl -L cpanmin.us | perl - -n -S  Mojolicious
+curl -L cpanmin.us | perl - -n  Mojolicious
 
 @@ index.html.ep
 % layout 'default';
