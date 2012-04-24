@@ -218,7 +218,7 @@ h1, h2, h3 {
   margin-right: 5em;
   margin-top: 1em;
   padding: 3em;
-  padding-top: 6em;
+  padding-top: 70px;
 }
 #wrapperlicious {
   max-width: 1000px;
@@ -275,9 +275,8 @@ try {
         white-space: pre-wrap;
       }
       #footer {
-        margin-top: 1.5em;
+        padding-top: 1em;
         text-align: center;
-        width: 100%;
       }
     %= end
     %= content 'header'
