@@ -94,7 +94,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
       </li>
       <li>
         Full stack HTTP 1.1 and WebSocket client/server implementation with
-        IPv6, TLS, Bonjour, IDNA, Comet (long polling), chunking and
+        IPv6, TLS, IDNA, Comet (long polling), chunking and
         multipart support.
       </li>
       <li>
