@@ -82,7 +82,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
             Powerful out of the box with RESTful routes, plugins,
             Perl-ish templates, session management, signed cookies,
             testing framework, static file server, I18N, first class
-            unicode support and much more for you to discover.
+            Unicode support and much more for you to discover.
           </p>
         </blockquote>
       </li>
