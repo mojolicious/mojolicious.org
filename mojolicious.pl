@@ -60,29 +60,26 @@ curl -L cpanmin.us | perl - -n  Mojolicious
       A next generation web framework for the Perl programming language.
     </h1>
     <p>
-      Back in the early days of the web, many people learned Perl because of
-      a wonderful Perl library called
-      <a href="http://metacpan.org/module/CGI">CGI</a>.
-      It was simple enough to get started without knowing much about the
-      language and powerful enough to keep you going, learning by doing was
-      much fun.
-      While most of the techniques used are outdated now, the idea behind it
-      is not.
+      Back in the early days of the web, many people learned Perl because of a
+      wonderful Perl library called
+      <a href="http://metacpan.org/module/CGI">CGI</a>. It was simple enough
+      to get started without knowing much about the language and powerful
+      enough to keep you going, learning by doing was much fun. While most of
+      the techniques used are outdated now, the idea behind it is not.
       <a href="perldoc/Mojolicious">Mojolicious</a> is a new attempt at
       implementing this idea using state of the art technology.
     </p>
     <h2>Features</h2>
     <ul>
       <li>
-        An amazing real-time web framework supporting a simplified single
-        file mode through
-        <a href="perldoc/Mojolicious/Lite">Mojolicious::Lite</a>.
+        An amazing real-time web framework supporting a simplified single file
+        mode through <a href="perldoc/Mojolicious/Lite">Mojolicious::Lite</a>.
         <blockquote>
           <p>
-            Powerful out of the box with RESTful routes, plugins,
-            Perl-ish templates, session management, signed cookies,
-            testing framework, static file server, I18N, first class
-            Unicode support and much more for you to discover.
+            Powerful out of the box with RESTful routes, plugins, Perl-ish
+            templates, session management, signed cookies, testing framework,
+            static file server, first class Unicode support and much more for
+            you to discover.
           </p>
         </blockquote>
       </li>
@@ -94,8 +91,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
       </li>
       <li>
         Full stack HTTP 1.1 and WebSocket client/server implementation with
-        IPv6, TLS, IDNA, Comet (long polling), chunking and
-        multipart support.
+        IPv6, TLS, IDNA, Comet (long polling), chunking and multipart support.
       </li>
       <li>
         Built-in non-blocking I/O web server supporting
@@ -114,13 +110,13 @@ curl -L cpanmin.us | perl - -n  Mojolicious
     <h2>Installation</h2>
     <p>All you need is a oneliner, it takes less than a minute.</p>
     <pre>  $ curl get.mojolicio.us | sh</pre>
-    <h2>Getting Started</h2> 
-    <p>These three lines are a whole web application.</p> 
+    <h2>Getting Started</h2>
+    <p>These three lines are a whole web application.</p>
     <pre class="prettyprint">  use Mojolicious::Lite;
 
   get &#39;/&#39; =&gt; {text =&gt; &#39;Hello World!&#39;};
 
-  app-&gt;start;</pre> 
+  app-&gt;start;</pre>
     <p>
       To run this example with the built-in development web server just put
       the code into a file and start it with "morbo".
