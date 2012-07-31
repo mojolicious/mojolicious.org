@@ -53,7 +53,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
     %= image '/unicorn.png'
   % end
 </div>
-%= include inline => $Mojolicious::Controller::MOJOBAR
+%= include inline => app->renderer->_bundled('mojobar')
 <div id="wrapperlicious">
   <div id="introduction">
     <h1>
