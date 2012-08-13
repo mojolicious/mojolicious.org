@@ -101,7 +101,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
       <li>
         Automatic CGI and <a href="http://plackperl.org">PSGI</a> detection.
       </li>
-      <li>JSON and HTML5/XML parser with CSS3 selector support.</li>
+      <li>JSON and HTML/XML parser with CSS selector support.</li>
       <li>
         Fresh code based upon years of experience developing
         <a href="http://catalystframework.org">Catalyst</a>.
