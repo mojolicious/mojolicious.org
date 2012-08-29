@@ -161,8 +161,8 @@ curl -L cpanmin.us | perl - -n  Mojolicious
   websocket &#39;/echo&#39; =&gt; sub {
     my $self = shift;
     $self-&gt;on(message =&gt; sub {
-      my ($self, $message) = @_;
-      $self-&gt;send(&quot;echo: $message&quot;);
+      my ($self, $msg) = @_;
+      $self-&gt;send(&quot;echo: $msg&quot;);
     });
   };
 
