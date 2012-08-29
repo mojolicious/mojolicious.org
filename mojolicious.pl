@@ -19,11 +19,11 @@ hook after_static_dispatch => sub {
 get '/' => sub {
   my $self = shift;
 
-  #  Shortcut for "get.mojolicio.us"
+  # Shortcut for "get.mojolicio.us"
   return $self->render('installer', format => 'txt')
     if $self->req->url->base->host =~ /^get\./;
 
-  #  Shortcut for "latest.mojolicio.us"
+  # Shortcut for "latest.mojolicio.us"
   return $self->redirect_to('http://www.github.com/kraih/mojo/tarball/master')
     if $self->req->url->base->host =~ /^latest\./;
 
