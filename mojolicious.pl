@@ -19,6 +19,10 @@ hook after_static_dispatch => sub {
 get '/' => sub {
   my $self = shift;
 
+  # Redirect to main site
+  return $self->redirect_to('http://mojolicio.us')
+    if $self->req->url->host eq 'mojolicious.org';
+
   # Shortcut for "get.mojolicio.us"
   return $self->render('installer', format => 'txt')
     if $self->req->url->base->host =~ /^get\./;
