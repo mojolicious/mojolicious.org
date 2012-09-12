@@ -21,7 +21,7 @@ get '/' => sub {
 
   # Redirect to main site
   return $self->redirect_to('http://mojolicio.us')
-    if $self->req->url->host eq 'mojolicious.org';
+    if $self->req->url->base->host eq 'mojolicious.org';
 
   # Shortcut for "get.mojolicio.us"
   return $self->render('installer', format => 'txt')
