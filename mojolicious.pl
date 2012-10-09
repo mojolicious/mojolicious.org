@@ -264,7 +264,7 @@ try {
         color: #445555;
         font: 0.9em 'Helvetica Neue', Helvetica, sans-serif;
         font-weight: normal;
-        line-height: 1.5;
+        line-height: 1.5em;
         margin: 0;
       }
       pre {
@@ -273,6 +273,7 @@ try {
         border-radius: 5px;
         color: #eee;
         font: 0.8em Consolas, Menlo, Monaco, Courier, monospace;
+        line-height: 1.7em;
         text-align: left;
         text-shadow: #333 0 1px 0;
         padding-bottom: 1.5em;
