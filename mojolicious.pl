@@ -103,9 +103,8 @@ curl -L cpanmin.us | perl - -n  Mojolicious
         TLS, IDNA, Comet (long polling), chunking and multipart support.
       </li>
       <li>
-        Built-in non-blocking I/O web server supporting
-        <a href="http://libev.schmorp.de">libev</a> and hot deployment,
-        perfect for embedding.
+        Built-in non-blocking I/O web server, supporting multiple event loops
+        and hot deployment, perfect for embedding.
       </li>
       <li>
         Automatic CGI and <a href="http://plackperl.org">PSGI</a> detection.
