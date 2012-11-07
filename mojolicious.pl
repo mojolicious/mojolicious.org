@@ -118,6 +118,10 @@ curl -L cpanmin.us | perl - -n  Mojolicious
     <h2>Installation</h2>
     <p>All you need is a oneliner, it takes less than a minute.</p>
     <pre>  $ curl get.mojolicio.us | sh</pre>
+    <p>
+      We recommend the use of a <a href="http://perlbrew.pl">Perlbrew</a>
+      environment.
+    </p>
     <h2>Getting Started</h2>
     <p>These three lines are a whole web application.</p>
     <pre class="prettyprint">  use Mojolicious::Lite;
