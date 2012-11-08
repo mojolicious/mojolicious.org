@@ -85,10 +85,10 @@ curl -L cpanmin.us | perl - -n  Mojolicious
         prototypes into well structured web applications.
         <blockquote>
           <p>
-            Powerful out of the box with RESTful routes, plugins, Perl-ish
-            templates, session management, signed cookies, testing framework,
-            static file server, first class Unicode support and much more for
-            you to discover.
+            Powerful out of the box with RESTful routes, plugins, commands,
+            Perl-ish templates, content negotiation, session management,
+            testing framework, static file server, first class Unicode support
+            and much more for you to discover.
           </p>
         </blockquote>
       </li>
