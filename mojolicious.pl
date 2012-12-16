@@ -74,8 +74,8 @@ curl -L cpanmin.us | perl - -n  Mojolicious
       to get started without knowing much about the language and powerful
       enough to keep you going, learning by doing was much fun. While most of
       the techniques used are outdated now, the idea behind it is not.
-      <a href="perldoc/Mojolicious">Mojolicious</a> is a new attempt at
-      implementing this idea using state of the art technology.
+      Mojolicious is a new attempt at implementing this idea using state of
+      the art technology.
     </p>
     <h2>Features</h2>
     <ul>
