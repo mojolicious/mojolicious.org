@@ -18,7 +18,7 @@
 
 ## Copyright And License
 
-  Copyright (C) 2010-2012, Sebastian Riedel.
+  Copyright (C) 2010-2013, Sebastian Riedel.
 
   Licensed under the CC-NC-ND License, Version 3.0
   [http://creativecommons.org/licenses/by-nc-nd/3.0](http://creativecommons.org/licenses/by-nc-nd/3.0).
