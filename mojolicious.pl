@@ -198,7 +198,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
 </div>
 <div id="footer">
   %= link_to 'http://mojolicio.us' => begin
-    %= image '/mojolicious-black.png', alt => 'Mojolicious logo'
+    %= image '/mojo/logo-black.png', alt => 'Mojolicious logo'
   % end
 </div>
 
