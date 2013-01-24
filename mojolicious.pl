@@ -271,7 +271,7 @@ try {
         margin: 0;
       }
       pre {
-        background: url(<%= url_for '/mojolicious-pinstripe.gif' %>);
+        background: url(<%= url_for '/mojo/pinstripe.gif' %>);
         -moz-border-radius: 5px;
         border-radius: 5px;
         color: #eee;
