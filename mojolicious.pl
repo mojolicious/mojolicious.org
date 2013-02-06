@@ -1,6 +1,7 @@
 #!/usr/bin/env perl
 
 use lib 'mojo/lib';
+use lib 'mango/lib';
 
 use Mojolicious::Lite;
 
