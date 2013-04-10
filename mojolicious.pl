@@ -11,7 +11,7 @@ app->secret('foo')->config(hypnotoad => {listen => ['http://*:80']});
 plugin 'PODRenderer';
 
 # Analytics
-hook after_static_dispatch => sub {
+hook before_routes => sub {
   my $self = shift;
   $self->content_for(perldoc => $self->render_partial('analytics'));
 };
@@ -166,8 +166,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
   post &#39;/title&#39; =&gt; sub {
     my $self = shift;
     my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
-    $self-&gt;render_text(
-      $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;html-&gt;head-&gt;title-&gt;text);
+    $self-&gt;render_text($self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text);
   };
 
   # WebSocket echo service
