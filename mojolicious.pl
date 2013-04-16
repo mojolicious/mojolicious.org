@@ -106,7 +106,8 @@ curl -L cpanmin.us | perl - -n  Mojolicious
       </li>
       <li>
         Built-in non-blocking I/O web server, supporting multiple event loops
-        and hot deployment, perfect for embedding.
+        as well as optional preforking and hot deployment, perfect for
+        embedding.
       </li>
       <li>
         Automatic CGI and <a href="http://plackperl.org">PSGI</a> detection.
