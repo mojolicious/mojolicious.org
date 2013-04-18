@@ -258,8 +258,8 @@ try {
     <title>
       Mojolicious - Perl real-time web framework
     </title>
+    %= javascript '/mojo/prettify/run_prettify.js'
     %= stylesheet '/mojo/prettify/prettify-mojo.css'
-    %= javascript '/mojo/prettify/prettify.js'
     %= stylesheet begin
       a { color: inherit }
       a:hover { color: #2a2a2a }
@@ -293,7 +293,7 @@ try {
     %= content 'header'
     %= include 'analytics'
   </head>
-  <body onload="prettyPrint()"><%= content %></body>
+  <body><%= content %></body>
 </html>
 
 @@ digitalforest.png (base64)
