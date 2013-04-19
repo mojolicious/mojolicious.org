@@ -168,7 +168,8 @@ curl -L cpanmin.us | perl - -n  Mojolicious
   post &#39;/title&#39; =&gt; sub {
     my $self = shift;
     my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
-    $self-&gt;render_text($self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text);
+    $self-&gt;render(
+      text =&gt; $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text);
   };
 
   # WebSocket echo service
