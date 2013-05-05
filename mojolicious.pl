@@ -149,7 +149,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
     <pre class="prettyprint">  use Mojolicious::Lite;
 
   # Simple plain text response
-  get &#39;/&#39; =&gt; {text =&gt; &#39;Hello World!&#39;};
+  get &#39;/&#39; =&gt; {text =&gt; &#39;I ♥ Mojolicious!&#39;};
 
   # Route associating &quot;/time&quot; with template in DATA section
   get &#39;/time&#39; =&gt; &#39;clock&#39;;
