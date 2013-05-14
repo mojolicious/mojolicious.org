@@ -13,7 +13,7 @@ plugin 'PODRenderer';
 # Analytics
 hook before_routes => sub {
   my $self = shift;
-  $self->content_for(perldoc => $self->render_partial('analytics'));
+  $self->content_for(perldoc => $self->render('analytics', partial => 1));
 };
 
 # Redirect to main site
