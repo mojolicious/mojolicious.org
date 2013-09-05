@@ -119,7 +119,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
       </li>
     </ul>
     <h2>Installation</h2>
-    <p>All you need is a oneliner, it takes less than a minute.</p>
+    <p>All you need is a one-liner, it takes less than a minute.</p>
     <pre>  $ curl get.mojolicio.us | sh</pre>
     <p>
       We recommend the use of a <a href="http://perlbrew.pl">Perlbrew</a>
