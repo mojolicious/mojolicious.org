@@ -260,7 +260,7 @@ try {
       Mojolicious - Perl real-time web framework
     </title>
     %= javascript '/mojo/prettify/run_prettify.js'
-    %= stylesheet '/mojo/prettify/prettify-mojo-dark.css'
+    %= stylesheet '/mojo/prettify/prettify-mojo-light.css'
     %= stylesheet begin
       a { color: inherit }
       a:hover { color: #2a2a2a }
@@ -274,14 +274,12 @@ try {
         margin: 0;
       }
       pre {
-        background: url(<%= url_for '/mojo/pinstripe.gif' %>);
-        -moz-border-radius: 5px;
-        border-radius: 5px;
-        color: #eee;
+        border-left: 2px solid #eee;
+        color: #4d4d4c;
         font: 0.8em Consolas, Menlo, Monaco, Courier, monospace;
         line-height: 1.7em;
         text-align: left;
-        text-shadow: #333 0 1px 0;
+        text-shadow: #ddd 0 1px 0;
         padding-bottom: 1.5em;
         padding-top: 1.5em;
         white-space: pre-wrap;
