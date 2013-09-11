@@ -274,7 +274,7 @@ try {
         margin: 0;
       }
       pre {
-        border-left: 2px solid #eee;
+        border-left: 2px dotted #ccc;
         color: #4d4d4c;
         font: 0.8em Consolas, Menlo, Monaco, Courier, monospace;
         line-height: 1.7em;
