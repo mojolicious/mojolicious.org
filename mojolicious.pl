@@ -260,7 +260,7 @@ try {
       Mojolicious - Perl real-time web framework
     </title>
     %= javascript '/mojo/prettify/run_prettify.js'
-    %= stylesheet '/mojo/prettify/prettify-mojo.css'
+    %= stylesheet '/mojo/prettify/prettify-mojo-dark.css'
     %= stylesheet begin
       a { color: inherit }
       a:hover { color: #2a2a2a }
