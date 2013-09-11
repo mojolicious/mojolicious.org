@@ -270,14 +270,13 @@ try {
         margin: 0;
       }
       pre {
-        border-left: 2px dotted #ccc;
+        border-left: 1px solid #ccc;
         color: #4d4d4c;
         font: 0.8em Consolas, Menlo, Monaco, Courier, monospace;
         line-height: 1.7em;
         padding-bottom: 1.5em;
         padding-top: 1.5em;
         text-align: left;
-        text-shadow: #ddd 0 1px 0;
         white-space: pre-wrap;
       }
       #footer {
