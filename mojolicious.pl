@@ -272,7 +272,7 @@ try {
       pre {
         border-left: 1px solid #ccc;
         color: #4d4d4c;
-        font: 0.8em Consolas, Menlo, Monaco, Courier, monospace;
+        font: 0.9em Consolas, Menlo, Monaco, Courier, monospace;
         line-height: 1.7em;
         text-align: left;
         white-space: pre-wrap;
