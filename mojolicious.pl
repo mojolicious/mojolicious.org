@@ -272,7 +272,7 @@ try {
       pre {
         background: url(<%= url_for '/mojo/stripes.png' %>);
         border: 1px solid #d1d1d1;
-        box-shadow: 0 1px #fff, inset -1px 1px 2px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 1px #fff, inset -1px 1px 4px rgba(0, 0, 0, 0.1);
         color: #4d4d4c;
         font: 0.9em Consolas, Menlo, Monaco, Courier, monospace;
         line-height: 1.5em;
