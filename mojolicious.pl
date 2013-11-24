@@ -226,8 +226,8 @@ h1, h2, h3 {
 }
 #balloon {
   position: absolute;
-  right: 10%;
-  top: 220px;
+  right: 9%;
+  top: 245px;
 }
 #fun {
   background: url(../digitalforest.png) repeat-x;
