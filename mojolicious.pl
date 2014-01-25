@@ -178,9 +178,9 @@ websocket &#39;/echo&#39; =&gt; sub {
 };
 
 app-&gt;start;
-__DATA__
+<% %>__DATA__
 
-<%= '@@' %> clock.html.ep
+<% %>@@ clock.html.ep
 %% use Time::Piece;
 %% my $now = localtime;
 The time is &lt;%= $now-&gt;hms %&gt;.</pre>
