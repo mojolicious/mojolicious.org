@@ -116,74 +116,74 @@ curl -L cpanmin.us | perl - -n  Mojolicious
     </ul>
     <h2>Installation</h2>
     <p>All you need is a one-liner, it takes less than a minute.</p>
-    <pre>  $ curl get.mojolicio.us | sh</pre>
+    <pre>$ curl get.mojolicio.us | sh</pre>
     <p>
       We recommend the use of a <a href="http://perlbrew.pl">Perlbrew</a>
       environment.
     </p>
     <h2>Getting Started</h2>
     <p>These three lines are a whole web application.</p>
-    <pre class="prettyprint">  use Mojolicious::Lite;
+    <pre class="prettyprint">use Mojolicious::Lite;
 
-  get &#39;/&#39; =&gt; {text =&gt; &#39;Hello World!&#39;};
+get &#39;/&#39; =&gt; {text =&gt; &#39;Hello World!&#39;};
 
-  app-&gt;start;</pre>
+app-&gt;start;</pre>
     <p>
       To run this example with the built-in development web server just put
       the code into a file and start it with "morbo".
     </p>
-    <pre>  $ morbo hello.pl
-  Server available at http://127.0.0.1:3000.
+    <pre>$ morbo hello.pl
+Server available at http://127.0.0.1:3000.
 
-  $ curl http://127.0.0.1:3000/
-  Hello World!</pre>
+$ curl http://127.0.0.1:3000/
+Hello World!</pre>
     <h2>Duct tape for the HTML5 web</h2>
     <p>
       Web development for humans, making hard things possible and everything
       fun.
     </p>
-    <pre class="prettyprint">  use Mojolicious::Lite;
+    <pre class="prettyprint">use Mojolicious::Lite;
 
-  # Simple plain text response
-  get &#39;/&#39; =&gt; {text =&gt; &#39;I ♥ Mojolicious!&#39;};
+# Simple plain text response
+get &#39;/&#39; =&gt; {text =&gt; &#39;I ♥ Mojolicious!&#39;};
 
-  # Route associating &quot;/time&quot; with template in DATA section
-  get &#39;/time&#39; =&gt; &#39;clock&#39;;
+# Route associating &quot;/time&quot; with template in DATA section
+get &#39;/time&#39; =&gt; &#39;clock&#39;;
 
-  # RESTful web service with JSON and text representation
-  get &#39;/list/:offset&#39; =&gt; sub {
-    my $self    = shift;
-    my $numbers = [0 .. $self-&gt;param(&#39;offset&#39;)];
-    $self-&gt;respond_to(
-      json =&gt; {json =&gt; $numbers},
-      txt  =&gt; {text =&gt; join(&#39;,&#39;, @$numbers)}
-    );
-  };
+# RESTful web service with JSON and text representation
+get &#39;/list/:offset&#39; =&gt; sub {
+  my $self    = shift;
+  my $numbers = [0 .. $self-&gt;param(&#39;offset&#39;)];
+  $self-&gt;respond_to(
+    json =&gt; {json =&gt; $numbers},
+    txt  =&gt; {text =&gt; join(&#39;,&#39;, @$numbers)}
+  );
+};
 
-  # Scrape information from remote sites
-  post &#39;/title&#39; =&gt; sub {
-    my $self = shift;
-    my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
-    $self-&gt;render(
-      text =&gt; $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text);
-  };
+# Scrape information from remote sites
+post &#39;/title&#39; =&gt; sub {
+  my $self = shift;
+  my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
+  $self-&gt;render(
+    text =&gt; $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text);
+};
 
-  # WebSocket echo service
-  websocket &#39;/echo&#39; =&gt; sub {
-    my $self = shift;
-    $self-&gt;on(message =&gt; sub {
-      my ($self, $msg) = @_;
-      $self-&gt;send(&quot;echo: $msg&quot;);
-    });
-  };
+# WebSocket echo service
+websocket &#39;/echo&#39; =&gt; sub {
+  my $self = shift;
+  $self-&gt;on(message =&gt; sub {
+    my ($self, $msg) = @_;
+    $self-&gt;send(&quot;echo: $msg&quot;);
+  });
+};
 
-  app-&gt;start;
-  __DATA__
+app-&gt;start;
+__DATA__
 
-  @@ clock.html.ep
-  %% use Time::Piece;
-  %% my $now = localtime;
-  The time is &lt;%= $now-&gt;hms %&gt;.</pre>
+<%= '@@' %> clock.html.ep
+%% use Time::Piece;
+%% my $now = localtime;
+The time is &lt;%= $now-&gt;hms %&gt;.</pre>
     <p>
       Single file prototypes like this one can easily grow into
       well-structured applications.
