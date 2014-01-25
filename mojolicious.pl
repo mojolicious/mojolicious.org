@@ -295,6 +295,7 @@ try {
         color: #4d4d4c;
         font: 0.9em Consolas, Menlo, Monaco, Courier, monospace;
         line-height: 1.5em;
+        padding: 1em;
         padding-bottom: 1.5em;
         padding-top: 1.5em;
         text-align: left;
