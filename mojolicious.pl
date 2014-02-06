@@ -150,22 +150,12 @@ get &#39;/&#39; =&gt; {text =&gt; &#39;I ♥ Mojolicious!&#39;};
 # Route associating &quot;/time&quot; with template in DATA section
 get &#39;/time&#39; =&gt; &#39;clock&#39;;
 
-# RESTful web service with JSON and text representation
-get &#39;/list/:offset&#39; =&gt; sub {
-  my $self    = shift;
-  my $numbers = [0 .. $self-&gt;param(&#39;offset&#39;)];
-  $self-&gt;respond_to(
-    json =&gt; {json =&gt; $numbers},
-    txt  =&gt; {text =&gt; join(&#39;,&#39;, @$numbers)}
-  );
-};
-
 # Scrape information from remote sites
 post &#39;/title&#39; =&gt; sub {
   my $self = shift;
   my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
   $self-&gt;render(
-    text =&gt; $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text);
+    json =&gt; {title =&gt; $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text});
 };
 
 # WebSocket echo service
