@@ -152,10 +152,10 @@ get &#39;/time&#39; =&gt; &#39;clock&#39;;
 
 # Scrape information from remote sites
 post &#39;/title&#39; =&gt; sub {
-  my $self = shift;
-  my $url  = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
-  $self-&gt;render(
-    json =&gt; {title =&gt; $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text});
+  my $self  = shift;
+  my $url   = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
+  my $title = $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+  $self-&gt;render(json =&gt; {url =&gt; $url, title =&gt; $title});
 };
 
 # WebSocket echo service
