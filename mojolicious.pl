@@ -317,7 +317,7 @@ try {
   <Description>Search Mojolicious</Description>
   <InputEncoding>UTF-8</InputEncoding>
   <Image width="16" height="16" type="image/x-icon">
-    https://mojolicio.us/favicon.ico
+    http://mojolicio.us/favicon.ico
   </Image>
   <Url type="text/html" method="get"
     template="http://www.google.com/cse?cx=014527573091551588235%3Apwfplkjpgbi&amp;ie=UTF-8&amp;q=test#gsc.tab=0&amp;gsc.q={searchTerms}"/>
