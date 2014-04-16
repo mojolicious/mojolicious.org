@@ -265,6 +265,8 @@ try {
 @@ layouts/default.html.ep
 <!doctype html><html>
   <head>
+    <link rel="search" type="application/opensearchdescription+xml"
+      href="/opensearch.xml" title="Mojolicious" />
     <title>
       Mojolicious - Perl real-time web framework
     </title>
@@ -307,6 +309,20 @@ try {
   </head>
   <body><%= content %></body>
 </html>
+
+@@ opensearch.xml
+<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/"
+  xmlns:moz="http://www.mozilla.org/2006/browser/search/">
+  <ShortName>Mojolicious</ShortName>
+  <Description>Search Mojolicious</Description>
+  <InputEncoding>UTF-8</InputEncoding>
+  <Image width="16" height="16" type="image/x-icon">
+    https://mojolicio.us/favicon.ico
+  </Image>
+  <Url type="text/html" method="get"
+    template="http://www.google.com/cse?cx=014527573091551588235%3Apwfplkjpgbi&amp;ie=UTF-8&amp;q=test#gsc.tab=0&amp;gsc.q={searchTerms}"/>
+  <moz:SearchForm>http://mojolicio.us</moz:SearchForm>
+</OpenSearchDescription>
 
 @@ mojoconf.png (base64)
 iVBORw0KGgoAAAANSUhEUgAAAJUAAACVCAYAAABRorhPAAAKQWlDQ1BJQ0MgUHJvZmlsZQAASA2d
