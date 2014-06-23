@@ -7,32 +7,32 @@ plugin 'PODRenderer';
 
 # Analytics
 hook before_routes => sub {
-  my $self = shift;
-  $self->content_for(perldoc => $self->render_to_string('analytics'));
+  my $c = shift;
+  $c->content_for(perldoc => $c->render_to_string('analytics'));
 };
 
 # Redirect to main site
 hook before_dispatch => sub {
-  my $self = shift;
-  return unless $self->req->url->base->host =~ /^(.*)mojolicious.org$/;
-  $self->res->code(301);
-  $self->redirect_to($self->req->url->to_abs->host("$1mojolicio.us"));
+  my $c = shift;
+  return unless $c->req->url->base->host =~ /^(.*)mojolicious.org$/;
+  $c->res->code(301);
+  $c->redirect_to($c->req->url->to_abs->host("$1mojolicio.us"));
 };
 
 # Welcome to Mojolicious
 get '/' => sub {
-  my $self = shift;
+  my $c = shift;
 
   # Shortcut for "get.mojolicio.us"
-  return $self->render('installer', format => 'txt')
-    if $self->req->url->base->host =~ /^get\./;
+  return $c->render('installer', format => 'txt')
+    if $c->req->url->base->host =~ /^get\./;
 
   # Shortcut for "latest.mojolicio.us"
-  return $self->redirect_to('http://www.github.com/kraih/mojo/tarball/master')
-    if $self->req->url->base->host =~ /^latest\./;
+  return $c->redirect_to('http://www.github.com/kraih/mojo/tarball/master')
+    if $c->req->url->base->host =~ /^latest\./;
 
   # Index
-  $self->render('index');
+  $c->render('index');
 };
 
 app->start;
@@ -152,18 +152,18 @@ get &#39;/time&#39; =&gt; &#39;clock&#39;;
 
 # Scrape information from remote sites
 post &#39;/title&#39; =&gt; sub {
-  my $self  = shift;
-  my $url   = $self-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
-  my $title = $self-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
-  $self-&gt;render(json =&gt; {url =&gt; $url, title =&gt; $title});
+  my $c     = shift;
+  my $url   = $c-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
+  my $title = $c-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+  $c-&gt;render(json =&gt; {url =&gt; $url, title =&gt; $title});
 };
 
 # WebSocket echo service
 websocket &#39;/echo&#39; =&gt; sub {
-  my $self = shift;
-  $self-&gt;on(message =&gt; sub {
-    my ($self, $msg) = @_;
-    $self-&gt;send(&quot;echo: $msg&quot;);
+  my $c = shift;
+  $c-&gt;on(message =&gt; sub {
+    my ($c, $msg) = @_;
+    $c-&gt;send(&quot;echo: $msg&quot;);
   });
 };
 
