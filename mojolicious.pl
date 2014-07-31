@@ -97,7 +97,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
       </li>
       <li>
         Full stack HTTP and WebSocket client/server implementation with IPv6,
-        TLS, SNI, IDNA, Comet (long polling), HTTP/SOCKS5 proxy, keep-alive,
+        TLS, SNI, IDNA, HTTP/SOCKS5 proxy, Comet (long polling), keep-alive,
         connection pooling, timeout, cookie, multipart and gzip compression
         support.
       </li>
