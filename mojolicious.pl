@@ -91,9 +91,9 @@ curl -L cpanmin.us | perl - -n  Mojolicious
       </li>
       <li>
         Very clean, portable and Object Oriented pure-Perl API without any
-        hidden magic and no requirements besides Perl 5.10.1 (although 5.18+
-        is recommended, and optional CPAN modules will be used to provide
-        advanced functionality if they are installed).
+        hidden magic and no requirements besides Perl 5.18.0 (versions as old
+        as 5.10.1 can be used too, but may require additional CPAN modules to
+        be installed)
       </li>
       <li>
         Full stack HTTP and WebSocket client/server implementation with IPv6,
