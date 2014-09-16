@@ -126,7 +126,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
     <p>These three lines are a whole web application.</p>
     <pre class="prettyprint">use Mojolicious::Lite;
 
-get &#39;/&#39; =&gt; {text =&gt; &#39;Hello World!&#39;};
+get &#39;/&#39; =&gt; {text =&gt; &#39;I ♥ Mojolicious!&#39;};
 
 app-&gt;start;</pre>
     <p>
