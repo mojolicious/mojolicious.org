@@ -137,7 +137,7 @@ app-&gt;start;</pre>
 Server available at http://127.0.0.1:3000.
 
 $ curl http://127.0.0.1:3000/
-Hello World!</pre>
+I ♥ Mojolicious!</pre>
     <h2>Duct tape for the HTML5 web</h2>
     <p>
       Web development for humans, making hard things possible and everything
@@ -145,36 +145,33 @@ Hello World!</pre>
     </p>
     <pre class="prettyprint">use Mojolicious::Lite;
 
-# Simple plain text response
-get &#39;/&#39; =&gt; {text =&gt; &#39;I ♥ Mojolicious!&#39;};
+# Route associating &quot;/&quot; with template in DATA section
+get &#39;/&#39; =&gt; &#39;fetch&#39;;
 
-# Route associating &quot;/time&quot; with template in DATA section
-get &#39;/time&#39; =&gt; &#39;clock&#39;;
-
-# Scrape information from remote sites
-post &#39;/title&#39; =&gt; sub {
-  my $c     = shift;
-  my $url   = $c-&gt;param(&#39;url&#39;) || &#39;http://mojolicio.us&#39;;
-  my $title = $c-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
-  $c-&gt;render(json =&gt; {url =&gt; $url, title =&gt; $title});
-};
-
-# WebSocket echo service
-websocket &#39;/echo&#39; =&gt; sub {
+# WebSocket service scraping information from remote site
+websocket &#39;/title&#39; =&gt; sub {
   my $c = shift;
   $c-&gt;on(message =&gt; sub {
-    my ($c, $msg) = @_;
-    $c-&gt;send(&quot;echo: $msg&quot;);
+    my ($c, $url) = @_;
+    my $title = $c-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+    $c-&gt;send($title);
   });
 };
 
 app-&gt;start;
-<% %>__DATA__
+__DATA__
 
-<% %>@@ clock.html.ep
-%% use Time::Piece;
-%% my $now = localtime;
-The time is &lt;%= $now-&gt;hms %&gt;.</pre>
+@@ fetch.html.ep
+% my $websocket = url_for &#39;title&#39;;
+&lt;script&gt;
+  var ws = new WebSocket(&#39;&lt;%= $websocket-&gt;to_abs %&gt;&#39;);
+  ws.onmessage = function (event) {
+    document.body.innerHTML += event.data;
+  };
+  ws.onopen = function () {
+    ws.send(&#39;http://mojolicio.us&#39;);
+  };
+&lt;/script&gt;</pre>
     <p>
       Single file prototypes like this one can easily grow into
       well-structured applications.
