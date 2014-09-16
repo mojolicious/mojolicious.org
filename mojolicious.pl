@@ -159,10 +159,10 @@ websocket &#39;/title&#39; =&gt; sub {
 };
 
 app-&gt;start;
-__DATA__
+<% %>__DATA__
 
-@@ fetch.html.ep
-% my $websocket = url_for &#39;title&#39;;
+<% %>@@ fetch.html.ep
+%% my $websocket = url_for &#39;title&#39;;
 &lt;script&gt;
   var ws = new WebSocket(&#39;&lt;%= $websocket-&gt;to_abs %&gt;&#39;);
   ws.onmessage = function (event) {
