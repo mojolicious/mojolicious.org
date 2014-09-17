@@ -146,7 +146,7 @@ I ♥ Mojolicious!</pre>
     <pre class="prettyprint">use Mojolicious::Lite;
 
 # Route associating &quot;/&quot; with template in DATA section
-get &#39;/&#39; =&gt; &#39;fetch&#39;;
+get &#39;/&#39; =&gt; &#39;root&#39;;
 
 # WebSocket service scraping information from remote site
 websocket &#39;/title&#39; =&gt; sub {
@@ -161,7 +161,7 @@ websocket &#39;/title&#39; =&gt; sub {
 app-&gt;start;
 <% %>__DATA__
 
-<% %>@@ fetch.html.ep
+<% %>@@ root.html.ep
 %% my $websocket = url_for &#39;title&#39;;
 &lt;script&gt;
   var ws = new WebSocket(&#39;&lt;%= $websocket-&gt;to_abs %&gt;&#39;);
