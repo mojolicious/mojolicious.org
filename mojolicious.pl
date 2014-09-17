@@ -131,7 +131,7 @@ get &#39;/&#39; =&gt; {text =&gt; &#39;I ♥ Mojolicious!&#39;};
 app-&gt;start;</pre>
     <p>
       To run this example with the built-in development web server just put
-      the code into a file and start it with "morbo".
+      the code into a file and start it with <code>morbo</code>.
     </p>
     <pre>$ morbo hello.pl
 Server available at http://127.0.0.1:3000.
@@ -276,6 +276,12 @@ try {
         font-weight: normal;
         line-height: 1.5em;
         margin: 0;
+      }
+      code {
+        background-color: rgba(0, 0, 0, 0.04);
+        border-radius: 3px;
+        font: 0.9em Consolas, Menlo, Monaco, Courier, monospace;
+        padding: 0.3em;
       }
       pre {
         background: url(<%= url_for '/mojo/stripes.png' %>);
