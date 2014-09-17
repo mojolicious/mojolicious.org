@@ -145,10 +145,10 @@ I ♥ Mojolicious!</pre>
     </p>
     <pre class="prettyprint">use Mojolicious::Lite;
 
-# Route associating &quot;/&quot; with template in DATA section
+# Route connecting &quot;/&quot; with a template in the DATA section
 get &#39;/&#39; =&gt; &#39;index&#39;;
 
-# WebSocket service scraping information from remote site
+# WebSocket service scraping information from a web site
 websocket &#39;/title&#39; =&gt; sub {
   my $c = shift;
   $c-&gt;on(message =&gt; sub {
