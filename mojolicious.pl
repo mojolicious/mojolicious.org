@@ -148,7 +148,7 @@ I ♥ Mojolicious!</pre>
 # Render template &quot;index.html.ep&quot; from the DATA section
 get &#39;/&#39; =&gt; {template =&gt; &#39;index&#39;};
 
-# WebSocket service extracting the title from a web site
+# WebSocket service used by the template to extract the title from a web site
 websocket &#39;/title&#39; =&gt; sub {
   my $c = shift;
   $c-&gt;on(message =&gt; sub {
