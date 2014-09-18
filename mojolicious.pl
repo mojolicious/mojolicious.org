@@ -140,8 +140,8 @@ $ curl http://127.0.0.1:3000/
 I ♥ Mojolicious!</pre>
     <h2>Duct tape for the HTML5 web</h2>
     <p>
-      Web development for humans, making hard things possible and everything
-      fun.
+      Single file prototypes like this one can easily grow into
+      well-structured applications.
     </p>
     <pre class="prettyprint">use Mojolicious::Lite;
 
@@ -172,10 +172,6 @@ app-&gt;start;
     ws.send(&#39;http://mojolicio.us&#39;);
   };
 &lt;/script&gt;</pre>
-    <p>
-      Single file prototypes like this one can easily grow into
-      well-structured applications.
-    </p>
     <h1>Want to know more?</h1>
     <p>
       Take a look at our excellent
