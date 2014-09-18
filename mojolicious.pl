@@ -165,12 +165,8 @@ app-&gt;start;
 %% my $websocket = url_for &#39;title&#39;;
 &lt;script&gt;
   var ws = new WebSocket(&#39;&lt;%= $websocket-&gt;to_abs %&gt;&#39;);
-  ws.onmessage = function (event) {
-    document.body.innerHTML += event.data;
-  };
-  ws.onopen = function () {
-    ws.send(&#39;http://mojolicio.us&#39;);
-  };
+  ws.onmessage = function (event) { document.body.innerHTML += event.data };
+  ws.onopen    = function (event) { ws.send(&#39;http://mojolicio.us&#39;) };
 &lt;/script&gt;</pre>
     <h1>Want to know more?</h1>
     <p>
