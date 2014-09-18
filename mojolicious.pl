@@ -146,7 +146,7 @@ I ♥ Mojolicious!</pre>
     <pre class="prettyprint">use Mojolicious::Lite;
 
 # Route connecting &quot;/&quot; with a template in the DATA section
-get &#39;/&#39; =&gt; &#39;index&#39;;
+get &#39;/&#39; =&gt; {template =&gt; &#39;index&#39;};
 
 # WebSocket service scraping information from a web site
 websocket &#39;/title&#39; =&gt; sub {
