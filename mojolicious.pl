@@ -152,8 +152,8 @@ get &#39;/&#39; =&gt; {template =&gt; &#39;index&#39;};
 websocket &#39;/title&#39; =&gt; sub {
   my $c = shift;
   $c-&gt;on(message =&gt; sub {
-    my ($c, $url) = @_;
-    my $title = $c-&gt;ua-&gt;get($url)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+    my ($c, $msg) = @_;
+    my $title = $c-&gt;ua-&gt;get($msg)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
     $c-&gt;send($title);
   });
 };
@@ -162,9 +162,9 @@ app-&gt;start;
 <% %>__DATA__
 
 <% %>@@ index.html.ep
-%% my $websocket = url_for &#39;title&#39;;
+%% my $url = url_for &#39;title&#39;;
 &lt;script&gt;
-  var ws = new WebSocket(&#39;&lt;%= $websocket-&gt;to_abs %&gt;&#39;);
+  var ws = new WebSocket(&#39;&lt;%= $url-&gt;to_abs %&gt;&#39;);
   ws.onmessage = function (event) { document.body.innerHTML += event.data };
   ws.onopen    = function (event) { ws.send(&#39;http://mojolicio.us&#39;) };
 &lt;/script&gt;</pre>
