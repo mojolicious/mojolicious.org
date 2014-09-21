@@ -143,16 +143,16 @@ I ♥ Mojolicious!</pre>
       Single file prototypes like this one can easily grow into
       well-structured applications.
     </p>
-    <pre class="prettyprint">use Mojolicious::Lite;
+    <pre class="prettyprint">use 5.20.0;
+use experimental &#39;signatures&#39;;
+use Mojolicious::Lite;
 
 # Render template &quot;index.html.ep&quot; from the DATA section
 get &#39;/&#39; =&gt; {template =&gt; &#39;index&#39;};
 
 # WebSocket service used by the template to extract the title from a web site
-websocket &#39;/title&#39; =&gt; sub {
-  my $c = shift;
-  $c-&gt;on(message =&gt; sub {
-    my ($c, $msg) = @_;
+websocket &#39;/title&#39; =&gt; sub ($c) {
+  $c-&gt;on(message =&gt; sub ($c, $msg) {
     my $title = $c-&gt;ua-&gt;get($msg)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
     $c-&gt;send($title);
   });
