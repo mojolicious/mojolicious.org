@@ -143,9 +143,9 @@ I ♥ Mojolicious!</pre>
       Single file prototypes like this one can easily grow into
       well-structured applications.
     </p>
-    <pre class="prettyprint">use 5.20.0;
+    <pre class="prettyprint">use Mojolicious::Lite;
+use 5.20.0;
 use experimental &#39;signatures&#39;;
-use Mojolicious::Lite;
 
 # Render template &quot;index.html.ep&quot; from the DATA section
 get &#39;/&#39; =&gt; {template =&gt; &#39;index&#39;};
