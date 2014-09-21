@@ -140,7 +140,7 @@ $ curl http://127.0.0.1:3000/
 I ♥ Mojolicious!</pre>
     <h2>Duct tape for the HTML5 web</h2>
     <p>
-      Use the latest Perl and HTML features in single file prototypes like
+      Use all the latest Perl and HTML features in single file prototypes like
       this one and grow them easily into well-structured applications.
     </p>
     <pre class="prettyprint">use Mojolicious::Lite;
