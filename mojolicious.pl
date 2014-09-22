@@ -67,10 +67,10 @@ curl -L cpanmin.us | perl - -n  Mojolicious
     <p>
       Back in the early days of the web, many people learned Perl because of a
       wonderful Perl library called
-      <a href="http://metacpan.org/module/CGI">CGI</a>. It was simple enough
-      to get started without knowing much about the language and powerful
-      enough to keep you going, learning by doing was much fun. While most of
-      the techniques used are outdated now, the idea behind it is not.
+      <a href="http://metacpan.org/module/CGI" target="_blank">CGI</a>. It was
+      simple enough to get started without knowing much about the language and
+      powerful enough to keep you going, learning by doing was much fun. While
+      most of the techniques used are outdated now, the idea behind it is not.
       Mojolicious is a new attempt at implementing this idea using state of
       the art technology.
     </p>
@@ -107,20 +107,21 @@ curl -L cpanmin.us | perl - -n  Mojolicious
         embedding.
       </li>
       <li>
-        Automatic CGI and <a href="http://plackperl.org">PSGI</a> detection.
+        Automatic CGI and
+        <a href="http://plackperl.org" target="_blank">PSGI</a> detection.
       </li>
       <li>JSON and HTML/XML parser with CSS selector support.</li>
       <li>
         Fresh code based upon years of experience developing
-        <a href="http://catalystframework.org">Catalyst</a>.
+        <a href="http://catalystframework.org" target="_blank">Catalyst</a>.
       </li>
     </ul>
     <h2>Installation</h2>
     <p>All you need is a one-liner, it takes less than a minute.</p>
     <pre>$ curl get.mojolicio.us | sh</pre>
     <p>
-      We recommend the use of a <a href="http://perlbrew.pl">Perlbrew</a>
-      environment.
+      We recommend the use of a
+      <a href="http://perlbrew.pl" target="_blank">Perlbrew</a> environment.
     </p>
     <h2>Getting Started</h2>
     <p>These three lines are a whole web application.</p>
@@ -172,9 +173,7 @@ app-&gt;start;
       Perl might be over 25 years old, but it is still an evolving language
       with a yearly release cycle. We strongly recommend that you update
       regularly.
-      <a href="https://metacpan.org/pod/distribution/perl/pod/perlsub.pod#Signatures">
-        Subroutine signatures
-      </a>
+      <a href="https://metacpan.org/pod/distribution/perl/pod/perlsub.pod#Signatures" target="_blank">Subroutine signatures</a>
       is just one of many new features.
     </p>
     <h1>Want to know more?</h1>
