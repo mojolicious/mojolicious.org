@@ -168,6 +168,15 @@ app-&gt;start;
   ws.onmessage = function (event) { document.body.innerHTML += event.data };
   ws.onopen    = function (event) { ws.send(&#39;http://mojolicio.us&#39;) };
 &lt;/script&gt;</pre>
+    <p>
+      Perl might be over 25 years old, but it is still an evolving language
+      with a yearly release cycle. We strongly recommend that you update
+      regularly.
+      <a href="https://metacpan.org/pod/distribution/perl/pod/perlsub.pod#Signatures">
+        Subroutine signatures
+      </a>
+      is just one of many new features.
+    </p>
     <h1>Want to know more?</h1>
     <p>
       Take a look at our excellent
