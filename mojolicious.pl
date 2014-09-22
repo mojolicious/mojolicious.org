@@ -78,8 +78,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
     <ul>
       <li>
         An amazing real-time web framework, allowing you to easily grow single
-        file <a href="perldoc/Mojolicious/Lite">Mojolicious::Lite</a>
-        prototypes into well structured web applications.
+        file prototypes into well-structured web applications.
         <blockquote>
           <p>
             Powerful out of the box with RESTful routes, plugins, commands,
