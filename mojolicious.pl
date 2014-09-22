@@ -140,8 +140,9 @@ $ curl http://127.0.0.1:3000/
 I ♥ Mojolicious!</pre>
     <h2>Duct tape for the HTML5 web</h2>
     <p>
-      Use all the latest Perl and HTML features in single file prototypes like
-      this one and grow them easily into well-structured applications.
+      Use all the latest Perl and HTML features in beautiful single file
+      prototypes like this one, and grow them easily into well-structured
+      applications.
     </p>
     <pre class="prettyprint">use Mojolicious::Lite;
 use 5.20.0;
@@ -168,13 +169,6 @@ app-&gt;start;
   ws.onmessage = function (event) { document.body.innerHTML += event.data };
   ws.onopen    = function (event) { ws.send(&#39;http://mojolicio.us&#39;) };
 &lt;/script&gt;</pre>
-    <p>
-      Perl might be over 25 years old, but it is still an evolving language
-      with a yearly release cycle. We strongly recommend that you update
-      regularly.
-      <a href="https://metacpan.org/pod/distribution/perl/pod/perlsub.pod#Signatures" target="_blank">Subroutine signatures</a>
-      is just one of many new features.
-    </p>
     <h1>Want to know more?</h1>
     <p>
       Take a look at our excellent
