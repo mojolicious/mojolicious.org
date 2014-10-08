@@ -133,7 +133,7 @@ app-&gt;start;</pre>
       To run this example with the built-in development web server just put
       the code into a file and start it with <code>morbo</code>.
     </p>
-    <pre>$ morbo ./hello.pl
+    <pre>$ morbo hello.pl
 Server available at http://127.0.0.1:3000.
 
 $ curl http://127.0.0.1:3000/
