@@ -47,7 +47,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
 % content_for header => begin
   %= stylesheet '/css/index.css'
 % end
-<a href="http://github.com/kraih/mojo">
+<a href="https://github.com/kraih/mojo">
   <img style="position: absolute; top: 0; right: 0; border: 0;"
     src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png"
     alt="Fork me on GitHub">
@@ -67,12 +67,12 @@ curl -L cpanmin.us | perl - -n  Mojolicious
     <p>
       Back in the early days of the web, many people learned Perl because of a
       wonderful Perl library called
-      <a href="http://metacpan.org/module/CGI" target="_blank">CGI</a>. It was
-      simple enough to get started without knowing much about the language and
-      powerful enough to keep you going, learning by doing was much fun. While
-      most of the techniques used are outdated now, the idea behind it is not.
-      Mojolicious is a new attempt at implementing this idea using state of
-      the art technology.
+      <a href="https://metacpan.org/module/CGI" target="_blank">CGI</a>. It
+      was simple enough to get started without knowing much about the language
+      and powerful enough to keep you going, learning by doing was much fun.
+      While most of the techniques used are outdated now, the idea behind it
+      is not. Mojolicious is a new attempt at implementing this idea using
+      state of the art technology.
     </p>
     <h2>Features</h2>
     <ul>
