@@ -28,7 +28,7 @@ get '/' => sub {
     if $c->req->url->base->host =~ /^get\./;
 
   # Shortcut for "latest.mojolicio.us"
-  return $c->redirect_to('http://www.github.com/kraih/mojo/tarball/master')
+  return $c->redirect_to('https://www.github.com/kraih/mojo/tarball/master')
     if $c->req->url->base->host =~ /^latest\./;
 
   # Index
@@ -53,7 +53,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
     alt="Fork me on GitHub">
 </a>
 <div id="fun">
-  %= link_to 'http://latest.mojolicio.us' => begin
+  %= link_to 'https://www.github.com/kraih/mojo/tarball/master' => begin
     %= image '/unicorn.png'
   % end
   %= image '/balloon.png', id => 'balloon';
