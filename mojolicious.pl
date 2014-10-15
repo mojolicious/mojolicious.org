@@ -118,6 +118,8 @@ curl -L cpanmin.us | perl - -n  Mojolicious
     <h2>Installation</h2>
     <p>All you need is a one-liner, it takes less than a minute.</p>
     <pre>$ curl get.mojolicio.us | sh</pre>
+    <p>And if you already have `cpanm` installed with a secure toolchain.</p>
+    <pre>$ cpanm -n --mirror https://cpan.metacpan.org/ --mirror-only --verify Mojolicious</pre>
     <p>
       We recommend the use of a
       <a href="http://perlbrew.pl" target="_blank">Perlbrew</a> environment.
