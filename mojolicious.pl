@@ -122,7 +122,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
       And if you already have <code>cpanm</code> installed with a secure
       toolchain.
     </p>
-    <pre>$ cpanm --mirror https://cpan.metacpan.org/ --mirror-only --verify -n Mojolicious</pre>
+    <pre>$ cpanm --mirror https://cpan.metacpan.org --mirror-only --verify -n Mojolicious</pre>
     <p>
       We recommend the use of a
       <a href="http://perlbrew.pl" target="_blank">Perlbrew</a> environment.
