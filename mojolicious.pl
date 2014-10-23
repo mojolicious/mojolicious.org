@@ -89,7 +89,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
         </blockquote>
       </li>
       <li>
-        Very clean, portable and Object Oriented pure-Perl API with no hidden
+        Very clean, portable and Object-Oriented pure-Perl API with no hidden
         magic and no requirements besides Perl 5.18.0 (versions as old as
         5.10.1 can be used too, but may require additional CPAN modules to be
         installed)
