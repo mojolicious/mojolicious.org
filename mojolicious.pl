@@ -40,7 +40,7 @@ __DATA__
 
 @@ installer.txt.ep
 #!/bin/sh
-curl -L cpanmin.us | perl - -n  Mojolicious
+curl -L https://cpanmin.us | perl - -n  Mojolicious
 
 @@ index.html.ep
 % layout 'default';
@@ -122,7 +122,7 @@ curl -L cpanmin.us | perl - -n  Mojolicious
     </ul>
     <h2>Installation</h2>
     <p>All you need is a one-liner, it takes less than a minute.</p>
-    <pre>$ curl -L cpanmin.us | perl - -n Mojolicious</pre>
+    <pre>$ curl -L https://cpanmin.us | perl - -n Mojolicious</pre>
     <p>
       And if you already have <code>cpanm</code> installed with a secure
       toolchain.
