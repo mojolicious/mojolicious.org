@@ -40,7 +40,7 @@ __DATA__
 
 @@ installer.txt.ep
 #!/bin/sh
-curl -L https://cpanmin.us | perl - --mirror https://cpan.metacpan.org --mirror-only -n Mojolicious
+curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
 
 @@ index.html.ep
 % layout 'default';
@@ -122,7 +122,7 @@ curl -L https://cpanmin.us | perl - --mirror https://cpan.metacpan.org --mirror-
     </ul>
     <h2>Installation</h2>
     <p>All you need is a one-liner, it takes less than a minute.</p>
-    <pre>$ curl -L https://cpanmin.us | perl - --mirror https://cpan.metacpan.org --mirror-only -n Mojolicious</pre>
+    <pre>$ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious</pre>
     <p>
       We recommend the use of a
       <a href="http://perlbrew.pl" target="_blank">Perlbrew</a> environment.
