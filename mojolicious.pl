@@ -124,11 +124,6 @@ curl -L https://cpanmin.us | perl - --mirror https://cpan.metacpan.org --mirror-
     <p>All you need is a one-liner, it takes less than a minute.</p>
     <pre>$ curl -L https://cpanmin.us | perl - --mirror https://cpan.metacpan.org --mirror-only -n Mojolicious</pre>
     <p>
-      And if you already have <code>cpanm</code> installed with a secure
-      toolchain.
-    </p>
-    <pre>$ cpanm --mirror https://cpan.metacpan.org --mirror-only -n Mojolicious</pre>
-    <p>
       We recommend the use of a
       <a href="http://perlbrew.pl" target="_blank">Perlbrew</a> environment.
     </p>
