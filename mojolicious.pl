@@ -58,7 +58,7 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
     alt="Fork me on GitHub">
 </a>
 <div id="fun">
-  %= link_to 'https://www.github.com/kraih/mojo/tarball/master' => begin
+  %= link_to 'https://metacpan.org/release/Mojolicious' => begin
     %= image '/unicorn.png'
   % end
   %= image '/balloon.png', id => 'balloon';
