@@ -122,34 +122,34 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
     </ul>
     <h2>Installation</h2>
     <p>All you need is a one-liner, it takes less than a minute.</p>
-    <pre>$ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious</pre>
+    <pre><code>$ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious</code></pre>
     <p>
       We recommend the use of a
       <a href="http://perlbrew.pl" target="_blank">Perlbrew</a> environment.
     </p>
     <h2>Getting Started</h2>
     <p>These three lines are a whole web application.</p>
-    <pre class="prettyprint">use Mojolicious::Lite;
+    <pre><code class="prettyprint">use Mojolicious::Lite;
 
 get &#39;/&#39; =&gt; {text =&gt; &#39;I ♥ Mojolicious!&#39;};
 
-app-&gt;start;</pre>
+app-&gt;start;</code></pre>
     <p>
       To run this example with the built-in development web server just put
       the code into a file and start it with <code>morbo</code>.
     </p>
-    <pre>$ morbo hello.pl
+    <pre><code>$ morbo hello.pl
 Server available at http://127.0.0.1:3000
 
 $ curl http://127.0.0.1:3000/
-I ♥ Mojolicious!</pre>
+I ♥ Mojolicious!</code></pre>
     <h2>Duct tape for the HTML5 web</h2>
     <p>
       Use all the latest Perl and HTML features in beautiful single file
       prototypes like this one, and grow them easily into well-structured
       applications.
     </p>
-    <pre class="prettyprint">use Mojolicious::Lite;
+    <pre><code class="prettyprint">use Mojolicious::Lite;
 use 5.20.0;
 use experimental &#39;signatures&#39;;
 
@@ -173,7 +173,7 @@ app-&gt;start;
   var ws = new WebSocket(&#39;&lt;%= $url-&gt;to_abs %&gt;&#39;);
   ws.onmessage = function (event) { document.body.innerHTML += event.data };
   ws.onopen    = function (event) { ws.send(&#39;http://mojolicio.us&#39;) };
-&lt;/script&gt;</pre>
+&lt;/script&gt;</code></pre>
     <h1>Want to know more?</h1>
     <p>
       Take a look at our excellent
@@ -275,7 +275,7 @@ try {
         line-height: 1.5em;
         margin: 0;
       }
-      code {
+      :not(pre) > code {
         background-color: rgba(0, 0, 0, 0.04);
         border-radius: 3px;
         font: 0.9em Consolas, Menlo, Monaco, Courier, monospace;
@@ -286,12 +286,15 @@ try {
         border: 1px solid #d1d1d1;
         border-radius: 3px;
         box-shadow: 0 1px #fff, inset -1px 1px 4px rgba(0, 0, 0, 0.1);
-        color: #4d4d4c;
-        font: 0.9em Consolas, Menlo, Monaco, Courier, monospace;
-        line-height: 1.5em;
+        font: 100% Consolas, Menlo, Monaco, Courier, monospace;
         padding: 1em;
         padding-bottom: 1.5em;
         padding-top: 1.5em;
+      }
+      pre > code {
+        color: #4d4d4c;
+        font: 0.9em Consolas, Menlo, Monaco, Courier, monospace;
+        line-height: 1.5em;
         text-align: left;
         text-shadow: #eee 0 1px 0;
         white-space: pre-wrap;
