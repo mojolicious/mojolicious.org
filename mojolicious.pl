@@ -222,9 +222,9 @@ h1, h2, h3 {
 }
 #introduction {
   background-color: #fff;
+  border: solid #ccb 1px;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  box-shadow: 0px 0px 2px #999;
   margin-left: 5em;
   margin-right: 5em;
   margin-top: 1em;
