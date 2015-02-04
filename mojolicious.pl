@@ -69,9 +69,11 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
       is not. Mojolicious is a new attempt at implementing this idea using
       state of the art technology.
     </p>
-    <a href="http://kraih.spreadshirt.com">
-      <img src="/t-shirt.png" alt="Get T-Shirts" style="float: right; padding: 1em">
-    </a>
+    <div id="promotion">
+      <a href="http://kraih.spreadshirt.com">
+        <img src="/t-shirt.png" alt="Get T-Shirts">
+      </a>
+    </div>
     <h2>Features</h2>
     <ul>
       <li>
@@ -223,6 +225,11 @@ h1, h2, h3 {
   margin-top: 1em;
   padding: 3em;
   padding-top: 70px;
+}
+#promotion {
+  float: right;
+  padding: 3em;
+  padding-right: 0;
 }
 #wrapperlicious {
   max-width: 1000px;
