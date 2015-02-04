@@ -83,8 +83,10 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
           <p>
             Powerful out of the box with RESTful routes, plugins, commands,
             Perl-ish templates, content negotiation, session management,
-            form validation, testing framework, static file server, first
-            class Unicode support and much more for you to discover.
+            form validation, testing framework, static file server,
+            CGI/<a href="http://plackperl.org" target="_blank">PSGI</a>
+            detection, first class Unicode support and much more for you to
+            discover.
           </p>
         </blockquote>
       </li>
@@ -103,11 +105,7 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
       <li>
         Built-in non-blocking I/O web server, supporting multiple event loops
         as well as optional preforking and hot deployment, perfect for
-        embedding.
-      </li>
-      <li>
-        Automatic CGI and
-        <a href="http://plackperl.org" target="_blank">PSGI</a> detection.
+        building highly scalable web services.
       </li>
       <li>JSON and HTML/XML parser with CSS selector support.</li>
       <li>
