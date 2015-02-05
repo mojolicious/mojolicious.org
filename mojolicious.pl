@@ -277,6 +277,11 @@ try {
         font: 0.9em Consolas, Menlo, Monaco, Courier, monospace;
         padding: 0.3em;
       }
+      h1, h2, h3 {
+        color: #2a2a2a;
+        font-size: 1.5em;
+        margin: 0;
+      }
       pre {
         background: url(<%= url_for '/mojo/stripes.png' %>);
         border: 1px solid #d1d1d1;
