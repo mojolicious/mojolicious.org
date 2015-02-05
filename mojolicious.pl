@@ -198,11 +198,6 @@ $(window).on("mousemove", function (e) {
 % end
 
 @@ css/index.css
-h1, h2, h3 {
-  color: #2a2a2a;
-  font-size: 1.5em;
-  margin: 0;
-}
 #balloon {
   position: absolute;
   right: 9%;
@@ -264,7 +259,7 @@ try {
     </title>
     %= javascript '/mojo/prettify/run_prettify.js'
     %= stylesheet '/mojo/prettify/prettify-mojo-light.css'
-    %= stylesheet begin
+    <style>
       a { color: inherit }
       a:hover { color: #2a2a2a }
       a img { border: 0 }
@@ -300,11 +295,12 @@ try {
         text-shadow: #eee 0 1px 0;
         white-space: pre-wrap;
       }
+      ul { list-style-type: square }
       #footer {
         padding-top: 1em;
         text-align: center;
       }
-    %= end
+    </style>
     %= content 'header'
     %= include 'analytics'
   </head>
