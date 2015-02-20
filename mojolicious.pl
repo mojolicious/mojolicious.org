@@ -288,8 +288,6 @@ try {
         border-radius: 3px;
         font: 100% Consolas, Menlo, Monaco, Courier, monospace;
         padding: 1em;
-        padding-bottom: 1.5em;
-        padding-top: 1.5em;
       }
       pre > code {
         color: #4d4d4c;
