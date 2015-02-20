@@ -210,7 +210,7 @@ $(window).on("mousemove", function (e) {
 }
 #introduction {
   background-color: #fff;
-  border: 1px solid #d1d1d1;
+  border: 1px solid #c1c1c1;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
   margin-left: 5em;
@@ -220,7 +220,7 @@ $(window).on("mousemove", function (e) {
   padding-top: 70px;
 }
 #promotion {
-  border-left: 2px dotted #d1d1d1;
+  border-left: 2px dotted #c1c1c1;
   float: right;
   margin: 3em;
   margin-right: 0;
@@ -284,9 +284,8 @@ try {
       }
       pre {
         background: url(<%= url_for '/mojo/stripes.png' %>);
-        border: 1px solid #d1d1d1;
+        border: 1px solid #c1c1c1;
         border-radius: 3px;
-        box-shadow: 0 1px #fff, inset -1px 1px 4px rgba(0, 0, 0, 0.1);
         font: 100% Consolas, Menlo, Monaco, Courier, monospace;
         padding: 1em;
         padding-bottom: 1.5em;
