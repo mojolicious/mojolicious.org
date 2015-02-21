@@ -66,8 +66,8 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
       was simple enough to get started without knowing much about the language
       and powerful enough to keep you going, learning by doing was much fun.
       While most of the techniques used are outdated now, the idea behind it
-      is not. Mojolicious is a new attempt at implementing this idea using
-      state of the art technology.
+      is not. Mojolicious is a new endeavor to implement this idea using
+      bleeding edge technologies.
     </p>
     <div id="promotion">
       <a href="http://kraih.spreadshirt.com">
