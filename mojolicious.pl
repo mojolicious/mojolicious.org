@@ -70,7 +70,7 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
       bleeding edge technologies.
     </p>
     <div id="promotion">
-      <a href="http://kraih.spreadshirt.com">
+      <a href="https://shop.spreadshirt.com/kraih/ ">
         <img src="/t-shirt.png" alt="Get T-Shirts">
       </a>
     </div>
