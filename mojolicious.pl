@@ -24,12 +24,21 @@ get '/' => sub {
   my $c = shift;
 
   # Shortcut for "get.mojolicio.us"
-  return $c->render('installer', format => 'txt')
-    if $c->req->url->base->host =~ /^get\./;
+  my $host = $c->req->url->base->host;
+  return $c->render('installer', format => 'txt') if $host =~ /^get\./;
 
   # Shortcut for "latest.mojolicio.us"
   return $c->redirect_to('https://www.github.com/kraih/mojo/tarball/master')
-    if $c->req->url->base->host =~ /^latest\./;
+    if $host =~ /^latest\./;
+
+  # Shortcut for "code-of-conduct.mojolicio.us"
+  return $c->redirect_to(
+    'http://mojolicio.us/perldoc/Mojolicious/Guides/Contributing#CODE-OF-CONDUCT'
+  ) if $host =~ /^code-of-conduct\./;
+
+  # Shortcut for "irclog.mojolicio.us"
+  return $c->redirect_to('http://irclog.perlgeek.de/mojo/today')
+    if $host =~ /^irclog\./;
 
   # Index
   $c->render('index');
