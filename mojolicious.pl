@@ -62,7 +62,7 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
   % end
   %= image '/balloon.png', id => 'balloon';
 </div>
-%= include 'mojo/mojobar'
+%= include 'mojo/menubar'
 <div id="wrapperlicious">
   <div id="introduction">
     <h1>
