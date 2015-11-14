@@ -119,7 +119,8 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
       <li>JSON and HTML/XML parser with CSS selector support.</li>
       <li>
         Fresh code based upon years of experience developing
-        <a href="http://catalystframework.org" target="_blank">Catalyst</a>.
+        <a href="http://catalystframework.org" target="_blank">Catalyst</a>,
+        free and open source.
       </li>
     </ul>
     <h2>Installation</h2>
