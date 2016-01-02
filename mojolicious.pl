@@ -14,29 +14,29 @@ hook before_routes => sub {
 # Redirect to main site
 hook before_dispatch => sub {
   my $c = shift;
-  return unless $c->req->url->base->host =~ /^(.*)mojolicious.org$/;
+  return unless $c->req->url->base->host =~ /^(.*)mojolicio.us$/;
   $c->res->code(301);
-  $c->redirect_to($c->req->url->to_abs->host("$1mojolicio.us"));
+  $c->redirect_to($c->req->url->to_abs->host("$1mojolicious.org"));
 };
 
 # Welcome to Mojolicious
 get '/' => sub {
   my $c = shift;
 
-  # Shortcut for "get.mojolicio.us"
+  # Shortcut for "get.mojolicious.org"
   my $host = $c->req->url->base->host;
   return $c->render('installer', format => 'txt') if $host =~ /^get\./;
 
-  # Shortcut for "latest.mojolicio.us"
+  # Shortcut for "latest.mojolicious.org"
   return $c->redirect_to('https://www.github.com/kraih/mojo/tarball/master')
     if $host =~ /^latest\./;
 
-  # Shortcut for "code-of-conduct.mojolicio.us"
+  # Shortcut for "code-of-conduct.mojolicious.org"
   return $c->redirect_to(
-    'http://mojolicio.us/perldoc/Mojolicious/Guides/Contributing#CODE-OF-CONDUCT'
+    'http://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#CODE-OF-CONDUCT'
   ) if $host =~ /^code-of-conduct\./;
 
-  # Shortcut for "irclog.mojolicio.us"
+  # Shortcut for "irclog.mojolicious.org"
   return $c->redirect_to('http://irclog.perlgeek.de/mojo/today')
     if $host =~ /^irclog\./;
 
@@ -175,17 +175,17 @@ app-&gt;start;
 &lt;script&gt;
   var ws = new WebSocket(&#39;&lt;%= $url-&gt;to_abs %&gt;&#39;);
   ws.onmessage = function (event) { document.body.innerHTML += event.data };
-  ws.onopen    = function (event) { ws.send(&#39;http://mojolicio.us&#39;) };
+  ws.onopen    = function (event) { ws.send(&#39;http://mojolicious.org&#39;) };
 &lt;/script&gt;</code></pre>
     <h1>Want to know more?</h1>
     <p>
       Take a look at our excellent
-      <a href="http://mojolicio.us/perldoc">documentation</a>!
+      <a href="http://mojolicious.org/perldoc">documentation</a>!
     </p>
   </div>
 </div>
 <div id="footer">
-  %= link_to 'http://mojolicio.us' => begin
+  %= link_to 'http://mojolicious.org' => begin
     %= image '/mojo/logo-black.png', alt => 'Mojolicious logo'
   % end
 </div>
@@ -326,11 +326,11 @@ try {
   <Description>Search Mojolicious</Description>
   <InputEncoding>UTF-8</InputEncoding>
   <Image width="16" height="16" type="image/x-icon">
-    http://mojolicio.us/favicon.ico
+    http://mojolicious.org/favicon.ico
   </Image>
   <Url type="text/html" method="get"
     template="http://www.google.com/cse?cx=014527573091551588235%3Apwfplkjpgbi&amp;ie=UTF-8&amp;q=test#gsc.tab=0&amp;gsc.q={searchTerms}"/>
-  <moz:SearchForm>http://mojolicio.us</moz:SearchForm>
+  <moz:SearchForm>http://mojolicious.org</moz:SearchForm>
 </OpenSearchDescription>
 
 @@ t-shirt.png (base64)

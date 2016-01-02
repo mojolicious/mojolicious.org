@@ -1,5 +1,5 @@
 
-  The [Mojolicious](http://mojolicio.us) website.
+  The [Mojolicious](http://mojolicious.org) website.
 
 ## Working Locally
 
@@ -8,9 +8,9 @@
     $ git clone git://github.com/kraih/mojolicio.us.git
     $ cd mojolicio.us
 
-  Install [Mojolicious](http://mojolicio.us).
+  Install [Mojolicious](http://mojolicious.org).
 
-    $ curl get.mojolicio.us | sh
+    $ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
 
   Start hacking.
 
@@ -18,7 +18,7 @@
 
 ## Copyright And License
 
-  Copyright (C) 2010-2014, Sebastian Riedel.
+  Copyright (C) 2010-2016, Sebastian Riedel.
 
   Licensed under the CC-NC-ND License, Version 4.0
   [http://creativecommons.org/licenses/by-nc-nd/4.0](http://creativecommons.org/licenses/by-nc-nd/4.0).
