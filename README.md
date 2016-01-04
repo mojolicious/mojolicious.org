@@ -5,8 +5,8 @@
 
   Clone the repository.
 
-    $ git clone git://github.com/kraih/mojolicio.us.git
-    $ cd mojolicio.us
+    $ git clone git://github.com/kraih/mojolicious.org.git
+    $ cd mojolicious.org
 
   Install [Mojolicious](http://mojolicious.org).
 
