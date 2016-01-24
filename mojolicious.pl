@@ -88,16 +88,34 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
       <li>
         An amazing real-time web framework, allowing you to easily grow single
         file prototypes into well-structured web applications.
-        <blockquote>
-          <p>
+        <ul>
+          <li>
             Powerful out of the box with RESTful routes, plugins, commands,
             Perl-ish templates, content negotiation, session management,
             form validation, testing framework, static file server,
             CGI/<a href="http://plackperl.org" target="_blank">PSGI</a>
             detection, first class Unicode support and much more for you to
             discover.
-          </p>
-        </blockquote>
+          </li>
+        </ul>
+      </li>
+      <li>
+        A powerful web development toolkit, that you can use for all kinds of
+        applications, independently of the web framework.
+        <ul>
+          <li>
+            Full stack HTTP and WebSocket client/server implementation with
+            IPv6, TLS, SNI, IDNA, HTTP/SOCKS5 proxy, Comet (long polling),
+            keep-alive, connection pooling, timeout, cookie, multipart and gzip
+            compression support.
+          </li>
+          <li>
+            Built-in non-blocking I/O web server, supporting multiple event
+            loops as well as optional preforking and hot deployment, perfect for
+            building highly scalable web services.
+          </li>
+          <li>JSON and HTML/XML parser with CSS selector support.</li>
+        </ul>
       </li>
       <li>
         Very clean, portable and object-oriented pure-Perl API with no hidden
@@ -105,18 +123,6 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
         5.10.1 can be used too, but may require additional CPAN modules to be
         installed)
       </li>
-      <li>
-        Full stack HTTP and WebSocket client/server implementation with IPv6,
-        TLS, SNI, IDNA, HTTP/SOCKS5 proxy, Comet (long polling), keep-alive,
-        connection pooling, timeout, cookie, multipart and gzip compression
-        support.
-      </li>
-      <li>
-        Built-in non-blocking I/O web server, supporting multiple event loops
-        as well as optional preforking and hot deployment, perfect for
-        building highly scalable web services.
-      </li>
-      <li>JSON and HTML/XML parser with CSS selector support.</li>
       <li>
         Fresh code based upon years of experience developing
         <a href="http://catalystframework.org" target="_blank">Catalyst</a>,
