@@ -86,8 +86,8 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
     <h2>Features</h2>
     <ul>
       <li>
-        An amazing real-time web framework, allowing you to easily grow single
-        file prototypes into well-structured web applications.
+        An amazing <b>real-time web framework</b>, allowing you to easily grow
+        single file prototypes into well-structured web applications.
         <ul>
           <li>
             Powerful out of the box with RESTful routes, plugins, commands,
@@ -100,8 +100,8 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
         </ul>
       </li>
       <li>
-        A powerful web development toolkit, that you can use for all kinds of
-        applications, independently of the web framework.
+        A powerful <b>web development toolkit</b>, that you can use for all
+        kinds of applications, independently of the web framework.
         <ul>
           <li>
             Full stack HTTP and WebSocket client/server implementation with
