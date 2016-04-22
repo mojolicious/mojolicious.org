@@ -183,8 +183,12 @@ app-&gt;start;
   ws.onmessage = function (event) { document.body.innerHTML += event.data };
   ws.onopen    = function (event) { ws.send(&#39;http://mojolicious.org&#39;) };
 &lt;/script&gt;</code></pre>
-  <div id="sponsors">
-    <div id="sponsored-by">Sponsored by</div>
+    <div id="sponsors">
+      <div id="sponsored-by">
+        <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#SPONSORSHIP">
+          Sponsored by
+        </a>
+      </div>
       %= link_to 'http://chameleonjohn.com' => begin
         %= image '/chameleon_john.png'
       % end
@@ -257,6 +261,7 @@ $(window).on("mousemove", function (e) {
   color: #2f2f2f;
   font: 0.7em 'Helvetica Neue', Helvetica, sans-serif;
 }
+#sponsored-by a { text-decoration: none }
 #wrapperlicious {
   max-width: 1000px;
   margin: 0 auto;
