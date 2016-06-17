@@ -189,7 +189,7 @@ app-&gt;start;
 &lt;/script&gt;</code></pre>
     <div id="sponsors">
       <div id="sponsored-by">
-        <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#SPONSORSHIP">
+        <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#DONATIONS">
           Sponsored by
         </a>
       </div>
