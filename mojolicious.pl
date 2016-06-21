@@ -193,8 +193,11 @@ app-&gt;start;
           Sponsored by
         </a>
       </div>
-      %= link_to 'http://chameleonjohn.com' => begin
+      %= link_to 'http://chameleonjohn.com' => (class => 'undecorated') => begin
         %= image '/chameleon_john.png'
+      % end
+      %= link_to 'http://tobi.com' => (class => 'undecorated') => begin
+        %= image '/tobi.png'
       % end
     </div>
     <h1>Want to know more?</h1>
@@ -264,6 +267,7 @@ $(window).on("mousemove", function (e) {
 #sponsored-by {
   color: #2f2f2f;
   font: 0.7em 'Helvetica Neue', Helvetica, sans-serif;
+  padding-bottom: 10px;
 }
 #sponsored-by a { text-decoration: none }
 #wrapperlicious {
@@ -512,6 +516,54 @@ GdrAF51U8Bn5WJ8Ep0+bR2+iicXbf0vM76UkXIqJhSWCeIQPiQLhoJFEnT30xZooDs7k+OrbKcmb
 gX8YsfqxrfFtdrQvoSdeh62ieE0/Wb4iRubWMCr/VDzecLrk/wXP5IuDfzixDgzDpPq84XPyHwgM
 k+rzhs8JsYbxecMwsYZxUDBMrGEcFAwTaxgHBcPEGsZBwTCxhnFQ8P8BitcFISkR8P0AAAAASUVO
 RK5CYII=
+
+@@ tobi.png (base64)
+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
+qgAAAABJRU5ErkJggg==
 
 @@ t-shirt.png (base64)
 iVBORw0KGgoAAAANSUhEUgAAAKgAAAD3CAIAAAAG8YjBAAABG2lUWHRYTUw6Y29tLmFkb2JlLnht
