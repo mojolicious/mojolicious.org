@@ -115,7 +115,7 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
           </li>
           <li>
             Built-in non-blocking I/O web server, supporting multiple event
-            loops as well as optional preforking and hot deployment, perfect for
+            loops as well as optional pre-forking and hot deployment, perfect for
             building highly scalable web services.
           </li>
           <li>JSON and HTML/XML parser with CSS selector support.</li>
