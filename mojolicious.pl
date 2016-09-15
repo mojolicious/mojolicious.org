@@ -64,7 +64,7 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
 </div>
 %= include 'mojo/menubar'
 <div id="wrapperlicious">
-  <div id="introduction">
+  <div class="box spaced" id="introduction">
     <h1>
       A next generation web framework for the Perl programming language.
     </h1>
@@ -248,15 +248,10 @@ $(window).on("mousemove", function (e) {
   text-align: center;
 }
 #introduction {
-  background-color: #fff;
-  border: 1px solid #c1c1c1;
   border-bottom-left-radius: 5px;
   border-bottom-right-radius: 5px;
-  margin-left: 5em;
-  margin-right: 5em;
   margin-top: 1em;
-  padding: 3em;
-  padding-bottom: 1em;
+  padding-bottom: 0;
   padding-top: 70px;
 }
 #promotion {
@@ -267,16 +262,36 @@ $(window).on("mousemove", function (e) {
   padding: 1em;
   padding-right: 0;
 }
-#sponsors { text-align: center }
+#sponsors {
+  text-align: justify;
+  padding-bottom: 0;
+  padding-top: 0.5em;
+}
+#sponsors:after {
+  content: "";
+  display: inline-block;
+  height: 0;
+  width: 100%;
+}
 #sponsored-by {
   color: #2f2f2f;
-  font: 0.7em 'Helvetica Neue', Helvetica, sans-serif;
-  padding-top: 10px;
+  font: 0.7em Verdana, sans-serif;
+  text-align: center;
 }
 #sponsored-by a { text-decoration: none }
 #wrapperlicious {
   max-width: 1000px;
   margin: 0 auto;
+}
+.box {
+  background-color: #fff;
+  border: 1px solid #c1c1c1;
+  overflow: hidden;
+  padding: 3em;
+}
+.spaced {
+  margin-left: 5em;
+  margin-right: 5em;
 }
 .undecorated { text-decoration: none }
 
