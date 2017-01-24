@@ -91,7 +91,7 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
     <ul>
       <li>
         An amazing <b>real-time web framework</b>, allowing you to easily grow
-        single file prototypes into well-structured web applications.
+        single file prototypes into well-structured MVC web applications.
         <ul>
           <li>
             Powerful out of the box with RESTful routes, plugins, commands,
