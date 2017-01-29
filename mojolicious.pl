@@ -172,7 +172,7 @@ get &#39;/&#39; =&gt; {template =&gt; &#39;index&#39;};
 # WebSocket service used by the template to extract the title from a web site
 websocket &#39;/title&#39; =&gt; sub ($c) {
   $c-&gt;on(message =&gt; sub ($c, $msg) {
-    my $title = $c-&gt;ua-&gt;get($msg)-&gt;res-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+    my $title = $c-&gt;ua-&gt;get($msg)-&gt;result-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
     $c-&gt;send($title);
   });
 };
