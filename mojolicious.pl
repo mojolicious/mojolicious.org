@@ -205,7 +205,7 @@ app-&gt;start;
         %= image '/tobi.png'
       % end
       %= link_to 'https://advancesystemsinc.com' => (class => 'undecorated') => begin
-        %= image '/advance.png'
+        %= image '/advance.png', alt => 'https://advancesystemsinc.com'
       % end
       %= link_to 'http://www.dealslands.co.uk' => (class => 'undecorated') => begin
         %= image '/dealslands.png', alt => 'Dealslands Promo code'
