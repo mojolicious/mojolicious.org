@@ -123,7 +123,7 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
       </li>
       <li>
         Very clean, portable and object-oriented pure-Perl API with no hidden
-        magic and no requirements besides Perl 5.22.0 (versions as old as
+        magic and no requirements besides Perl 5.24.0 (versions as old as
         5.10.1 can be used too, but may require additional CPAN modules to be
         installed)
       </li>
