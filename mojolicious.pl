@@ -14,7 +14,7 @@ hook before_routes => sub {
 # Redirect to main site
 hook before_dispatch => sub {
   my $c = shift;
-  return unless $c->req->url->base->host =~ /^(.*)mojolicio.us$/;
+  return unless ($c->req->url->base->host // '') =~ /^(.*)mojolicio.us$/;
   $c->res->code(301);
   $c->redirect_to($c->req->url->to_abs->host("$1mojolicious.org"));
 };
@@ -24,7 +24,7 @@ get '/' => sub {
   my $c = shift;
 
   # Shortcut for "get.mojolicious.org"
-  my $host = $c->req->url->base->host;
+  my $host = $c->req->url->base->host // '';
   return $c->render('installer', format => 'txt') if $host =~ /^get\./;
 
   # Shortcut for "latest.mojolicious.org"
