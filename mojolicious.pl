@@ -162,9 +162,7 @@ I ♥ Mojolicious!</code></pre>
       prototypes like this one, and grow them easily into well-structured
       applications.
     </p>
-    <pre><code class="prettyprint">use Mojolicious::Lite;
-use 5.20.0;
-use experimental &#39;signatures&#39;;
+    <pre><code class="prettyprint">use Mojolicious::Lite -signatures;
 
 # Render template &quot;index.html.ep&quot; from the DATA section
 get &#39;/&#39; =&gt; {template =&gt; &#39;index&#39;};
