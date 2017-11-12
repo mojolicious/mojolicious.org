@@ -369,7 +369,7 @@ try {
       }
       ul { list-style-type: square }
       #footer {
-        padding-top: 1em;
+        padding-top: 0.5em;
         text-align: center;
       }
     </style>
