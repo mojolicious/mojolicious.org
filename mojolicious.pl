@@ -353,7 +353,7 @@ try {
         margin: 0;
       }
       pre {
-        background: url(<%= url_for '/mojo/stripes.png' %>);
+        background-color: #fafafa;
         border: 1px solid #c1c1c1;
         border-radius: 3px;
         font: 100% Consolas, Menlo, Monaco, Courier, monospace;
