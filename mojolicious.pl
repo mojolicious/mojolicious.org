@@ -160,7 +160,7 @@ I ♥ Mojolicious!</code></pre>
     <p>
       Use all the latest Perl and HTML features in beautiful single file
       prototypes like this one, and grow them easily into well-structured
-      applications.
+      MVC web applications.
     </p>
     <pre><code class="prettyprint">use Mojolicious::Lite -signatures;
 
