@@ -165,7 +165,9 @@ I ♥ Mojolicious!</code></pre>
     <pre><code class="prettyprint">use Mojolicious::Lite -signatures;
 
 # Render template &quot;index.html.ep&quot; from the DATA section
-get &#39;/&#39; =&gt; {template =&gt; &#39;index&#39;};
+get &#39;/&#39; =&gt; sub ($c) {
+  $c-&gt;render(template =&gt; &#39;index&#39;);
+};
 
 # WebSocket service used by the template to extract the title from a web site
 websocket &#39;/title&#39; =&gt; sub ($c) {
