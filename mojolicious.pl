@@ -159,8 +159,12 @@ I ♥ Mojolicious!</code></pre>
     <h2>Duct tape for the HTML5 web</h2>
     <p>
       Use all the latest Perl and HTML features in beautiful single file
-      prototypes like this one, and grow them easily into well-structured
-      <b>Model-View-Controller</b> web applications.
+      prototypes like this one, and
+      <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Growing#Differences">
+        grow
+      </a>
+      them easily into well-structured <b>Model-View-Controller</b> web
+      applications.
     </p>
     <pre><code class="prettyprint">use Mojolicious::Lite -signatures;
 
