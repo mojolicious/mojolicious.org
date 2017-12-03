@@ -132,6 +132,17 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
         <a href="http://catalystframework.org" target="_blank">Catalyst</a>,
         free and open source.
       </li>
+      <li>
+        Hundreds of 3rd party
+        <a href="https://metacpan.org/requires/module/Mojolicious">
+          extensions
+        </a>
+        and high quality spin-off projects like the
+        <a href="http://mojolicious.org/perldoc/Minion">
+          Minion
+        </a>
+        job queue.
+      </li>
     </ul>
     <h2>Installation</h2>
     <p>All you need is a one-liner, it takes less than a minute.</p>
