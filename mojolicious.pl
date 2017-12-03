@@ -134,7 +134,7 @@ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious
       </li>
       <li>
         Hundreds of 3rd party
-        <a href="https://metacpan.org/requires/module/Mojolicious">extensions</a>
+        <a href="https://metacpan.org/requires/distribution/Mojolicious">extensions</a>
         and high quality spin-off projects like the
         <a href="http://mojolicious.org/perldoc/Minion">Minion</a> job
         queue.
