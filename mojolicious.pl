@@ -167,9 +167,7 @@ I ♥ Mojolicious!</code></pre>
     <p>
       Use all the latest Perl and HTML features in beautiful single file
       prototypes like this one, and
-      <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Growing#Differences">
-        grow
-      </a>
+      <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Growing#Differences">grow</a>
       them easily into well-structured <b>Model-View-Controller</b> web
       applications.
     </p>
