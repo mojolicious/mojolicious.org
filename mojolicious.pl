@@ -33,7 +33,7 @@ get '/' => sub {
 
   # Shortcut for "code-of-conduct.mojolicious.org"
   return $c->redirect_to(
-    'http://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#CODE-OF-CONDUCT'
+    'https://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#CODE-OF-CONDUCT'
   ) if $host =~ /^code-of-conduct\./;
 
   # Shortcut for "irclog.mojolicious.org"
@@ -163,7 +163,7 @@ I ♥ Mojolicious!</code></pre>
     <p>
       Use all the latest Perl and HTML features in beautiful single file
       prototypes like this one, and
-      <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Growing#Differences">grow</a>
+      <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Growing#Differences">grow</a>
       them easily into well-structured <b>Model-View-Controller</b> web
       applications.
     </p>
@@ -195,7 +195,7 @@ app-&gt;start;
     <h1>Want to know more?</h1>
     <p>
       Take a look at our excellent
-      <a href="http://mojolicious.org/perldoc">documentation</a>!
+      <a href="https://mojolicious.org/perldoc">documentation</a>!
     </p>
     <div id="sponsored-by">
       <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#DONATIONS">
@@ -233,7 +233,7 @@ app-&gt;start;
   </div>
 </div>
 <div id="footer">
-  %= link_to 'http://mojolicious.org' => begin
+  %= link_to 'https://mojolicious.org' => begin
     <picture>
       <img src="<%= url_for '/mojo/logo-black.png' %>"
         srcset="<%= url_for '/mojo/logo-black-2x.png' %> 2x"
