@@ -5,12 +5,6 @@ use Mojolicious::Lite;
 # Documentation browser under "/perldoc" (this plugin requires Perl 5.10)
 plugin 'PODRenderer';
 
-# Analytics
-hook before_routes => sub {
-  my $c = shift;
-  $c->content_for(perldoc => $c->render_to_string('analytics'));
-};
-
 # Redirect to main site
 hook before_dispatch => sub {
   my $c = shift;
@@ -318,23 +312,6 @@ $(window).on("mousemove", function (e) {
 }
 .undecorated { text-decoration: none }
 
-@@ analytics.html.ep
-%= javascript begin
-var gaJsHost =
-  (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape(
-  "%3Cscript src='"
-  + gaJsHost
-  + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"
-));
-% end
-%= javascript begin
-try {
-  var pageTracker = _gat._getTracker("UA-7866593-1");
-  pageTracker._trackPageview();
-} catch(err) {}
-% end
-
 @@ layouts/default.html.ep
 <!doctype html><html>
   <head>
@@ -390,7 +367,6 @@ try {
       }
     </style>
     %= content 'header'
-    %= include 'analytics'
   </head>
   <body><%= content %></body>
 </html>
