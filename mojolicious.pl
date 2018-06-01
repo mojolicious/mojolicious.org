@@ -189,7 +189,7 @@ app-&gt;start;
 &lt;script&gt;
   var ws = new WebSocket(&#39;&lt;%= $url-&gt;to_abs %&gt;&#39;);
   ws.onmessage = function (event) { document.body.innerHTML += event.data };
-  ws.onopen    = function (event) { ws.send(&#39;http://mojolicious.org&#39;) };
+  ws.onopen    = function (event) { ws.send(&#39;https://mojolicious.org&#39;) };
 &lt;/script&gt;</code></pre>
     <h1>Want to know more?</h1>
     <p>
