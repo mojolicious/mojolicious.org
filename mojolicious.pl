@@ -30,6 +30,9 @@ get '/' => sub {
     'https://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#CODE-OF-CONDUCT'
   ) if $host =~ /^code-of-conduct\./;
 
+  # Shortcut for "mojogram.mojolicious.org"
+  return $c->redirect_to('https://t.me/perlmojo') if $host =~ /^mojogram\./;
+
   # Shortcut for "irclog.mojolicious.org"
   return $c->redirect_to('http://irclog.perlgeek.de/mojo/today')
     if $host =~ /^irclog\./;
