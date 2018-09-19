@@ -34,7 +34,7 @@ get '/' => sub {
   return $c->redirect_to('https://t.me/perlmojo') if $host =~ /^mojogram\./;
 
   # Shortcut for "irclog.mojolicious.org"
-  return $c->redirect_to('http://irclog.perlgeek.de/mojo/today')
+  return $c->redirect_to('https://freenode.logbot.info/mojo/')
     if $host =~ /^irclog\./;
 
   # Index
