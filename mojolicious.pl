@@ -1,9 +1,11 @@
 #!/usr/bin/env perl
 
 use Mojolicious::Lite;
+use FindBin;
+BEGIN { unshift @INC, "$FindBin::Bin/lib" }
 
 # Documentation browser under "/perldoc" (this plugin requires Perl 5.10)
-plugin 'PODRenderer';
+plugin 'MojoDocs';
 
 # Redirect to main site
 hook before_dispatch => sub {
