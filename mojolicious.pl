@@ -325,7 +325,7 @@ $(window).on("mousemove", function (e) {
       a:hover { color: #2a2a2a }
       a img { border: 0 }
       body {
-        background: url(<%= url_for '/mojo/pinstripe-light.png' %>);
+        background: url(<%= url_for '/mojodocs/pinstripe-light.png' %>);
         color: #445555;
         font: 0.9em 'Helvetica Neue', Helvetica, sans-serif;
         font-weight: normal;

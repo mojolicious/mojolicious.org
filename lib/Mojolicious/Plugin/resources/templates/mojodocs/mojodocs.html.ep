@@ -81,6 +81,7 @@
       }
       #perldoc > ul:first-of-type a { text-decoration: none }
       #links { padding-bottom: 1em }
+      #version { float: right }
       #wrapperlicious {
         max-width: 1000px;
         margin: 0 auto;
@@ -112,6 +113,7 @@
             (<%= link_to 'source' => url_for("/perldoc$path.txt") %>,
             <%= link_to 'CPAN' => $cpan %>)
           </div>
+          <div id="version">v<%= $Mojolicious::VERSION %></div>
         </div>
         <h1><a id="toc">CONTENTS</a></h1>
         <ul>
