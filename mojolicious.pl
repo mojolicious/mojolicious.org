@@ -229,6 +229,7 @@ app-&gt;start;
 </div>
 %= javascript begin
 $(window).on("mousemove", function (e) {
+  if (window.innerWidth <= 900) return;
   var height    = $(document).height();
   var positionY = -(height - 2 * e.screenY) / height;
   var width     = $(document).width();
@@ -246,6 +247,10 @@ $(window).on("mousemove", function (e) {
 % end
 
 @@ css/index.css
+html, body {
+  font-size: 16px;
+}
+
 #balloon {
   position: absolute;
   right: 9%;
@@ -255,6 +260,9 @@ $(window).on("mousemove", function (e) {
   background: url(../digitalforest.png) repeat-x;
   height: 450px;
   text-align: center;
+}
+#fun img {
+  max-width: 100%;
 }
 #introduction {
   border-bottom-left-radius: 5px;
@@ -312,6 +320,7 @@ $(window).on("mousemove", function (e) {
     <title>
       Mojolicious - Perl real-time web framework
     </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     %= javascript '/mojo/prettify/run_prettify.js'
     %= stylesheet '/mojo/prettify/prettify-mojo-light.css'
     <style>
@@ -321,7 +330,7 @@ $(window).on("mousemove", function (e) {
       body {
         background: url(<%= url_for '/mojodocs/pinstripe-light.png' %>);
         color: #445555;
-        font: 0.9em 'Helvetica Neue', Helvetica, sans-serif;
+        font-family: 'Helvetica Neue', Helvetica, sans-serif;
         font-weight: normal;
         line-height: 1.5em;
         margin: 0;
@@ -359,8 +368,12 @@ $(window).on("mousemove", function (e) {
       }
     </style>
     %= content 'header'
+    %= stylesheet '/css/responsive.css'
   </head>
-  <body><%= content %></body>
+  <body>
+    %= content
+    %= javascript '/js/nav.js'
+  </body>
 </html>
 
 @@ opensearch.xml

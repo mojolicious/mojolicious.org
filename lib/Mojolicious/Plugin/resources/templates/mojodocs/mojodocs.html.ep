@@ -2,6 +2,7 @@
 <html>
   <head>
     <title><%= $title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     %= javascript '/mojo/prettify/run_prettify.js'
     %= stylesheet '/mojodocs/prettify-mojo-light.css'
     <style>
@@ -97,6 +98,7 @@
         display: block;
       }
     </style>
+    %= stylesheet '/css/responsive.css'
   </head>
   <body>
     %= include 'mojo/menubar'
@@ -142,5 +144,6 @@
         </picture>
       % end
     </div>
+    %= javascript '/js/nav.js'
   </body>
 </html>

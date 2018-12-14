@@ -1,0 +1,128 @@
+@media (max-width: 900px) {
+  pre {
+    max-width: 100%;
+    overflow: auto;
+  }
+
+  ul {
+    padding-left: 1.4em;
+  }
+
+  #perldoc,
+  .box {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+
+  #perldoc,
+  .spaced {
+    margin-left: 0;
+    margin-right: 0;
+    border: 0;
+  }
+
+  #fun {
+    background-position: 100% 50%;
+    background-size: contain;
+    height: 200px;
+    overflow: hidden;
+  }
+
+  #fun a {
+    display: block;
+  }
+
+  #fun img {
+    max-height: 240px;
+  }
+
+  #balloon {
+    width: 70px;
+    top: 10px;
+    right: 5px;
+  }
+
+  #mojobar {
+    overflow: visible !important;
+  }
+
+  #mojobar-brand {
+    line-height: 46px;
+    padding: 0 1rem !important;
+    display: block !important;
+    overflow: visible;
+  }
+
+  #mojobar-brand img {
+    vertical-align: middle;
+  }
+
+  #mojobar-brand picture:after {
+    content: "\2261";
+    color: #f0f9fc;
+    font-size: 46px;
+    line-height: 16px;
+    text-align: center;
+    width: 28px;
+    height: 28px;
+    position: absolute;
+    top: 12px;
+    right: 1rem;
+    transition: transform 0.26s ease;
+    display: block;
+  }
+
+  #mojobar.open #mojobar-brand picture:after {
+    content: "\2715";
+    font-size: 26px;
+    line-height: 32px;
+    transform: rotate(180deg);
+  }
+
+  #mojobar-links {
+    background-color: #1a1a1a;
+    padding: 0.5rem 0 1rem 0 !important;
+    margin: 0 !important;
+    height: auto !important;
+    float: none !important;
+    display: block !important;
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.26s ease;
+    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5);
+  }
+
+  #mojobar-links a {
+    font-size: 1rem !important;
+    padding: 0.3rem 1rem;
+    display: block;
+  }
+
+  #mojobar-links input {
+    font-size: 1rem !important;
+    margin: 0.3rem 1rem !important;
+    width: calc(100% - 2rem) !important;
+    display: block !important;
+  }
+
+  #mojobar-links input:focus {
+    background-color: #eee !important;
+  }
+
+  #mojobar.open #mojobar-links {
+    transform: scaleY(1);
+  }
+
+  #promotion {
+    text-align: center;
+    border: 0;
+    border-bottom: 2px dotted #c1c1c1;
+    margin: 2rem 0;
+    padding: 0;
+    float: none;
+  }
+
+  #promotion a {
+    display: block;
+  }
+}
