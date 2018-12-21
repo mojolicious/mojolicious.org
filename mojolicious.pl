@@ -372,7 +372,6 @@ html, body {
   </head>
   <body>
     %= content
-    %= javascript '/js/nav.js'
   </body>
 </html>
 

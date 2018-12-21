@@ -144,6 +144,5 @@
         </picture>
       % end
     </div>
-    %= javascript '/js/nav.js'
   </body>
 </html>
