@@ -1,6 +1,7 @@
 % layout 'mojolicious';
 % content_for header => begin
   %= stylesheet '/app.css'
+  %= javascript '/mojo/jquery/jquery.js'
 % end
 <div id="fun">
   %= link_to 'https://metacpan.org/release/Mojolicious' => begin
