@@ -1,0 +1,197 @@
+% layout 'mojolicious';
+% content_for header => begin
+  %= stylesheet '/app.css'
+% end
+<div id="fun">
+  %= link_to 'https://metacpan.org/release/Mojolicious' => begin
+    %= image '/unicorn.png'
+  % end
+  %= image '/balloon.png', id => 'balloon';
+</div>
+%= include 'mojolicious/menubar'
+<div id="wrapperlicious">
+  <div class="box spaced" id="introduction">
+    <h1>
+      A next generation web framework for the Perl programming language.
+    </h1>
+    <p>
+      Back in the early days of the web, many people learned Perl because of a
+      wonderful Perl library called
+      <a href="https://metacpan.org/module/CGI" target="_blank">CGI</a>. It
+      was simple enough to get started without knowing much about the language
+      and powerful enough to keep you going, learning by doing was much fun.
+      While most of the techniques used are outdated now, the idea behind it
+      is not. Mojolicious is a new endeavor to implement this idea using
+      bleeding edge technologies.
+    </p>
+    <div id="promotion">
+      <a class="undecorated" href="https://shop.spreadshirt.com/kraih/">
+        <img src="/t-shirt.png" alt="Get T-Shirts">
+      </a>
+    </div>
+    <h2>Features</h2>
+    <ul>
+      <li>
+        An amazing <b>real-time web framework</b>, allowing you to easily grow
+        single file prototypes into well-structured MVC web applications.
+        <ul>
+          <li>
+            Powerful out of the box with RESTful routes, plugins, commands,
+            Perl-ish templates, content negotiation, session management,
+            form validation, testing framework, static file server,
+            CGI/<a href="http://plackperl.org" target="_blank">PSGI</a>
+            detection, first class Unicode support and much more for you to
+            discover.
+          </li>
+        </ul>
+      </li>
+      <li>
+        A powerful <b>web development toolkit</b>, that you can use for all
+        kinds of applications, independently of the web framework.
+        <ul>
+          <li>
+            Full stack HTTP and WebSocket client/server implementation with
+            IPv6, TLS, SNI, IDNA, HTTP/SOCKS5 proxy, UNIX domain socket, Comet
+            (long polling), Promises/A+, keep-alive, connection pooling,
+            timeout, cookie, multipart and gzip compression support.
+          </li>
+          <li>
+            Built-in non-blocking I/O web server, supporting multiple event
+            loops as well as optional pre-forking and hot deployment, perfect for
+            building highly scalable web services.
+          </li>
+          <li>JSON and HTML/XML parser with CSS selector support.</li>
+        </ul>
+      </li>
+      <li>
+        Very clean, portable and object-oriented pure-Perl API with no hidden
+        magic and no requirements besides Perl 5.24.0 (versions as old as
+        5.10.1 can be used too, but may require additional CPAN modules to be
+        installed)
+      </li>
+      <li>
+        Fresh code based upon years of experience developing
+        <a href="http://catalystframework.org" target="_blank">Catalyst</a>,
+        free and open source.
+      </li>
+      <li>
+        Hundreds of 3rd party
+        <a href="https://metacpan.org/requires/distribution/Mojolicious">extensions</a>
+        and high quality spin-off projects like the
+        <a href="https://metacpan.org/pod/Minion">Minion</a> job
+        queue.
+      </li>
+    </ul>
+    <h2>Installation</h2>
+    <p>All you need is a one-liner, it takes less than a minute.</p>
+    <pre><code>$ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious</code></pre>
+    <p>
+      We recommend the use of a
+      <a href="http://perlbrew.pl" target="_blank">Perlbrew</a> environment.
+    </p>
+    <h2>Getting Started</h2>
+    <p>These three lines are a whole web application.</p>
+    <pre><code class="prettyprint">use Mojolicious::Lite;
+
+get &#39;/&#39; =&gt; {text =&gt; &#39;I ♥ Mojolicious!&#39;};
+
+app-&gt;start;</code></pre>
+    <p>
+      To run this example with the built-in development web server just put
+      the code into a file and start it with <code>morbo</code>.
+    </p>
+    <pre><code>$ morbo hello.pl
+Server available at http://127.0.0.1:3000
+
+$ curl http://127.0.0.1:3000/
+I ♥ Mojolicious!</code></pre>
+    <h2>Duct tape for the HTML5 web</h2>
+    <p>
+      Use all the latest Perl and HTML features in beautiful single file
+      prototypes like this one, and
+      <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Growing#Differences">grow</a>
+      them easily into well-structured <b>Model-View-Controller</b> web
+      applications.
+    </p>
+    <pre><code class="prettyprint">use Mojolicious::Lite -signatures;
+
+# Render template &quot;index.html.ep&quot; from the DATA section
+get &#39;/&#39; =&gt; sub ($c) {
+  $c-&gt;render(template =&gt; &#39;index&#39;);
+};
+
+# WebSocket service used by the template to extract the title from a web site
+websocket &#39;/title&#39; =&gt; sub ($c) {
+  $c-&gt;on(message =&gt; sub ($c, $msg) {
+    my $title = $c-&gt;ua-&gt;get($msg)-&gt;result-&gt;dom-&gt;at(&#39;title&#39;)-&gt;text;
+    $c-&gt;send($title);
+  });
+};
+
+app-&gt;start;
+<% %>__DATA__
+
+<% %>@@ index.html.ep
+%% my $url = url_for &#39;title&#39;;
+&lt;script&gt;
+  var ws = new WebSocket(&#39;&lt;%= $url-&gt;to_abs %&gt;&#39;);
+  ws.onmessage = function (event) { document.body.innerHTML += event.data };
+  ws.onopen    = function (event) { ws.send(&#39;https://mojolicious.org&#39;) };
+&lt;/script&gt;</code></pre>
+    <h1>Want to know more?</h1>
+    <p>
+      Take a look at our excellent
+      <a href="https://mojolicious.org/perldoc">documentation</a>!
+    </p>
+    <div id="sponsored-by">
+      <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#DONATIONS">
+        Sponsored by
+      </a>
+    </div>
+    <div class="sponsors">
+      %= link_to 'https://www.stickeryou.com/products/custom-stickers/335/' => (class => 'undecorated') => begin
+        %= image '/sy.png'
+      % end
+      %= link_to 'https://overhemden.com' => (class => 'undecorated') => begin
+        %= image '/overhemden.png'
+      % end
+      %= link_to 'http://smålånutensikkerhet.com' => (class => 'undecorated') => begin
+        %= image '/smalan.png', alt => 'http://smålånutensikkerhet.com'
+      % end
+    </div>
+    <div class="sponsors">
+      %= link_to 'https://bynco.com/nl' => (class => 'undecorated') => begin
+        %= image '/bynco.jpg'
+      % end
+      %= link_to 'https://www.vpsserver.com' => (class => 'undecorated') => begin
+        %= image '/vpsserver.png', alt => 'VPS Server'
+      % end
+    </div>
+  </div>
+</div>
+<div id="footer">
+  %= link_to 'https://mojolicious.org' => begin
+    <picture>
+      <img src="<%= url_for '/mojo/logo-black.png' %>"
+        srcset="<%= url_for '/mojo/logo-black-2x.png' %> 2x"
+        alt="Mojolicious logo">
+    </picture>
+  % end
+</div>
+<script>
+  $(window).on("mousemove", function (e) {
+    var height    = $(document).height();
+    var positionY = -(height - 2 * e.screenY) / height;
+    var width     = $(document).width();
+    var positionX = -(width - 2 * e.screenX) / width;
+    $("#balloon").css({
+      "right": 10 + positionX + "%",
+      "top"  : 220 + (positionY * -25) + "px"}
+    );
+  });
+  $(window).on("mousemove", function (e) {
+    var width    = $(document).width();
+    var position = -(width - 2 * e.screenX) / width;
+    $("#fun").css({"backgroundPosition": 0 + (position * 3) + "px 0"});
+  });
+</script>

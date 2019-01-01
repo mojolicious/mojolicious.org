@@ -1,0 +1,57 @@
+#balloon {
+  position: absolute;
+  right: 9%;
+  top: 245px;
+}
+#fun {
+  background: url(../digitalforest.png) repeat-x;
+  height: 450px;
+  text-align: center;
+}
+#introduction {
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  margin-top: 1em;
+  padding-bottom: 0;
+  padding-top: 70px;
+}
+#promotion {
+  border-left: 2px dotted #c1c1c1;
+  float: right;
+  margin: 3em;
+  margin-right: 0;
+  padding: 1em;
+  padding-right: 0;
+}
+#sponsored-by {
+  color: #2f2f2f;
+  font: 0.7em Verdana, sans-serif;
+  padding-bottom: 15px;
+  text-align: center;
+}
+#sponsored-by a { text-decoration: none }
+#wrapperlicious {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.box {
+  background-color: #fff;
+  border: 1px solid #c1c1c1;
+  overflow: hidden;
+  padding: 3em;
+}
+.spaced {
+  margin-left: 5em;
+  margin-right: 5em;
+}
+.sponsors {
+  text-align: justify;
+  margin: 0;
+  padding: 0;
+}
+.sponsors:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+}
+.undecorated { text-decoration: none }
