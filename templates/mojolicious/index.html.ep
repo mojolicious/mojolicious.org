@@ -164,6 +164,9 @@ app-&gt;start;
       %= link_to 'https://bynco.com/nl' => (class => 'undecorated') => begin
         %= image '/bynco.jpg'
       % end
+      %= link_to 'https://www.axofinans.no' => (class => 'undecorated') => begin
+        %= image '/axo.png'
+      % end
       %= link_to 'https://www.vpsserver.com' => (class => 'undecorated') => begin
         %= image '/vpsserver.png', alt => 'VPS Server'
       % end
