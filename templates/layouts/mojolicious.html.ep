@@ -42,7 +42,6 @@
         font: 0.9em Consolas, Menlo, Monaco, Courier, monospace;
         line-height: 1.5em;
         text-align: left;
-        text-shadow: #eee 0 1px 0;
         white-space: pre-wrap;
       }
       ul { list-style-type: square }
