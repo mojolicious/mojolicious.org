@@ -145,9 +145,7 @@ app-&gt;start;
       <a href="https://mojolicious.org/perldoc">documentation</a>!
     </p>
     <div id="sponsored-by">
-      <a href="http://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#DONATIONS">
-        Sponsored by
-      </a>
+      Sponsored by
     </div>
     <div class="sponsors">
       %= link_to 'https://www.omegamedia.no' => (class => 'undecorated') => begin
