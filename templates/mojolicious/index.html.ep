@@ -157,8 +157,14 @@ app-&gt;start;
       %= link_to 'https://lainaa-helposti.fi/' => (class => 'undecorated') => begin
         %= image '/lh.png'
       % end
+      %= link_to 'https://superbwebsitebuilders.com' => (class => 'undecorated') => begin
+        %= image '/swb.png', alt => 'SuperbWebsiteBuilders.com'
+      % end
     </div>
     <div class="sponsors">
+      %= link_to 'https://bynco.com/nl' => (class => 'undecorated') => begin
+        %= image '/bynco.jpg'
+      % end
       %= link_to 'https://www.privatkreditsofort.ch' => (class => 'undecorated') => begin
         %= image '/pk.png', alt => 'Privatkredit'
       % end
@@ -167,14 +173,6 @@ app-&gt;start;
       % end
       %= link_to 'https://www.axofinans.no' => (class => 'undecorated') => begin
         %= image '/axo.png'
-      % end
-    </div>
-    <div class="sponsors">
-      %= link_to 'https://bynco.com/nl' => (class => 'undecorated') => begin
-        %= image '/bynco.jpg'
-      % end
-      %= link_to 'https://superbwebsitebuilders.com' => (class => 'undecorated') => begin
-        %= image '/swb.png', alt => 'SuperbWebsiteBuilders.com'
       % end
       %= link_to 'https://www.vpsserver.com' => (class => 'undecorated') => begin
         %= image '/vpsserver.png', alt => 'VPS Server'
