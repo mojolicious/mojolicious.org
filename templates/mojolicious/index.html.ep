@@ -157,6 +157,9 @@ app-&gt;start;
       %= link_to 'https://lainaa-helposti.fi/' => (class => 'undecorated') => begin
         %= image '/lh.png'
       % end
+      %= link_to 'https://www.stickeryou.com' => (class => 'undecorated') => begin
+        %= image '/sy.png'
+      % end
       %= link_to 'https://superbwebsitebuilders.com' => (class => 'undecorated') => begin
         %= image '/swb.png', alt => 'SuperbWebsiteBuilders.com'
       % end
