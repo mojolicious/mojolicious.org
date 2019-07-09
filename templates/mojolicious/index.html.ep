@@ -13,17 +13,24 @@
 <div id="wrapperlicious">
   <div class="box spaced" id="introduction">
     <h1>
-      A next generation web framework for the Perl programming language.
+      What are you waiting for?
     </h1>
     <p>
-      Back in the early days of the web, many people learned Perl because of a
-      wonderful Perl library called
-      <a href="https://metacpan.org/module/CGI" target="_blank">CGI</a>. It
-      was simple enough to get started without knowing much about the language
-      and powerful enough to keep you going, learning by doing was much fun.
-      While most of the techniques used are outdated now, the idea behind it
-      is not. Mojolicious is a new endeavor to implement this idea using
-      bleeding edge technologies.
+      Mojolicious is a fresh take on Perl web development, based on years of
+      experience developing the Catalyst framework, and utilizing the latest web
+      standards and technologies. You can get started with your project quickly,
+      with a framework that grows with your needs.
+    </p>
+    <p>
+      The Mojo stack provides a consistent set of components that can be used in
+      any project. The guides cover most aspects of using the framework and the
+      components have comprehensive reference documentation. Mojolicious is a
+      real-time web framework, which allows a new class of web applications
+      using WebSockets and having long-running requests without blocking.
+    </p>
+    <p>
+      Join us now, and be a part of a friendly and knowledgeable community of
+      developers!
     </p>
     <div id="promotion">
       <a class="undecorated" href="https://shop.spreadshirt.com/kraih/">
