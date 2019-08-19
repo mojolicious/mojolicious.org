@@ -8,7 +8,6 @@ Do not taunt happy fun web framework
 Every deploy, a Moment of Joy.
 Fun is job 1
 Gimme a M, gimme a O, gimme a J, gimme an O
-I am Mojo
 IO, IO, it's off to Loop we go!
 It's as if a million lines of CGI cried out and were suddenly silenced.
 It's not just delicious, it's Mojolicious!
@@ -20,7 +19,6 @@ n { increase_power() } 9000;
 Not legal tender
 One does not simply write a web app without Mojolicious.
 Semper Mojo
-The Mojolicious Look
 There's Perl in my framework!
 We are Mojo
 What are you waiting for?
