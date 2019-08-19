@@ -13,7 +13,7 @@
 <div id="wrapperlicious">
   <div class="box spaced" id="introduction">
     <h1>
-      What are you waiting for?
+      %= fortune
     </h1>
     <p>
       Mojolicious is a fresh take on Perl web development, based on years of
