@@ -13,7 +13,7 @@ IO, IO, it's off to Loop we go!
 It's as if a million lines of CGI cried out and were suddenly silenced.
 It's not just delicious, it's Mojolicious!
 j($ust).. do it!
-Mojo::IOLoop - There can only be one!
+Mojo::IOLoop - There can be only one!
 Mojolicious - It's the bee's knees.
 my $choice = c(@frameworks)->grep(qr/Mojolicious/)->first;
 n { increase_power() } 9000;
