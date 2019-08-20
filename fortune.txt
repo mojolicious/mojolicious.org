@@ -23,3 +23,5 @@ There's Perl in my framework!
 We are Mojo
 What are you waiting for?
 Yo, Imma let you finish, but Mojolicious is the best web framework of all time!
+Breakfast at Mojo's
+Revenge of the Perl Framework
