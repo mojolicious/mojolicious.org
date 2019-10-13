@@ -1,5 +1,6 @@
 <!doctype html><html>
   <head>
+    <link rel="apple-touch-icon" href="/mojolicious/touch-icon.png">
     <link rel="search" type="application/opensearchdescription+xml"
       href="/opensearch.xml" title="Mojolicious" />
     <title>
