@@ -35,6 +35,11 @@ get '/' => sub {
     'https://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#CODE-OF-CONDUCT'
   ) if $host =~ /^code-of-conduct\./;
 
+  # Shortcut for "voting.mojolicious.org"
+  return $c->redirect_to(
+    'https://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#Voting-Rules'
+  ) if $host =~ /^voting\./;
+
   # Index
   $c->render('mojolicious/index');
 };
