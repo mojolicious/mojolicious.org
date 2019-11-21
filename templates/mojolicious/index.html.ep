@@ -33,8 +33,12 @@
       developers!
     </p>
     <div id="promotion">
+      <a class="undecorated" href="https://www.amazon.com/gp/product/B0815XLYJX/">
+        <img src="/mojolicious/books.png" alt="Get Book">
+      </a>
+      <br>
       <a class="undecorated" href="https://shop.spreadshirt.com/kraih/">
-        <img src="/t-shirt.png" alt="Get T-Shirts">
+        <img src="/mojolicious/t-shirts.png" alt="Get T-Shirts">
       </a>
     </div>
     <h2>Features</h2>
