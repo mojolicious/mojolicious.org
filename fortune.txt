@@ -1,27 +1,10 @@
 100% Egyptian Cotton Websockets
 11,907 commits closer to perfection!
 9 out of 10 penguins recommend Mojolicious!
-Brace Yourself, Mojolicious is coming.
-Bread, Milk, Eggs and Mojo
-Cognito Ergo Mojolicious
 Do not taunt happy fun web framework
 Every deploy, a Moment of Joy.
 Fun is job 1
-Gimme a M, gimme a O, gimme a J, gimme an O
-IO, IO, it's off to Loop we go!
 It's as if a million lines of CGI cried out and were suddenly silenced.
 It's not just delicious, it's Mojolicious!
-j($ust).. do it!
-Mojo::IOLoop - There can be only one!
-Mojolicious - It's the bee's knees.
-my $choice = c(@frameworks)->grep(qr/Mojolicious/)->first;
-n { increase_power() } 9000;
-Not legal tender
-One does not simply write a web app without Mojolicious.
-Semper Mojo
 There's Perl in my framework!
-We are Mojo
 What are you waiting for?
-Yo, Imma let you finish, but Mojolicious is the best web framework of all time!
-Breakfast at Mojo's
-Revenge of the Perl Framework
