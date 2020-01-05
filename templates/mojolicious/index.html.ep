@@ -159,9 +159,6 @@ app-&gt;start;
       Sponsored by
     </div>
     <div class="sponsors">
-      %= link_to 'https://www.omegamedia.no' => (class => 'undecorated') => begin
-        %= image '/omega.png'
-      % end
       %= link_to 'https://overhemden.com' => (class => 'undecorated') => begin
         %= image '/overhemden.png'
       % end
@@ -184,9 +181,6 @@ app-&gt;start;
       % end
       %= link_to 'http://smålånutensikkerhet.com' => (class => 'undecorated') => begin
         %= image '/smalan.png', alt => 'http://smålånutensikkerhet.com'
-      % end
-      %= link_to 'https://www.axofinans.no' => (class => 'undecorated') => begin
-        %= image '/axo.png'
       % end
       %= link_to 'https://www.vpsserver.com' => (class => 'undecorated') => begin
         %= image '/vpsserver.png', alt => 'VPS Server'
