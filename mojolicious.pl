@@ -40,6 +40,9 @@ get '/' => sub {
     'https://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#Voting-Rules'
   ) if $host =~ /^voting\./;
 
+  # Shortcut for "kraih.com"
+  return $c->redirect_to('https://github.com/kraih') if $host =~ /kraih.com$/;
+
   # Index
   $c->render('mojolicious/index');
 };
