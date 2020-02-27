@@ -27,10 +27,10 @@ get '/' => sub {
   return $c->redirect_to('https://leanpub.com/mojo_web_clients/')
     if $host =~ /^book\./;
 
-  # Shortcut for "code-of-conduct.mojolicious.org"
+  # Shortcut for "conduct.mojolicious.org"
   return $c->redirect_to(
     'https://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#CODE-OF-CONDUCT'
-  ) if $host =~ /^code-of-conduct\./;
+  ) if $host =~ /^conduct\./;
 
   # Shortcut for "voting.mojolicious.org"
   return $c->redirect_to(
