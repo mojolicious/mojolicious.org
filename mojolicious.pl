@@ -21,14 +21,11 @@ hook before_dispatch => sub {
 get '/' => sub {
   my $c = shift;
 
-  # Shortcut for "get.mojolicious.org"
-  my $host = $c->req->url->base->host // '';
-  return $c->render('mojolicious/installer', format => 'txt')
-    if $host =~ /^get\./;
 
-  # Shortcut for "latest.mojolicious.org"
-  return $c->redirect_to('https://www.github.com/kraih/mojo/tarball/master')
-    if $host =~ /^latest\./;
+  # Shortcut for "book.mojolicious.org"
+  my $host = $c->req->url->base->host // '';
+  return $c->redirect_to('https://leanpub.com/mojo_web_clients/')
+    if $host =~ /^book\./;
 
   # Shortcut for "code-of-conduct.mojolicious.org"
   return $c->redirect_to(
