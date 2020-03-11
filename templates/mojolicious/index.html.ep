@@ -159,31 +159,14 @@ app-&gt;start;
       Sponsored by
     </div>
     <div class="sponsors">
-      %= link_to 'https://overhemden.com' => (class => 'undecorated') => begin
-        %= image '/overhemden.png'
-      % end
-      %= link_to 'https://lainaa-helposti.fi/' => (class => 'undecorated') => begin
-        %= image '/lh.png'
-      % end
       %= link_to 'https://www.stickeryou.com' => (class => 'undecorated') => begin
         %= image '/sy.png'
       % end
-      %= link_to 'https://superbwebsitebuilders.com' => (class => 'undecorated') => begin
-        %= image '/swb.png', alt => 'SuperbWebsiteBuilders.com'
-      % end
-    </div>
-    <div class="sponsors">
       %= link_to 'https://bynco.com/nl' => (class => 'undecorated') => begin
         %= image '/bynco.jpg'
       % end
-      %= link_to 'https://www.privatkreditsofort.ch' => (class => 'undecorated') => begin
-        %= image '/pk.png', alt => 'Privatkredit'
-      % end
       %= link_to 'http://smålånutensikkerhet.com' => (class => 'undecorated') => begin
         %= image '/smalan.png', alt => 'http://smålånutensikkerhet.com'
-      % end
-      %= link_to 'https://www.vpsserver.com' => (class => 'undecorated') => begin
-        %= image '/vpsserver.png', alt => 'VPS Server'
       % end
     </div>
   </div>
