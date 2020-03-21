@@ -5,9 +5,9 @@
 % end
 <div id="fun">
   %= link_to 'https://metacpan.org/release/Mojolicious' => begin
-    %= image '/unicorn.png'
+    %= image '/mojolicious/unicorn.png'
   % end
-  %= image '/balloon.png', id => 'balloon';
+  %= image '/mojolicious/balloon.png', id => 'balloon';
 </div>
 %= include 'mojolicious/menubar'
 <div id="wrapperlicious">
@@ -155,20 +155,6 @@ app-&gt;start;
       Take a look at our excellent
       <a href="https://mojolicious.org/perldoc">documentation</a>!
     </p>
-    <div id="sponsored-by">
-      Sponsored by
-    </div>
-    <div class="sponsors">
-      %= link_to 'https://www.stickeryou.com' => (class => 'undecorated') => begin
-        %= image '/sy.png'
-      % end
-      %= link_to 'https://bynco.com/nl' => (class => 'undecorated') => begin
-        %= image '/bynco.jpg'
-      % end
-      %= link_to 'http://smålånutensikkerhet.com' => (class => 'undecorated') => begin
-        %= image '/smalan.png', alt => 'http://smålånutensikkerhet.com'
-      % end
-    </div>
   </div>
 </div>
 <div id="footer">
