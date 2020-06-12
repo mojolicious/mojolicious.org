@@ -113,7 +113,7 @@ app-&gt;start;</code></pre>
       the code into a file and start it with <code>morbo</code>.
     </p>
     <pre><code>$ morbo hello.pl
-Server available at http://127.0.0.1:3000
+Web application available at http://127.0.0.1:3000
 
 $ curl http://127.0.0.1:3000/
 I ♥ Mojolicious!</code></pre>
