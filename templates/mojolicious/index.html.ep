@@ -1,8 +1,4 @@
 % layout 'mojolicious';
-% content_for header => begin
-  %= stylesheet '/app.css'
-  %= javascript '/mojolicious/jquery/jquery.js'
-% end
 <div id="fun">
   %= link_to 'https://metacpan.org/release/Mojolicious' => begin
     %= image '/mojolicious/unicorn.png'

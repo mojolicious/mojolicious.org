@@ -19,23 +19,7 @@ sub register {
   # Templates
   push @{$app->renderer->paths}, $resources->child('templates')->to_string;
 
-  my $preprocess = $conf->{preprocess} || 'ep';
-  $app->renderer->add_handler(
-    $conf->{name} || 'pod' => sub {
-      my ($renderer, $c, $output, $options) = @_;
-      $renderer->handlers->{$preprocess}($renderer, $c, $output, $options);
-      $$output = _pod_to_html($$output) if defined $$output;
-    }
-  );
-
-  $app->helper(
-    pod_to_html => sub { shift; Mojo::ByteStream->new(_pod_to_html(@_)) });
-
-  # Perldoc browser
-  return undef if $conf->{no_perldoc};
-  my $defaults = {module => 'Mojolicious/Guides'};
-  return $app->routes->any(
-    '/perldoc/:module' => $defaults => [module => qr/[^.]+/] => \&_perldoc);
+  $app->helper(perldoc => sub { return \&_perldoc });
 }
 
 sub _indentation {
@@ -48,8 +32,7 @@ sub _html {
   # Rewrite links
   my $dom     = Mojo::DOM->new(_pod_to_html($src));
   my $perldoc = $c->url_for('/perldoc/');
-  $_->{href} =~ s!^https://metacpan\.org/pod/!$perldoc!
-    and $_->{href} =~ s!::!/!gi
+  $_->{href} =~ s!^https://metacpan\.org/pod/!$perldoc! and $_->{href} =~ s!::!/!gi
     for $dom->find('a[href]')->map('attr')->each;
 
   # Rewrite code blocks for syntax highlighting and correct indentation
@@ -88,8 +71,7 @@ sub _perldoc {
   # Find module or redirect to CPAN
   my $module = join '::', split('/', $c->param('module'));
   $c->stash(cpan => "https://metacpan.org/pod/$module");
-  my $path
-    = Pod::Simple::Search->new->find($module, map { $_, "$_/pods" } @INC);
+  my $path = Pod::Simple::Search->new->find($module, map { $_, "$_/pods" } @INC);
   return $c->redirect_to($c->stash('cpan')) unless $path && -r $path;
 
   my $src = path($path)->slurp;

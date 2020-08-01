@@ -4,9 +4,7 @@ use Mojolicious::Lite;
 use FindBin;
 BEGIN { unshift @INC, "$FindBin::Bin/lib" }
 
-# Documentation browser under "/perldoc" (this plugin requires Perl 5.10)
 plugin 'MojoDocs';
-
 plugin 'Fortune' => {path => app->home->child('fortune.txt')};
 
 # Redirect to main site
@@ -16,6 +14,9 @@ hook before_dispatch => sub {
   $c->res->code(301);
   $c->redirect_to($c->req->url->to_abs->host("$1mojolicious.org"));
 };
+
+# Documentation
+any '/perldoc/:module' => {module => 'Mojolicious/Guides'} => [module => qr/[^.]+/] => app->perldoc;
 
 # Welcome to Mojolicious
 get '/' => sub {
@@ -36,8 +37,10 @@ get '/' => sub {
   # Shortcut for "minion.pm"
   return $c->redirect_to('https://github.com/mojolicious/minion') if $host =~ /minion.pm$/;
 
-  # Index
+  # Frontpage
   $c->render('mojolicious/index');
 };
+
+any '/:module' => {module => 'Mojolicious/Guides'} => [module => qr/[^.]+/] => (host => qr/^docs\./) => app->perldoc;
 
 app->start;
