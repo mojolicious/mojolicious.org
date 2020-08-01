@@ -7,7 +7,7 @@ BEGIN { unshift @INC, "$FindBin::Bin/lib" }
 plugin 'MojoDocs';
 plugin 'Fortune' => {path => app->home->child('fortune.txt')};
 
-# Redirect to main site
+# Redirect "mojolicio.us" to "mojolicious.org"
 hook before_dispatch => sub {
   my $c = shift;
   return unless ($c->req->url->base->host // '') =~ /^(.*)mojolicio.us$/;
@@ -15,7 +15,7 @@ hook before_dispatch => sub {
   $c->redirect_to($c->req->url->to_abs->host("$1mojolicious.org"));
 };
 
-# Redirect for old links to documentation
+# Redirect old documentation links to "docs.mojolicious.org"
 any '/perldoc/:module' => {module => 'Mojolicious/Guides'} => [module => qr/[^.]+/] => sub {
   my $c      = shift;
   my $module = $c->param('module');
