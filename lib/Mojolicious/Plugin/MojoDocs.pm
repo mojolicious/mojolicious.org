@@ -31,8 +31,8 @@ sub _html {
 
   # Rewrite links
   my $dom     = Mojo::DOM->new(_pod_to_html($src));
-  my $perldoc = $c->url_for('/perldoc/');
-  $_->{href} =~ s!^https://metacpan\.org/pod/!$perldoc! and $_->{href} =~ s!::!/!gi
+  my $perldoc = $c->url_for(module => undef);
+  $_->{href} =~ s!^https://metacpan\.org/pod/!$perldoc/! and $_->{href} =~ s!::!/!gi
     for $dom->find('a[href]')->map('attr')->each;
 
   # Rewrite code blocks for syntax highlighting and correct indentation
