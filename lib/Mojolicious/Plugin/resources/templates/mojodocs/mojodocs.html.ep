@@ -2,7 +2,7 @@
 <html>
   <head>
     <title><%= $title %></title>
-    %= javascript '/mojo/prettify/run_prettify.js'
+    %= javascript '/mojolicious/prettify/run_prettify.js'
     %= stylesheet '/mojolicious/prettify-mojo-light.css'
     <style>
       a { color: inherit }
