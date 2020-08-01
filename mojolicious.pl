@@ -15,8 +15,14 @@ hook before_dispatch => sub {
   $c->redirect_to($c->req->url->to_abs->host("$1mojolicious.org"));
 };
 
+# Redirect for old links to documentation
+any '/perldoc/:module' => {module => 'Mojolicious/Guides'} => [module => qr/[^.]+/] => sub {
+  my $c      = shift;
+  my $module = $c->param('module');
+  $c->redirect_to("https://docs.mojolicious.org/$module");
+};
+
 # Documentation
-any '/perldoc/:module' => {module => 'Mojolicious/Guides'} => [module => qr/[^.]+/] => app->perldoc;
 any '/:module' => {module => 'Mojolicious/Guides'} => [module => qr/[^.]+/] => (host => qr/^docs\./) => app->perldoc;
 
 # Welcome to Mojolicious
