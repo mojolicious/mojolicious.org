@@ -17,11 +17,11 @@ hook before_dispatch => sub {
 
 # Documentation
 any '/perldoc/:module' => {module => 'Mojolicious/Guides'} => [module => qr/[^.]+/] => app->perldoc;
+any '/:module' => {module => 'Mojolicious/Guides'} => [module => qr/[^.]+/] => (host => qr/^docs\./) => app->perldoc;
 
 # Welcome to Mojolicious
 get '/' => sub {
   my $c = shift;
-
 
   # Shortcut for "book.mojolicious.org"
   my $host = $c->req->url->base->host // '';
@@ -40,7 +40,5 @@ get '/' => sub {
   # Frontpage
   $c->render('mojolicious/index');
 };
-
-any '/:module' => {module => 'Mojolicious/Guides'} => [module => qr/[^.]+/] => (host => qr/^docs\./) => app->perldoc;
 
 app->start;
