@@ -103,14 +103,14 @@
     <div id="wrapperlicious">
       <div id="perldoc">
         <div id="links">
-          % my $path;
+          % my @path;
           % for my $part (split '/', $module) {
-            %= '::' if $path
-            % $path .= "/$part";
-            %= link_to $part => url_for("/perldoc$path")
+            %= '::' if @path
+            % push @path, $part;
+            %= link_to $part => url_for(module => join('/', @path))->to_abs
           % }
           <div id="more">
-            (<%= link_to 'source' => url_for("/perldoc$path.txt") %>,
+            (<%= link_to 'source' => url_for(module => join('/', @path) . '.txt')->to_abs %>,
             <%= link_to 'CPAN' => $cpan %>)
           </div>
           <div id="mojo-version">v<%= $Mojolicious::VERSION %></div>
