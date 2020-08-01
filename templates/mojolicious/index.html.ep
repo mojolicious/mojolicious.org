@@ -117,7 +117,7 @@ I ♥ Mojolicious!</code></pre>
     <p>
       Use all the latest Perl and HTML features in beautiful single file
       prototypes like this one, and
-      <a href="https://mojolicious.org/perldoc/Mojolicious/Guides/Growing#Differences">grow</a>
+      <a href="https://docs.mojolicious.org/Mojolicious/Guides/Growing#Differences">grow</a>
       them easily into well-structured <b>Model-View-Controller</b> web
       applications.
     </p>
@@ -149,7 +149,7 @@ app-&gt;start;
     <h1>Want to know more?</h1>
     <p>
       Take a look at our excellent
-      <a href="https://mojolicious.org/perldoc">documentation</a>!
+      <a href="https://docs.mojolicious.org">documentation</a>!
     </p>
   </div>
 </div>
