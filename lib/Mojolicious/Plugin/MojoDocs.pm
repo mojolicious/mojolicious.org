@@ -11,14 +11,6 @@ use Pod::Simple::Search;
 
 sub register {
   my ($self, $app, $conf) = @_;
-
-  # Static files
-  my $resources = path(__FILE__)->sibling('resources');
-  push @{$app->static->paths}, $resources->child('public')->to_string;
-
-  # Templates
-  push @{$app->renderer->paths}, $resources->child('templates')->to_string;
-
   $app->helper(perldoc => sub { return \&_perldoc });
 }
 
@@ -27,7 +19,7 @@ sub _indentation {
 }
 
 sub _html {
-  my ($c, $src) = @_;
+  my ($c, $src, $mod_path) = @_;
 
   # Rewrite links
   my $dom     = Mojo::DOM->new(_pod_to_html($src));
@@ -48,12 +40,19 @@ sub _html {
 
   # Rewrite headers
   my $toc = Mojo::URL->new->fragment('toc');
+  my $parent;
   my @parts;
   for my $e ($dom->find('h1, h2, h3, h4')->each) {
 
+    # Detect parent class
+    my $text = $e->all_text;
+    if ($text =~ /methods/i && (my $next = $e->next)) {
+      $parent = $1 if $next->all_text =~ /inherits all methods from ([A-Za-z0-9\:]+)/i;
+    }
+
     push @parts, [] if $e->tag eq 'h1' || !@parts;
     my $link = Mojo::URL->new->fragment($e->{id});
-    push @{$parts[-1]}, my $text = $e->all_text, $link;
+    push @{$parts[-1]}, $text, $link;
     my $permalink = $c->link_to('#' => $link, class => 'permalink');
     $e->content($permalink . $c->link_to($text => $toc));
   }
@@ -63,8 +62,9 @@ sub _html {
   $dom->find('h1 + p')->first(sub { $title = shift->text });
 
   # Combine everything to a proper response
+  my $is_doc = $mod_path =~ /pod$/i;
   $c->content_for(perldoc => "$dom");
-  $c->render('mojodocs/mojodocs', title => $title, parts => \@parts);
+  $c->render('mojodocs/mojodocs', title => $title, parts => \@parts, parent => $parent, is_doc => $is_doc);
 }
 
 sub _perldoc {
@@ -77,7 +77,7 @@ sub _perldoc {
   return $c->redirect_to($c->stash('cpan')) unless $path && -r $path;
 
   my $src = path($path)->slurp;
-  $c->respond_to(txt => {data => $src}, html => sub { _html($c, $src) });
+  $c->respond_to(txt => {data => $src}, html => sub { _html($c, $src, $path) });
 }
 
 sub _pod_to_html {

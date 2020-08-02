@@ -1,0 +1,173 @@
+body {
+  background-color: #fff;
+}
+:not(pre) > code {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 3px;
+  font: 0.9em Consolas, Menlo, Monaco, Courier, monospace;
+  padding: 0.3em;
+}
+pre {
+  background-color: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  font: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-size: 14px;
+  padding: 1em;
+}
+pre > code {
+  color: #24292e;
+  font: font: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-size: 14px;
+  line-height: 1.5em;
+  text-align: left;
+  white-space: pre-wrap;
+}
+ul { list-style-type: square }
+.mojo-docinfo {
+  border-bottom: 1px solid #e1e4e8;
+  font-size: 12px;
+  padding: 0;
+  padding-bottom: 0.5em;
+  padding-top: 1em;
+  margin-bottom: 1em;
+}
+.mojo-docinfo a {
+  color: #333;
+}
+.mojo-external {
+  display: inline;
+  float: right;
+  position: relative;
+  z-index: 1000;
+}
+.mojo-footer {
+  background: url(/mojolicious/pinstripe-light.png);
+  background-color: #f2ece9;
+  box-shadow: inset 0 10px 10px -5px #ddd;
+  color: #666;
+}
+.mojo-parent {
+  float: right;
+}
+.mojo-perldoc {
+  color: #445555;
+}
+.mojo-perldoc a {
+  color: #000;
+  background-color: rgba(187,239,253,0.3);
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.mojo-perldoc a:hover {
+  background-color: #bbeffd;
+  border-bottom-color: #1a1a1a;
+  text-decoration: none;
+}
+.mojo-perldoc dd {
+  margin: 0;
+  margin-left: 2em;
+}
+.mojo-perldoc dt {
+  color: #2a2a2a;
+  font-weight: bold;
+  margin-left: 0.9em;
+}
+.mojo-perldoc li > p {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+.mojo-perldoc h1 {
+  font-size: 2em;
+}
+.mojo-perldoc h2 {
+  font-size: 1.5em
+}
+.mojo-perldoc h3 {
+  font-size: 1.2em;
+}
+.mojo-perldoc h4 {
+  font-size: 1em;
+}
+.mojo-perldoc h1, .mojo-perldoc h2, .mojo-perldoc h3, .mojo-perldoc h4 {
+  line-height: 1.3;
+  margin: 0;
+  margin-top: 0.75em;
+  padding-bottom: 0.2em;
+  position: relative;
+}
+.mojo-perldoc h1 a, .mojo-perldoc h2 a, .mojo-perldoc h3 a, .mojo-perldoch4 a {
+  background: 0;
+  border: 0;
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+}
+.mojo-perldoc h1 a:hover, .mojo-perldoc h2 a:hover, .mojo-perldoc h3 a:hover, .mojo-perldoch4 a:hover {
+  background: 0;
+  text-decoration: none;
+}
+.mojo-perldoc h1 a {
+  font-weight: 300;
+}
+.mojo-sidebar {
+  background-color: #f6f8fa;
+  color: #333;
+  font-size: 12px;
+  padding-bottom: 1rem;
+}
+.mojo-sidebar a {
+  color: #555;
+}
+.mojo-sidebar a:hover {
+  color: #000;
+  text-decoration: none;
+}
+.mojo-sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.mojo-sidebar > ul:first-of-type {
+  padding-top: 1rem;
+}
+.mojo-sidebar ul ul li {
+  border-left: 1px solid #e1e4e8;
+  padding-left: 10px;
+}
+.mojo-sidebar ul ul li:hover {
+  border-left: 6px solid #e1e4e8;
+}
+.mojo-social {
+  font-size: 1.5em;
+}
+.mojo-version {
+  border-bottom: 1px solid #e1e4e8;
+  margin-right: -15px;
+  margin-left: -15px;
+  padding: 1rem 15px;
+  position: relative;
+}
+.mojo-version fieldset {
+  width: 100%;
+}
+.permalink {
+  display: none;
+  left: -0.75em;
+  position: absolute;
+  padding-right: 0.25em;
+}
+h1:hover .permalink, h2:hover .permalink, h3:hover .permalink, h4:hover .permalink {
+  display: block;
+}
+@media (min-width: 768px) {
+  .mojo-sidebar {
+    border-bottom: 0;
+    border-right: 1px solid #e1e4e8;
+  }
+}
+@media (max-width: 768px) {
+  .mojo-sidebar {
+    border-bottom: 1px solid #e1e4e8;
+    border-right: 0;
+  }
+}

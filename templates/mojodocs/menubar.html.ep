@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg navbar-dark mojobar">
+  <a href="https://mojolicious.org" id="mojobar-brand" class="navbar-brand">
+    <picture>
+      <img src="<%= url_for '/mojo/logo-white.png' %>"
+        srcset="<%= url_for '/mojo/logo-white-2x.png' %> 2x">
+    </picture>
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div id="navbarNav" class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Documentation
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="https://docs.mojolicious.org">Overview</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="https://docs.mojolicious.org/Mojolicious/Guides/Tutorial">Tutorial</a>
+          <a class="dropdown-item" href="https://docs.mojolicious.org/Mojolicious/Guides/Growing">Growing</a>
+          <a class="dropdown-item" href="https://docs.mojolicious.org/Mojolicious/Guides/Routing">Routing</a>
+          <a class="dropdown-item" href="https://docs.mojolicious.org/Mojolicious/Guides/Rendering">Rendering</a>
+          <a class="dropdown-item" href="https://docs.mojolicious.org/Mojolicious/Guides/Testing">Testing</a>
+          <a class="dropdown-item" href="https://docs.mojolicious.org/Mojolicious/Guides/Cookbook">Cookbook</a>
+          <a class="dropdown-item" href="https://docs.mojolicious.org/Mojolicious/Guides/Contributing">Contributing</a>
+          <a class="dropdown-item" href="https://docs.mojolicious.org/Mojolicious/Guides/FAQ">FAQ</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="https://docs.mojolicious.org#SPIN-OFFS">Spin-offs</a>
+          <a class="dropdown-item" href="https://docs.mojolicious.org#REFERENCE">Reference</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://webchat.freenode.net/#mojo">Chat</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://groups.google.com/group/mojolicious">Forum</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="https://metacpan.org/release/Mojolicious/">CPAN</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav ml-md-auto mojo-social">
+      <li class="nav-item">
+        <a class="nav-link" alt="GitHub" href="https://github.com/mojolicious/mojo">
+          <i class="fab fa-github-alt"></i>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" alt="Twitter" href="https://twitter.com/perlmojo"><i class="fab fa-twitter"></i></a>
+      </li>
+    </ul>
+    <form action="https://www.google.com/cse" target="_blank" class="form-inline my-2 my-lg-0">
+      %= hidden_field cx => '014527573091551588235:pwfplkjpgbi'
+      %= hidden_field ie => 'UTF-8'
+      %= search_field 'q', placeholder => 'Search...'
+    </form>
+  </div>
+</nav>

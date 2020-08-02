@@ -4,8 +4,8 @@ use Mojolicious::Lite;
 use FindBin;
 BEGIN { unshift @INC, "$FindBin::Bin/lib" }
 
-plugin 'MojoDocs';
-plugin 'Fortune' => {path => app->home->child('fortune.txt')};
+plugin Fortune => {path                   => app->home->child('fortune.txt')};
+plugin Mount   => {'docs.mojolicious.org' => app->home->child('mojodocs.pl')};
 
 # Redirect "mojolicio.us" to "mojolicious.org"
 hook before_dispatch => sub {
@@ -21,9 +21,6 @@ any '/perldoc/:module' => {module => 'Mojolicious/Guides'} => [module => qr/[^.]
   my $module = $c->param('module');
   $c->redirect_to("https://docs.mojolicious.org/$module");
 };
-
-# Documentation
-any '/:module' => {module => 'Mojolicious/Guides'} => [module => qr/[^.]+/] => (host => qr/^docs\./) => app->perldoc;
 
 # Welcome to Mojolicious
 get '/' => sub {

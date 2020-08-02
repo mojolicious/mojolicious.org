@@ -1,0 +1,78 @@
+% layout 'mojolicious', title => $title;
+% content_for 'header' => begin
+  %= javascript '/mojolicious/jquery/jquery.js'
+  %= javascript '/mojolicious/bootstrap/bootstrap.js'
+  %= stylesheet '/mojolicious/bootstrap/bootstrap.css'
+  %= stylesheet '/mojolicious/fontawesome/fontawesome.css'
+  %= javascript '/mojolicious/prettify/run_prettify.js'
+  %= stylesheet '/mojolicious/prettify-mojo-light.css'
+  %= stylesheet '/mojodocs.css'
+  %= stylesheet '/menubar.css'
+% end
+<header>
+  %= include 'mojodocs/menubar'
+</header>
+<div class="container-fluid">
+  <div class="row flex-wrap">
+    <aside class="col-sm-12 col-md-4 col-lg-2 mojo-sidebar">
+      <form class="mojo-version d-flex align-items-center">
+        <fieldset disabled>
+          <input type="text" id="disabledTextInput" class="form-control" placeholder="v<%= $Mojolicious::VERSION%>">
+        </fieldset>
+      </form>
+      <a id="toc"></a>
+      <ul>
+        % for my $part (@$parts) {
+          <li>
+            % my ($text, $target) = splice(@$part, 0,2);
+            <a href="<%= $target %>"><b><%= $text %></b></a>
+            % if (@$part) {
+              <ul>
+                % while (@$part) {
+                  <li><%= link_to splice(@$part, 0, 2) %></li>
+                % }
+              </ul>
+            % }
+          </li>
+        % }
+      </ul>
+    </aside>
+    <main class="col-sm-12 col-md-8 col-lg-10 py-md-3 pl-md-5">
+      <div class="mojo-docinfo">
+        <div>
+          <%= $is_doc ? 'Document' : 'Module' %>:
+          % my @path;
+          % for my $part (split '/', $module) {
+            <%= '::' if @path =%>
+            % push @path, $part;
+            <%= link_to $part => url_for(module => join('/', @path))->to_abs =%>
+          % }
+          % if ($parent) {
+          <div class="mojo-parent">
+            Parent: <%= link_to $parent => url_for(module => join('/', split('::', $parent))) %>
+          </div>
+          % }
+        </div>
+      </div>
+      <div class="mojo-external">
+        <a class="btn btn-outline-secondary btn-sm"
+          href="<%= url_for(module => join('/', @path) . '.txt')->to_abs %>" role="button">
+          Source
+        </a>
+        <a class="btn btn-outline-secondary btn-sm" href="<%= $cpan %>" role="button">CPAN</a>
+      </div>
+      <div class="mojo-perldoc">
+        %= content 'perldoc'
+      </div>
+    </main>
+  </div>
+</div>
+<footer class="mojo-footer">
+  <div class="container-fluid p-3">
+    <div class="row">
+      <div class="col-sm text-center">
+        <b>Free</b> and <b>Open Source</b>.
+      </div>
+    </div>
+  </div>
+</footer>

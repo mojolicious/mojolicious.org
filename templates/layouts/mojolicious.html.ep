@@ -4,15 +4,12 @@
     <link rel="apple-touch-icon" sizes=""152x152 href="/mojolicious/touch-icon-152x152.png">
     <link rel="apple-touch-icon" sizes=""167x167 href="/mojolicious/touch-icon-167x167.png">
     <link rel="apple-touch-icon" sizes=""180x180 href="/mojolicious/touch-icon-180x180.png">
-    <link rel="search" type="application/opensearchdescription+xml"
-      href="/opensearch.xml" title="Mojolicious" />
-    <title>
-      Mojolicious - Perl real-time web framework
-    </title>
+    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Mojolicious" />
+    <title><%= title || 'Mojolicious - Perl real-time web framework' %></title>
+    %= javascript '/mojolicious/jquery/jquery.js'
     %= javascript '/mojolicious/prettify/run_prettify.js'
     %= stylesheet '/mojolicious/prettify-mojo-light.css'
-    %= stylesheet '/app.css'
-    %= javascript '/mojolicious/jquery/jquery.js'
+    %= content 'header'
   </head>
   <body><%= content %></body>
 </html>
