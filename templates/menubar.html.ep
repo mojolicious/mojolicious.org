@@ -40,6 +40,7 @@
         <div class="dropdown-menu" aria-labelledby="communityDropdown">
           <a class="dropdown-item" href="https://webchat.freenode.net/#mojo">Chat</a>
           <a class="dropdown-item" href="https://groups.google.com/group/mojolicious">Forum</a>
+          <a class="dropdown-item" href="https://github.com/mojolicious/mojo/wiki">Wiki</a>
           <a class="dropdown-item" href="https://metacpan.org/release/Mojolicious/">CPAN</a>
         </div>
       </li>
