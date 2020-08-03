@@ -9,6 +9,10 @@
     %= javascript '/mojolicious/jquery/jquery.js'
     %= javascript '/mojolicious/prettify/run_prettify.js'
     %= stylesheet '/mojolicious/prettify-mojo-light.css'
+    %= javascript '/mojolicious/bootstrap/bootstrap.js'
+    %= stylesheet '/mojolicious/bootstrap/bootstrap.css'
+    %= stylesheet '/mojolicious/fontawesome/fontawesome.css'
+    %= stylesheet '/menubar.css'
     %= content 'header'
   </head>
   <body><%= content %></body>

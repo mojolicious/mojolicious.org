@@ -1,10 +1,6 @@
 % layout 'mojolicious';
 % content_for 'header' => begin
-  %= javascript '/mojolicious/bootstrap/bootstrap.js'
-  %= stylesheet '/mojolicious/bootstrap/bootstrap.css'
-  %= stylesheet '/mojolicious/fontawesome/fontawesome.css'
   %= stylesheet '/mojolicious.css'
-  %= stylesheet '/menubar.css'
 % end
 <div id="mojo-fun">
   %= link_to 'https://metacpan.org/release/Mojolicious' => begin

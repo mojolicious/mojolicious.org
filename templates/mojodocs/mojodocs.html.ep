@@ -1,13 +1,6 @@
 % layout 'mojolicious', title => $title;
 % content_for 'header' => begin
-  %= javascript '/mojolicious/jquery/jquery.js'
-  %= javascript '/mojolicious/bootstrap/bootstrap.js'
-  %= stylesheet '/mojolicious/bootstrap/bootstrap.css'
-  %= stylesheet '/mojolicious/fontawesome/fontawesome.css'
-  %= javascript '/mojolicious/prettify/run_prettify.js'
-  %= stylesheet '/mojolicious/prettify-mojo-light.css'
   %= stylesheet '/mojodocs.css'
-  %= stylesheet '/menubar.css'
 % end
 <header>
   %= include 'menubar'
