@@ -1,0 +1,121 @@
+body {
+  background-color: #fff;
+}
+:not(pre) > code {
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 3px;
+  font: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-size: 14px;
+  padding: 0.3em;
+}
+pre {
+  background-color: #fff;
+  border: 1px solid #e1e4e8;
+  border-radius: 6px;
+  font: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-size: 14px;
+  padding: 1em;
+}
+pre > code {
+  color: #24292e;
+  font: font: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-size: 14px;
+  line-height: 1.5em;
+  text-align: left;
+  white-space: pre-wrap;
+}
+ul { list-style-type: square }
+.mojo-butterfly {
+  display: inline;
+  float: right;
+  position: relative;
+  z-index: 1000
+}
+.mojo-features {
+  padding-top: 1em;
+}
+.mojo-footer {
+  background: url(/mojolicious/pinstripe-light.png);
+  background-color: #f2ece9;
+  box-shadow: inset 0 10px 10px -5px #ddd;
+  color: #666;
+}
+.mojo-fortune {
+  margin-bottom: 2em;
+  margin-top: 2em;
+}
+.mojo-install {
+  padding-top: 1em;
+}
+.mojo-intro a {
+  color: #000;
+  background-color: rgba(187,239,253,0.3);
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+}
+.mojo-intro a:hover {
+  background-color: #bbeffd;
+  border-bottom-color: #1a1a1a;
+  text-decoration: none;
+}
+.mojo-intro h1 {
+  font-size: 2em;
+  font-weight: 300;
+}
+.mojo-intro h2 {
+  font-size: 1.5em;
+  font-weight: 600;
+}
+.mojo-intro h1, .mojo-intro h2 {
+  line-height: 1.3;
+  margin: 0;
+  margin-top: 0.75em;
+  padding-bottom: 0.2em;
+  position: relative;
+}
+.mojo-intro h1 a, .mojo-intro h2 a {
+  background: 0;
+  border: 0;
+  color: #000;
+  text-decoration: none;
+}
+.mojo-more {
+  margin-bottom: 4em;
+  margin-right: 1em;
+  margin-top: 4em;
+}
+.mojo-promotion {
+  border-left: 2px dotted #c1c1c1;
+  float: right;
+  margin: 3em;
+  margin-right: 0;
+  padding: 1em;
+  padding-right: 0;
+}
+.mojo-start {
+  padding-top: 1em;
+}
+.mojo-tape {
+  padding-top: 1em;
+}
+.mojo-terminal {
+  background-color: #282c34;
+  border: 0;
+}
+.mojo-terminal > code {
+  color: #dddddd;
+  font: font: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-size: 14px;
+  line-height: 1.5em;
+  text-align: left;
+  white-space: pre-wrap;
+}
+#mojo-balloon {
+  position: absolute;
+  right: 9%;
+  top: 245px;
+}
+#mojo-fun {
+  background: url(../mojolicious/digitalforest.png) repeat-x;
+  height: 450px;
+  text-align: center;
+}

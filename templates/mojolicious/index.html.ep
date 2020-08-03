@@ -1,130 +1,133 @@
 % layout 'mojolicious';
 % content_for 'header' => begin
-  %= stylesheet '/app.css'
+  %= javascript '/mojolicious/bootstrap/bootstrap.js'
+  %= stylesheet '/mojolicious/bootstrap/bootstrap.css'
+  %= stylesheet '/mojolicious/fontawesome/fontawesome.css'
+  %= stylesheet '/mojolicious.css'
+  %= stylesheet '/menubar.css'
 % end
-<div id="fun">
+<div id="mojo-fun">
   %= link_to 'https://metacpan.org/release/Mojolicious' => begin
     %= image '/mojolicious/unicorn.png'
   % end
-  %= image '/mojolicious/balloon.png', id => 'balloon';
+  %= image '/mojolicious/balloon.png', id => 'mojo-balloon';
 </div>
-%= include 'mojolicious/menubar'
-<div id="wrapperlicious">
-  <div class="box spaced" id="introduction">
-    <h1>
-      %= fortune
-    </h1>
-    <p>
-      Mojolicious is a fresh take on Perl web development, based on years of
-      experience developing the Catalyst framework, and utilizing the latest web
-      standards and technologies. You can get started with your project quickly,
-      with a framework that grows with your needs.
-    </p>
-    <p>
-      The Mojo stack provides a consistent set of components that can be used in
-      any project. The guides cover most aspects of using the framework and the
-      components have comprehensive reference documentation. Mojolicious is a
-      real-time web framework, which allows a new class of web applications
-      using WebSockets and having long-running requests without blocking.
-    </p>
-    <p>
-      Join us now, and be a part of a friendly and knowledgeable community of
-      developers!
-    </p>
-    <div id="promotion">
-      <a class="undecorated" href="https://leanpub.com/mojo_web_clients/">
-        <img src="/mojolicious/books.png" alt="Get Books">
-      </a>
-      <br>
-      <a class="undecorated" href="https://shop.spreadshirt.com/kraih/">
-        <img src="/mojolicious/t-shirts.png" alt="Get T-Shirts">
-      </a>
-    </div>
-    <h2>Features</h2>
-    <ul>
-      <li>
-        An amazing <b>real-time web framework</b>, allowing you to easily grow
-        single file prototypes into well-structured MVC web applications.
-        <ul>
-          <li>
-            Powerful out of the box with RESTful routes, plugins, commands,
-            Perl-ish templates, content negotiation, session management,
-            form validation, testing framework, static file server,
-            CGI/<a href="http://plackperl.org" target="_blank">PSGI</a>
-            detection, first class Unicode support and much more for you to
-            discover.
-          </li>
-        </ul>
-      </li>
-      <li>
-        A powerful <b>web development toolkit</b>, that you can use for all
-        kinds of applications, independently of the web framework.
-        <ul>
-          <li>
-            Full stack HTTP and WebSocket client/server implementation with
-            IPv6, TLS, SNI, IDNA, HTTP/SOCKS5 proxy, UNIX domain socket, Comet
-            (long polling), Promises/A+, async/await, keep-alive, connection
-            pooling, timeout, cookie, multipart and gzip compression support.
-          </li>
-          <li>
-            Built-in non-blocking I/O web server, supporting multiple event
-            loops as well as optional pre-forking and hot deployment, perfect for
-            building highly scalable web services.
-          </li>
-          <li>JSON and HTML/XML parser with CSS selector support.</li>
-        </ul>
-      </li>
-      <li>
-        Very clean, portable and object-oriented pure-Perl API with no hidden
-        magic and no requirements besides Perl 5.26.0 (versions as old as
-        5.16.0 can be used too, but may require additional CPAN modules to be
-        installed)
-      </li>
-      <li>
-        Fresh code based upon years of experience developing
-        <a href="http://catalystframework.org" target="_blank">Catalyst</a>,
-        free and open source.
-      </li>
-      <li>
-        Hundreds of 3rd party
-        <a href="https://metacpan.org/requires/distribution/Mojolicious">extensions</a>
-        and high quality spin-off projects like the
-        <a href="https://metacpan.org/pod/Minion">Minion</a> job
-        queue.
-      </li>
-    </ul>
-    <h2>Installation</h2>
-    <p>All you need is a one-liner, it takes less than a minute.</p>
-    <pre><code>$ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious</code></pre>
-    <p>
-      We recommend the use of a
-      <a href="http://perlbrew.pl" target="_blank">Perlbrew</a> environment.
-    </p>
-    <h2>Getting Started</h2>
-    <p>These three lines are a whole web application.</p>
-    <pre><code class="prettyprint">use Mojolicious::Lite;
+<header>
+  %= include 'menubar'
+</header>
+<div class="container">
+  <div class="row flex-wrap">
+    <main class="col-sm-12 col-md-8 col-lg-10 py-md-3 pl-md-5">
+      <div class="mojo-intro">
+        <div class="mojo-fortune">
+          <h1>
+            %= fortune
+          </h1>
+          <p>
+            Mojolicious is a fresh take on Perl web development, based on years of experience developing the Catalyst
+            framework, and utilizing the latest web standards and technologies. You can get started with your project
+            quickly, with a framework that grows with your needs.
+          </p>
+          <p>
+            The Mojo stack provides a consistent set of components that can be used in any project. The guides cover
+            most aspects of using the framework and the components have comprehensive reference documentation.
+            Mojolicious is a real-time web framework, which allows a new class of web applications using WebSockets and
+            having long-running requests without blocking.
+          </p>
+          <p>Join us now, and be a part of a friendly and knowledgeable community of developers!</p>
+        </div>
+        <div class="mojo-promotion">
+          <a class="undecorated" href="https://leanpub.com/mojo_web_clients/">
+            <img src="/mojolicious/books.png" alt="Get Books">
+          </a>
+          <br>
+          <a class="undecorated" href="https://shop.spreadshirt.com/kraih/">
+            <img src="/mojolicious/t-shirts.png" alt="Get T-Shirts">
+          </a>
+        </div>
+        <div class="mojo-features">
+          <h2>Features</h2>
+          <ul>
+            <li>
+              An amazing <b>real-time web framework</b>, allowing you to easily grow single file prototypes into
+              well-structured MVC web applications.
+              <ul>
+                <li>
+                  Powerful out of the box with RESTful routes, plugins, commands, Perl-ish templates, content
+                  negotiation, session management, form validation, testing framework, static file server,
+                  CGI/<a href="http://plackperl.org" target="_blank">PSGI</a> detection, first class Unicode support and
+                  much more for you to discover.
+                </li>
+              </ul>
+            </li>
+            <li>
+              A powerful <b>web development toolkit</b>, that you can use for all kinds of applications, independently
+              of the web framework.
+              <ul>
+                <li>
+                  Full stack HTTP and WebSocket client/server implementation with IPv6, TLS, SNI, IDNA, HTTP/SOCKS5
+                  proxy, UNIX domain socket, Comet (long polling), Promises/A+, async/await, keep-alive, connection
+                  pooling, timeout, cookie, multipart and gzip compression support.
+                </li>
+                <li>
+                  Built-in non-blocking I/O web server, supporting multiple event loops as well as optional pre-forking
+                  and hot deployment, perfect for building highly scalable web services.
+                </li>
+                <li>JSON and HTML/XML parser with CSS selector support.</li>
+              </ul>
+            </li>
+            <li>
+              Very clean, portable and object-oriented pure-Perl API with no hidden magic and no requirements besides
+              Perl 5.26.0 (versions as old as 5.16.0 can be used too, but may require additional CPAN modules to be
+              installed)
+            </li>
+            <li>
+              Fresh code based upon years of experience developing
+              <a href="http://catalystframework.org" target="_blank">Catalyst</a>, free and open source.
+            </li>
+            <li>
+              Hundreds of 3rd party <a href="https://metacpan.org/requires/distribution/Mojolicious">extensions</a> and
+              high quality spin-off projects like the <a href="https://minion.pm">Minion</a> job queue.
+            </li>
+          </ul>
+        </div>
+        <div class="mojo-install">
+          <h2>Installation</h2>
+          <p>All you need is a one-liner, it takes less than a minute.</p>
+          <pre class="mojo-terminal"><code>$ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious</code></pre>
+          <p>
+            We recommend the use of a
+            <a href="http://perlbrew.pl" target="_blank">Perlbrew</a> environment.
+          </p>
+        </div>
+        <div class="mojo-start">
+          <h2>Getting Started</h2>
+          <p>These three lines are a whole web application.</p>
+          <pre><code class="prettyprint">use Mojolicious::Lite;
 
 get &#39;/&#39; =&gt; {text =&gt; &#39;I ♥ Mojolicious!&#39;};
 
 app-&gt;start;</code></pre>
-    <p>
-      To run this example with the built-in development web server just put
-      the code into a file and start it with <code>morbo</code>.
-    </p>
-    <pre><code>$ morbo hello.pl
-Web application available at http://127.0.0.1:3000
-
-$ curl http://127.0.0.1:3000/
+          <p>
+            To run the example with the built-in development web server, just put the code into a file and start it with
+            <code>morbo</code>.
+          </p>
+          <pre class="mojo-terminal"><code>$ morbo hello.pl
+Web application available at http://127.0.0.1:3000</code></pre>
+          <p>
+            Test it with any HTTP client you prefer.
+          </p>
+          <pre class="mojo-terminal"><code>$ curl http://127.0.0.1:3000/
 I ♥ Mojolicious!</code></pre>
-    <h2>Duct tape for the HTML5 web</h2>
-    <p>
-      Use all the latest Perl and HTML features in beautiful single file
-      prototypes like this one, and
-      <a href="https://docs.mojolicious.org/Mojolicious/Guides/Growing#Differences">grow</a>
-      them easily into well-structured <b>Model-View-Controller</b> web
-      applications.
-    </p>
-    <pre><code class="prettyprint">use Mojolicious::Lite -signatures;
+        </div>
+        <div class="mojo-tape">
+          <h2>Duct tape for the HTML5 web</h2>
+          <p>
+            Use all the latest Perl and HTML features in beautiful single file prototypes like this one, and
+            <a href="https://docs.mojolicious.org/Mojolicious/Guides/Growing#Differences">grow</a> them easily into
+            well-structured <b>Model-View-Controller</b> web applications.
+          </p>
+          <pre><code class="prettyprint">use Mojolicious::Lite -signatures;
 
 # Render template &quot;index.html.ep&quot; from the DATA section
 get &#39;/&#39; =&gt; sub ($c) {
@@ -149,29 +152,35 @@ app-&gt;start;
   ws.onmessage = function (event) { document.body.innerHTML += event.data };
   ws.onopen    = function (event) { ws.send(&#39;https://mojolicious.org&#39;) };
 &lt;/script&gt;</code></pre>
-    <h1>Want to know more?</h1>
-    <p>
-      Take a look at our excellent
-      <a href="https://docs.mojolicious.org">documentation</a>!
-    </p>
+        </div>
+        <div class="mojo-more">
+          %= image '/mojolicious/butterfly.png', class => 'mojo-butterfly';
+          <h1>Want to know more?</h1>
+          <p>
+            Take a look at our excellent
+            <a href="https://docs.mojolicious.org">documentation</a>!
+          </p>
+        </div>
+      </div>
+    </main>
   </div>
 </div>
-<div id="footer">
-  %= link_to 'https://mojolicious.org' => begin
-    <picture>
-      <img src="<%= url_for '/mojo/logo-black.png' %>"
-        srcset="<%= url_for '/mojo/logo-black-2x.png' %> 2x"
-        alt="Mojolicious logo">
-    </picture>
-  % end
-</div>
+<footer class="mojo-footer">
+  <div class="container-fluid p-3">
+    <div class="row">
+      <div class="col-sm text-center">
+        <b>Free</b> and <b>Open Source</b>.
+      </div>
+    </div>
+  </div>
+</footer>
 <script>
   $(window).on("mousemove", function (e) {
     var height    = $(document).height();
     var positionY = -(height - 2 * e.screenY) / height;
     var width     = $(document).width();
     var positionX = -(width - 2 * e.screenX) / width;
-    $("#balloon").css({
+    $("#mojo-balloon").css({
       "right": 10 + positionX + "%",
       "top"  : 220 + (positionY * -25) + "px"}
     );
@@ -179,6 +188,6 @@ app-&gt;start;
   $(window).on("mousemove", function (e) {
     var width    = $(document).width();
     var position = -(width - 2 * e.screenX) / width;
-    $("#fun").css({"backgroundPosition": 0 + (position * 3) + "px 0"});
+    $("#mojo-fun").css({"backgroundPosition": 0 + (position * 3) + "px 0"});
   });
 </script>

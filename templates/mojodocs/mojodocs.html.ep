@@ -10,7 +10,7 @@
   %= stylesheet '/menubar.css'
 % end
 <header>
-  %= include 'mojodocs/menubar'
+  %= include 'menubar'
 </header>
 <div class="container-fluid">
   <div class="row flex-wrap">

@@ -2,9 +2,9 @@
 11,907 commits closer to perfection!
 9 out of 10 penguins recommend Mojolicious!
 Do not taunt happy fun web framework
-Every deploy, a Moment of Joy.
+Every deploy, a Moment of Joy
 Fun is job 1
-It's as if a million lines of CGI cried out and were suddenly silenced.
+It's as if a million lines of CGI cried out and were suddenly silenced
 It's not just delicious, it's Mojolicious!
 There's Perl in my framework!
 What are you waiting for?

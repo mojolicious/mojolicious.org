@@ -4,7 +4,8 @@ body {
 :not(pre) > code {
   background-color: rgba(0, 0, 0, 0.04);
   border-radius: 3px;
-  font: 0.9em Consolas, Menlo, Monaco, Courier, monospace;
+  font: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-size: 14px;
   padding: 0.3em;
 }
 pre {
@@ -12,7 +13,7 @@ pre {
   border: 1px solid #e1e4e8;
   border-radius: 6px;
   font: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-  font-size: 14px;
+  font-size: 13px;
   padding: 1em;
 }
 pre > code {
@@ -136,9 +137,6 @@ ul { list-style-type: square }
 }
 .mojo-sidebar ul ul li:hover {
   border-left: 6px solid #e1e4e8;
-}
-.mojo-social {
-  font-size: 1.5em;
 }
 .mojo-version {
   border-bottom: 1px solid #e1e4e8;
