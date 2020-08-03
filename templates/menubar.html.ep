@@ -28,8 +28,7 @@
           <a class="dropdown-item" href="https://docs.mojolicious.org/Mojolicious/Guides/Contributing">Contributing</a>
           <a class="dropdown-item" href="https://docs.mojolicious.org/Mojolicious/Guides/FAQ">FAQ</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="https://docs.mojolicious.org#SPIN-OFFS">Spin-offs</a>
-          <a class="dropdown-item" href="https://docs.mojolicious.org#REFERENCE">Reference</a>
+          <a class="dropdown-item" href="https://docs.mojolicious.org#REFERENCE">API</a>
         </div>
       </li>
       <li class="nav-item dropdown">
