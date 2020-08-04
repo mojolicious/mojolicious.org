@@ -34,7 +34,7 @@
       <div class="mojo-docinfo">
         <div>
           <div class="mojo-docnav">
-            <a class="nav-link" alt="Twitter" href="https://docs.mojolicious.org#API"><i class="fas fa-book"></i></a>
+            <a class="nav-link" alt="API" href="https://docs.mojolicious.org#API"><i class="fas fa-book"></i></a>
           </div>
           <%= $is_doc ? 'Document' : 'Module' %>:
           % my @path;
