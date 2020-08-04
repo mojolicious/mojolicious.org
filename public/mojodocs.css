@@ -118,6 +118,7 @@ ul { list-style-type: square }
 }
 .mojo-sidebar a {
   color: #555;
+  display: block;
 }
 .mojo-sidebar a:hover {
   color: #000;
@@ -137,6 +138,7 @@ ul { list-style-type: square }
 }
 .mojo-sidebar ul ul li:hover {
   border-left: 6px solid #e1e4e8;
+  padding-left: 5px;
 }
 .mojo-version {
   border-bottom: 1px solid #e1e4e8;
