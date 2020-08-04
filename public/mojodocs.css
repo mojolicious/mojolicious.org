@@ -36,6 +36,18 @@ ul { list-style-type: square }
 .mojo-docinfo a {
   color: #333;
 }
+.mojo-docnav {
+  display: inline;
+}
+.mojo-docnav a {
+  color: #555;
+  display: inline;
+  padding: 0;
+  padding-right: 0.25em;
+}
+.mojo-docnav a:hover {
+  color: #000;
+}
 .mojo-external {
   display: inline;
   float: right;

@@ -33,6 +33,9 @@
     <main class="col-sm-12 col-md-8 col-lg-10 py-md-3 pl-md-5">
       <div class="mojo-docinfo">
         <div>
+          <div class="mojo-docnav">
+            <a class="nav-link" alt="Twitter" href="https://docs.mojolicious.org#API"><i class="fas fa-book"></i></a>
+          </div>
           <%= $is_doc ? 'Document' : 'Module' %>:
           % my @path;
           % for my $part (split '/', $module) {
