@@ -161,14 +161,8 @@ app-&gt;start;
     </main>
   </div>
 </div>
-<footer class="mojo-footer">
-  <div class="container-fluid p-3">
-    <div class="row">
-      <div class="col-sm text-center">
-        <b>Free</b> and <b>Open Source</b>.
-      </div>
-    </div>
-  </div>
+<footer>
+  %= include 'footer'
 </footer>
 <script>
   $(window).on("mousemove", function (e) {

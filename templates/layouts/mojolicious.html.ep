@@ -12,7 +12,7 @@
     %= javascript '/mojolicious/bootstrap/bootstrap.js'
     %= stylesheet '/mojolicious/bootstrap/bootstrap.css'
     %= stylesheet '/mojolicious/fontawesome/fontawesome.css'
-    %= stylesheet '/menubar.css'
+    %= stylesheet '/app.css'
     %= content 'header'
   </head>
   <body><%= content %></body>
