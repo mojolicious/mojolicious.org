@@ -2,6 +2,7 @@
 % content_for 'header' => begin
   %= stylesheet '/mojodocs.css'
 % end
+<a id="toc"></a>
 <header>
   %= include 'menubar'
 </header>
@@ -13,7 +14,6 @@
           <input type="text" id="disabledTextInput" class="form-control" placeholder="v<%= $Mojolicious::VERSION%>">
         </fieldset>
       </form>
-      <a id="toc"></a>
       <ul>
         % for my $part (@$parts) {
           <li>
