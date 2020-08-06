@@ -121,6 +121,7 @@ ul { list-style-type: square }
   color: #333;
   font-size: 12px;
   padding-bottom: 1rem;
+  padding-right: 0;
 }
 .mojo-sidebar a {
   color: #555;
@@ -135,6 +136,7 @@ ul { list-style-type: square }
   margin: 0;
   padding: 0;
 }
+
 .mojo-sidebar > ul:first-of-type {
   overflow: auto;
   padding-top: 1rem;
@@ -142,6 +144,7 @@ ul { list-style-type: square }
   max-height: 100vh;
   top: -.5rem;
 }
+
 .mojo-sidebar ul ul li {
   border-left: 1px solid #e1e4e8;
   padding-left: 10px;
@@ -152,7 +155,6 @@ ul { list-style-type: square }
 }
 .mojo-version {
   border-bottom: 1px solid #e1e4e8;
-  margin-right: -15px;
   margin-left: -15px;
   padding: 1rem 15px;
   position: relative;
