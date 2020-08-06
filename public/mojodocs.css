@@ -136,10 +136,10 @@ ul { list-style-type: square }
   padding: 0;
 }
 .mojo-sidebar > ul:first-of-type {
+  overflow: auto;
   padding-top: 1rem;
   position: sticky;
-  overflow: auto;
-  max-height: 110vh;
+  max-height: 100vh;
   top: -.5rem;
 }
 .mojo-sidebar ul ul li {
