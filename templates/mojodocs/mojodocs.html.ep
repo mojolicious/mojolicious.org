@@ -66,3 +66,22 @@
 <footer>
   %= include 'footer'
 </footer>
+<script>
+  const links = document.querySelectorAll('.mojo-sidebar ul li a[href^="#"]');
+  const link_by_id = Object.fromEntries(Array.from(links).map(e => [e.getAttribute('href').substr(1), e]));
+  const sections = Array.from(links).map(e => document.getElementById(e.getAttribute('href').substr(1))).reverse();
+
+  let last_section_id;
+  window.onscroll = () => {
+    const pos = (document.documentElement.scrollTop || document.body.scrollTop) - 63;
+
+    const section = sections.find(e => e.offsetTop <= pos);
+    if(!section) return;
+
+    if(section.id == last_section_id) return;
+    last_section_id = section.id;
+
+    links.forEach(e => e.classList.remove('font-weight-bold'));
+    link_by_id[section.id].classList.add('font-weight-bold');
+  };
+</script>
