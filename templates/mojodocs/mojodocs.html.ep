@@ -72,7 +72,7 @@
   const sections = Array.from(links).map(e => document.getElementById(e.getAttribute('href').substr(1))).reverse();
 
   let lastSectionId;
-  window.onscroll = () => {
+  let mojoOnScroll = () => {
     const pos = (document.documentElement.scrollTop || document.body.scrollTop) - 63;
 
     const section = sections.find(e => e.offsetTop <= pos);
@@ -84,4 +84,6 @@
     links.forEach(e => e.classList.remove('font-weight-bold'));
     linkById[section.id].classList.add('font-weight-bold');
   };
+  window.onscroll = mojoOnScroll;
+  mojoOnScroll();
 </script>
