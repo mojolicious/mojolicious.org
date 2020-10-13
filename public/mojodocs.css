@@ -181,8 +181,8 @@ h1:hover .permalink, h2:hover .permalink, h3:hover .permalink, h4:hover .permali
     border-right: 0;
   }
   .mojo-perldoc ul  {
-    padding-left: 0.6rem;
-    font-size: 0.835rem;
+    padding-left: 0.55rem;
+    font-size: 0.725rem;
     line-height: 1.95;
    }
 }
