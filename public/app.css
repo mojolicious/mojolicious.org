@@ -1,3 +1,7 @@
+main {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
 .mojobar {
   background-color: #1a1a1a;
 }
