@@ -32,60 +32,62 @@
           </p>
           <p>Join us now, and be a part of a friendly and knowledgeable community of developers!</p>
         </div>
-        <div class="mojo-promotion">
-          <a class="undecorated" href="https://leanpub.com/mojo_web_clients/">
-            <img src="/mojolicious/books.png" alt="Get Books">
-          </a>
-          <br>
-          <a class="undecorated" href="https://shop.spreadshirt.com/kraih/">
-            <img src="/mojolicious/t-shirts.png" alt="Get T-Shirts">
-          </a>
-        </div>
-        <div class="mojo-features">
-          <h2>Features</h2>
-          <ul>
-            <li>
-              An amazing <b>real-time web framework</b>, allowing you to easily grow single file prototypes into
-              well-structured MVC web applications.
-              <ul>
-                <li>
-                  Powerful out of the box with RESTful routes, plugins, commands, Perl-ish templates, content
-                  negotiation, session management, form validation, testing framework, static file server,
-                  CGI/<a href="http://plackperl.org" target="_blank">PSGI</a> detection, first class Unicode support and
-                  much more for you to discover.
-                </li>
-              </ul>
-            </li>
-            <li>
-              A powerful <b>web development toolkit</b>, that you can use for all kinds of applications, independently
-              of the web framework.
-              <ul>
-                <li>
-                  Full stack HTTP and WebSocket client/server implementation with IPv6, TLS, SNI, IDNA, HTTP/SOCKS5
-                  proxy, UNIX domain socket, Comet (long polling), Promises/A+, async/await, keep-alive, connection
-                  pooling, timeout, cookie, multipart and gzip compression support.
-                </li>
-                <li>
-                  Built-in non-blocking I/O web server, supporting multiple event loops as well as optional pre-forking
-                  and hot deployment, perfect for building highly scalable web services.
-                </li>
-                <li>JSON and HTML/XML parser with CSS selector support.</li>
-              </ul>
-            </li>
-            <li>
-              Very clean, portable and object-oriented pure-Perl API with no hidden magic and no requirements besides
-              Perl 5.26.0 (versions as old as 5.16.0 can be used too, but may require additional CPAN modules to be
-              installed)
-            </li>
-            <li>
-              Fresh code based upon years of experience developing
-              <a href="http://catalystframework.org" target="_blank">Catalyst</a>, free and open source.
-            </li>
-            <li>
-              Hundreds of 3rd party <a href="https://metacpan.org/requires/distribution/Mojolicious">extensions</a> and
-              high quality spin-off projects like the <a href="https://minion.pm">Minion</a> job queue.
-            </li>
-          </ul>
+        <h2>Features</h2>
+        <div class="row">
+          <div class="col-md">
+            <ul>
+              <li>
+                An amazing <b>real-time web framework</b>, allowing you to easily grow single file prototypes into
+                well-structured MVC web applications.
+                <ul>
+                  <li>
+                    Powerful out of the box with RESTful routes, plugins, commands, Perl-ish templates, content
+                    negotiation, session management, form validation, testing framework, static file server,
+                    CGI/<a href="http://plackperl.org" target="_blank">PSGI</a> detection, first class Unicode support and
+                    much more for you to discover.
+                  </li>
+                </ul>
+              </li>
+              <li>
+                A powerful <b>web development toolkit</b>, that you can use for all kinds of applications, independently
+                of the web framework.
+                <ul>
+                  <li>
+                    Full stack HTTP and WebSocket client/server implementation with IPv6, TLS, SNI, IDNA, HTTP/SOCKS5
+                    proxy, UNIX domain socket, Comet (long polling), Promises/A+, async/await, keep-alive, connection
+                    pooling, timeout, cookie, multipart and gzip compression support.
+                  </li>
+                  <li>
+                    Built-in non-blocking I/O web server, supporting multiple event loops as well as optional pre-forking
+                    and hot deployment, perfect for building highly scalable web services.
+                  </li>
+                  <li>JSON and HTML/XML parser with CSS selector support.</li>
+                </ul>
+              </li>
+              <li>
+                Very clean, portable and object-oriented pure-Perl API with no hidden magic and no requirements besides
+                Perl 5.26.0 (versions as old as 5.16.0 can be used too, but may require additional CPAN modules to be
+                installed)
+              </li>
+              <li>
+                Fresh code based upon years of experience developing
+                <a href="http://catalystframework.org" target="_blank">Catalyst</a>, free and open source.
+              </li>
+              <li>
+                Hundreds of 3rd party <a href="https://metacpan.org/requires/distribution/Mojolicious">extensions</a> and
+                high quality spin-off projects like the <a href="https://minion.pm">Minion</a> job queue.
+              </li>
+            </ul>
+          </div>
+          <div class="col-xs mojo-promotion">
+            <a class="undecorated" href="https://leanpub.com/mojo_web_clients/">
+              <img src="/mojolicious/books.png" alt="Get Books">
+            </a>
+            <br>
+            <a class="undecorated" href="https://shop.spreadshirt.com/kraih/">
+              <img src="/mojolicious/t-shirts.png" alt="Get T-Shirts">
+            </a>
+          </div>
         </div>
         <div class="mojo-install">
           <h2>Installation</h2>
