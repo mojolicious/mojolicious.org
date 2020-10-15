@@ -7,22 +7,19 @@ img {
 :not(pre) > code {
   background-color: rgba(0, 0, 0, 0.04);
   border-radius: 3px;
-  font: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-  font-size: 14px;
+  font: 14px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
   padding: 0.3em;
 }
 pre {
   background-color: #fff;
   border: 1px solid #e1e4e8;
   border-radius: 6px;
-  font: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-  font-size: 14px;
+  font: 14px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
   padding: 1em;
 }
 pre > code {
   color: #24292e;
-  font: font: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-  font-size: 14px;
+  font: 14px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
   line-height: 1.5em;
   text-align: left;
   white-space: pre-wrap;
@@ -99,8 +96,7 @@ ul { list-style-type: square }
 }
 .mojo-terminal > code {
   color: #dddddd;
-  font: font: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
-  font-size: 14px;
+  font: 14px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
   line-height: 1.5em;
   text-align: left;
   white-space: pre-wrap;
