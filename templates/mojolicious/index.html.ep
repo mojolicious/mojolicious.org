@@ -101,7 +101,7 @@
         <div class="mojo-start">
           <h2>Getting Started</h2>
           <p>These three lines are a whole web application.</p>
-          <pre><code class="prettyprint">use Mojolicious::Lite;
+          <pre><code>use Mojolicious::Lite;
 
 get &#39;/&#39; =&gt; {text =&gt; &#39;I ♥ Mojolicious!&#39;};
 
@@ -125,7 +125,7 @@ I ♥ Mojolicious!</code></pre>
             <a href="https://docs.mojolicious.org/Mojolicious/Guides/Growing#Differences">grow</a> them easily into
             well-structured <b>Model-View-Controller</b> web applications.
           </p>
-          <pre><code class="prettyprint">use Mojolicious::Lite -signatures;
+          <pre><code>use Mojolicious::Lite -signatures;
 
 # Render template &quot;index.html.ep&quot; from the DATA section
 get &#39;/&#39; =&gt; sub ($c) {

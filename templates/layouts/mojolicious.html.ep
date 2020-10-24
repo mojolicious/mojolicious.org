@@ -8,8 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title><%= title || 'Mojolicious - Perl real-time web framework' %></title>
     %= javascript '/mojolicious/jquery/jquery.js'
-    %= javascript '/mojolicious/prettify/run_prettify.js'
-    %= stylesheet '/mojolicious/prettify-mojo-light.css'
+    %= javascript '/mojolicious/highlight.js/highlight.min.js'
+    %= stylesheet '/mojolicious/highlight.js/highlight-mojo-light.css'
+    <script>hljs.initHighlightingOnLoad();</script>
     %= javascript '/mojolicious/bootstrap/bootstrap.js'
     %= stylesheet '/mojolicious/bootstrap/bootstrap.css'
     %= stylesheet '/mojolicious/fontawesome/fontawesome.css'
