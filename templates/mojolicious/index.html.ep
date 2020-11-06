@@ -92,7 +92,7 @@
         <div class="mojo-install">
           <h2>Installation</h2>
           <p>All you need is a one-liner, it takes less than a minute.</p>
-          <pre class="mojo-terminal"><code>$ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious</code></pre>
+          <pre class="mojo-terminal"><code class="nohighlight">$ curl -L https://cpanmin.us | perl - -M https://cpan.metacpan.org -n Mojolicious</code></pre>
           <p>
             We recommend the use of a
             <a href="http://perlbrew.pl" target="_blank">Perlbrew</a> environment.
@@ -110,12 +110,12 @@ app-&gt;start;</code></pre>
             To run the example with the built-in development web server, just put the code into a file and start it with
             <code>morbo</code>.
           </p>
-          <pre class="mojo-terminal"><code>$ morbo hello.pl
+          <pre class="mojo-terminal"><code class="nohighlight">$ morbo hello.pl
 Web application available at http://127.0.0.1:3000</code></pre>
           <p>
             Test it with any HTTP client you prefer.
           </p>
-          <pre class="mojo-terminal"><code>$ curl http://127.0.0.1:3000/
+          <pre class="mojo-terminal"><code class="nohighlight">$ curl http://127.0.0.1:3000/
 I ♥ Mojolicious!</code></pre>
         </div>
         <div class="mojo-tape">
