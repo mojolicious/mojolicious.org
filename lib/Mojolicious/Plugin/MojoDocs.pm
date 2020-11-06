@@ -31,11 +31,10 @@ sub _html {
 
   # Rewrite code blocks for syntax highlighting and correct indentation
   for my $e ($dom->find('pre > code')->each) {
-    next if (my $str = $e->content) =~ /^\s*(?:\$|Usage:)\s+/m;
-    next unless $str =~ /[\$\@\%]\w|-&gt;\w|^use\s+\w/m;
-    my $attrs = $e->attr;
-    my $class = $attrs->{class};
-    $attrs->{class} = defined $class ? "$class prettyprint" : 'prettyprint';
+    next if $e->content !~ /^\s*(?:\$|Usage:)\s+/m
+      and $e->content =~ /[\$\@\%]\w|-&gt;\w|^use\s+\w|^#|^&lt;|^\[/m;
+    my $class = $e->attr->{class};
+    $e->attr->{class} = defined $class ? "$class nohighlight" : 'nohighlight';
   }
 
   # Rewrite headers
