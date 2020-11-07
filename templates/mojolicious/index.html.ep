@@ -41,6 +41,10 @@
                 well-structured MVC web applications.
                 <ul>
                   <li>
+                    Everything you need to build cloud native web applications for state of the art container
+                    environments.
+                  </li>
+                  <li>
                     Powerful out of the box with RESTful routes, plugins, commands, Perl-ish templates, content
                     negotiation, session management, form validation, testing framework, static file server,
                     CGI/<a href="http://plackperl.org" target="_blank">PSGI</a> detection, first class Unicode support and
