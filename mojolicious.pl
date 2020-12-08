@@ -26,19 +26,24 @@ any '/perldoc/:module' => {module => 'Mojolicious/Guides'} => [module => qr/[^.]
 get '/' => sub {
   my $c = shift;
 
-  # Shortcut for "book.mojolicious.org"
-  my $host = $c->req->url->base->host // '';
-  return $c->redirect_to('https://leanpub.com/mojo_web_clients/') if $host =~ /^book\./;
+  if ((my $host = $c->req->url->base->host // '') ne 'mojolicious.org') {
 
-  # Shortcut for "conduct.mojolicious.org"
-  return $c->redirect_to('https://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#CODE-OF-CONDUCT')
-    if $host =~ /^conduct\./;
+    # Shortcut for "book.mojolicious.org"
+    return $c->redirect_to('https://leanpub.com/mojo_web_clients/') if $host =~ /^book\./;
 
-  # Shortcut for "kraih.com"
-  return $c->redirect_to('https://github.com/kraih') if $host =~ /kraih.com$/;
+    # Shortcut for "forum.mojolicious.org"
+    return $c->redirect_to('https://github.com/mojolicious/mojo/discussions') if $host =~ /^forum\./;
 
-  # Shortcut for "minion.pm"
-  return $c->redirect_to('https://github.com/mojolicious/minion') if $host =~ /minion.pm$/;
+    # Shortcut for "conduct.mojolicious.org"
+    return $c->redirect_to('https://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#CODE-OF-CONDUCT')
+      if $host =~ /^conduct\./;
+
+    # Shortcut for "kraih.com"
+    return $c->redirect_to('https://github.com/kraih') if $host =~ /kraih.com$/;
+
+    # Shortcut for "minion.pm"
+    return $c->redirect_to('https://github.com/mojolicious/minion') if $host =~ /minion.pm$/;
+  }
 
   # Frontpage
   $c->render('mojolicious/index');
