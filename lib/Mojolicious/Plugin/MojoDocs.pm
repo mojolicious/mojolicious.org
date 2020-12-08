@@ -1,5 +1,5 @@
 package Mojolicious::Plugin::MojoDocs;
-use Mojo::Base 'Mojolicious::Plugin';
+use Mojo::Base 'Mojolicious::Plugin', -signatures;
 
 use Mojo::Asset::File;
 use Mojo::ByteStream;
@@ -9,17 +9,15 @@ use Mojo::URL;
 use Pod::Simple::XHTML;
 use Pod::Simple::Search;
 
-sub register {
-  my ($self, $app, $conf) = @_;
-  $app->helper(perldoc => sub { return \&_perldoc });
+sub register ($self, $app, $conf) {
+  $app->helper(perldoc => sub { \&_perldoc });
 }
 
-sub _indentation {
-  (sort map {/^(\s+)/} @{shift()})[0];
+sub _indentation ($pod) {
+  (sort map {/^(\s+)/} @$pod)[0];
 }
 
-sub _html {
-  my ($c, $src, $mod_path) = @_;
+sub _html ($c, $src, $mod_path) {
 
   # Rewrite links
   my $dom     = Mojo::DOM->new(_pod_to_html($src));
@@ -31,8 +29,7 @@ sub _html {
 
   # Rewrite code blocks for syntax highlighting and correct indentation
   for my $e ($dom->find('pre > code')->each) {
-    next if $e->content !~ /^\s*(?:\$|Usage:)\s+/m
-      and $e->content =~ /[\$\@\%]\w|-&gt;\w|^use\s+\w|^#|^&lt;|^\[/m;
+    next if $e->content !~ /^\s*(?:\$|Usage:)\s+/m and $e->content =~ /[\$\@\%]\w|-&gt;\w|^use\s+\w|^#|^&lt;|^\[/m;
     my $class = $e->attr->{class};
     $e->attr->{class} = defined $class ? "$class nohighlight" : 'nohighlight';
   }
@@ -58,7 +55,7 @@ sub _html {
 
   # Try to find a title
   my $title = 'Perldoc';
-  $dom->find('h1 + p')->first(sub { $title = shift->text });
+  $dom->find('h1 + p')->first(sub { $title = $_->text });
 
   # Combine everything to a proper response
   my $is_doc = $mod_path =~ /pod$/i;
@@ -66,8 +63,7 @@ sub _html {
   $c->render('mojodocs/mojodocs', title => $title, parts => \@parts, parent => $parent, is_doc => $is_doc);
 }
 
-sub _perldoc {
-  my $c = shift;
+sub _perldoc ($c) {
 
   # Find module or redirect to CPAN
   my $module = join '::', split('/', $c->param('module'));

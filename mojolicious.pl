@@ -1,6 +1,6 @@
 #!/usr/bin/env perl
 
-use Mojolicious::Lite;
+use Mojolicious::Lite -signatures;
 use FindBin;
 BEGIN { unshift @INC, "$FindBin::Bin/lib" }
 
@@ -8,23 +8,20 @@ plugin Fortune => {path                   => app->home->child('fortune.txt')};
 plugin Mount   => {'docs.mojolicious.org' => app->home->child('mojodocs.pl')};
 
 # Redirect "mojolicio.us" to "mojolicious.org"
-hook before_dispatch => sub {
-  my $c = shift;
+hook before_dispatch => sub ($c) {
   return unless ($c->req->url->base->host // '') =~ /^(.*)mojolicio.us$/;
   $c->res->code(301);
   $c->redirect_to($c->req->url->to_abs->host("$1mojolicious.org"));
 };
 
 # Redirect old documentation links to "docs.mojolicious.org"
-any '/perldoc/:module' => {module => 'Mojolicious/Guides'} => [module => qr/[^.]+/] => sub {
-  my $c      = shift;
+any '/perldoc/:module' => {module => 'Mojolicious/Guides'} => [module => qr/[^.]+/] => sub ($c) {
   my $module = $c->param('module');
   $c->redirect_to("https://docs.mojolicious.org/$module");
 };
 
 # Welcome to Mojolicious
-get '/' => sub {
-  my $c = shift;
+get '/' => sub ($c) {
 
   if ((my $host = $c->req->url->base->host // '') ne 'mojolicious.org') {
 
