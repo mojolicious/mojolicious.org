@@ -18,7 +18,7 @@
 
 ## Deploying via Github Actions and Kubernetes
 
-The workflow job requires an environment called `Build` with two secrets
+The workflow job requires an environment called `Build` with two secrets:
 
 * `KUBE_CONFIG_DATA` - a base64 encoded kube config file, `cat ~/.kube/config | base64`
 * `WRITE_PACKAGES_TOKEN` - a Personal Access Token with permissions to write to the ghcr container repository
