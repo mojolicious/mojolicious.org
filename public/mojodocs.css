@@ -51,12 +51,14 @@ ul { list-style-type: square }
   position: relative;
   z-index: 1000;
 }
+.mojo-main {
+  max-width: 1000px;
+}
 .mojo-parent {
   float: right;
 }
 .mojo-perldoc {
   color: #445555;
-  max-width: 800px;
 }
 .mojo-perldoc a {
   color: #000;

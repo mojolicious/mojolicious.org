@@ -30,7 +30,7 @@
         % }
       </ul>
     </aside>
-    <main class="col-sm-12 col-md-8 col-lg-10 py-md-3 pl-md-5">
+    <main class="col-sm-12 col-md-8 col-lg-10 py-md-3 pl-md-5 mojo-main">
       <div class="mojo-docinfo">
         <div>
           <div class="mojo-docnav">
