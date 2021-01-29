@@ -21,4 +21,4 @@ jobs:
         run: perltidy --version
       - name: Run perltidy
         shell: bash
-        run: perltidy --pro=.../.perltidyrc -b -bext='/' **/*.p[lm] **/*.t && git diff --exit-code
+        run: perltidy --pro=.../.perltidyrc -b -bext='/' *.p[lm] **/*.p[lm] && git diff --exit-code
