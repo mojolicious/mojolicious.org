@@ -21,12 +21,12 @@ any '/perldoc/:module' => {module => 'Mojolicious/Guides'} => [module => qr/[^.]
 };
 
 # Welcome to Mojolicious
-get '/' => sub ($c) {
+get '/' => sub ($c)   {
 
-  if ((my $host = $c->req->url->base->host // '') ne 'mojolicious.org') {
+  if ((my $host = $c->req->url->base->host // '') ne 'mojolicious.org' )  {
 
     # Shortcut for "book.mojolicious.org"
-    return $c->redirect_to('https://leanpub.com/mojo_web_clients/') if $host =~ /^book\./;
+    return $c->redirect_to('https://leanpub.com/mojo_web_clients/') if $host =~ /^book\./ ;
 
     # Shortcut for "forum.mojolicious.org"
     return $c->redirect_to('https://github.com/mojolicious/mojo/discussions') if $host =~ /^forum\./;
