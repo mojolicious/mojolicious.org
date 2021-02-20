@@ -10,6 +10,9 @@ COPY mojolicious.pl .
 
 # add data for git repo invalidation (from https://stackoverflow.com/a/39278224/468327)
 
+ADD https://api.github.com/repos/mojolicious/sql-abstract-pg/git/refs/heads/master sql-abstract-pg.json
+RUN cpanm -n git://github.com/mojolicious/sql-abstract-pg
+
 ADD https://api.github.com/repos/mojolicious/mojo/git/refs/heads/master mojo.json
 RUN cpanm -n git://github.com/mojolicious/mojo
 
