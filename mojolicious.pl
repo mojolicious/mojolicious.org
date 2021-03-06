@@ -29,7 +29,7 @@ get '/' => sub ($c) {
     return $c->redirect_to('https://leanpub.com/mojo_web_clients/') if $host =~ /^book\./;
 
     # Shortcut for "blogs.mojolicious.org"
-    return $c->redirect_to('https://dev.to/t/mojolicious') if $host =~ /^blogs?\./;
+    return $c->redirect_to('https://dev.to/t/mojolicious/latest') if $host =~ /^blogs?\./;
 
     # Shortcut for "forum.mojolicious.org"
     return $c->redirect_to('https://github.com/mojolicious/mojo/discussions') if $host =~ /^forum\./;
