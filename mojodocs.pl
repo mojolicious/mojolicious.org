@@ -7,6 +7,7 @@ BEGIN { unshift @INC, "$FindBin::Bin/lib" }
 plugin 'MojoDocs';
 
 # Documentation
-any '/:module' => {module => 'Mojolicious/Guides'} => [module => qr/[^.]+/] => app->perldoc;
+any '/:module' => {module => 'Mojolicious/Guides', format => undef} => [module => qr/[^.]+/, format => ['txt']] =>
+  app->perldoc;
 
 app->start;
