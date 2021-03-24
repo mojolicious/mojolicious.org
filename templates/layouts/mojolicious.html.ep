@@ -14,7 +14,7 @@
     %= javascript '/mojolicious/bootstrap/bootstrap.js'
     %= stylesheet '/mojolicious/bootstrap/bootstrap.css'
     %= stylesheet '/mojolicious/fontawesome/fontawesome.css'
-    %= stylesheet '/app.css?v=1'
+    %= stylesheet '/app.css?v=2'
     %= content 'header'
   </head>
   <body><%= content %></body>
