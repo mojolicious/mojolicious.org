@@ -46,7 +46,3 @@ main {
   font-size: 1.5em;
   padding: 0.2em;
 }
-.rainbow {
-  height: 8px;
-  background-image: linear-gradient(-45deg, rgb(225, 92, 85), rgb(255, 190, 46), rgb(254, 143, 62))
-}

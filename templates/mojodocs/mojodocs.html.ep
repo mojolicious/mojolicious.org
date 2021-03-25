@@ -3,7 +3,6 @@
   %= stylesheet '/mojodocs.css'
 % end
 <a id="toc"></a>
-<div class="rainbow"></div>
 <header>
   %= include 'menubar'
 </header>
