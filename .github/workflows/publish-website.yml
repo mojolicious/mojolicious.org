@@ -2,7 +2,7 @@ name: Publish Website
 on:
   push:
     branches:
-      - master
+      - main
   workflow_dispatch:
   repository_dispatch:
 env:
@@ -27,7 +27,7 @@ jobs:
           # Change all uppercase to lowercase
           IMAGE_ID=$(echo $IMAGE_ID | tr '[A-Z]' '[a-z]')
 
-          # Only runs for master, so its always latest
+          # Only runs for main, so its always latest
           VERSION=latest
 
           echo IMAGE_ID=$IMAGE_ID
