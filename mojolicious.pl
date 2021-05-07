@@ -38,6 +38,9 @@ get '/' => sub ($c) {
     return $c->redirect_to('https://mojolicious.org/perldoc/Mojolicious/Guides/Contributing#CODE-OF-CONDUCT')
       if $host =~ /^conduct\./;
 
+    # Shortcut for "mojojs.org"
+    return $c->redirect_to('https://github.com/mojolicious/mojo.js') if $host =~ /mojojs.org$/;
+
     # Shortcut for "kraih.com"
     return $c->redirect_to('https://github.com/kraih') if $host =~ /kraih.com$/;
 
