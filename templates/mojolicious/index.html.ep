@@ -150,7 +150,7 @@ app-&gt;start;
 <% %>@@ index.html.ep
 %% my $url = url_for &#39;title&#39;;
 &lt;script&gt;
-  var ws = new WebSocket(&#39;&lt;%= $url-&gt;to_abs %&gt;&#39;);
+  const ws = new WebSocket(&#39;&lt;%= $url-&gt;to_abs %&gt;&#39;);
   ws.onmessage = function (event) { document.body.innerHTML += event.data };
   ws.onopen    = function (event) { ws.send(&#39;https://mojolicious.org&#39;) };
 &lt;/script&gt;</code></pre>
@@ -172,18 +172,18 @@ app-&gt;start;
 </footer>
 <script>
   $(window).on("mousemove", function (e) {
-    var height    = $(document).height();
-    var positionY = -(height - 2 * e.screenY) / height;
-    var width     = $(document).width();
-    var positionX = -(width - 2 * e.screenX) / width;
+    const height    = $(document).height();
+    const positionY = -(height - 2 * e.screenY) / height;
+    const width     = $(document).width();
+    const positionX = -(width - 2 * e.screenX) / width;
     $("#mojo-balloon").css({
       "right": 10 + positionX + "%",
       "top"  : 220 + (positionY * -25) + "px"}
     );
   });
   $(window).on("mousemove", function (e) {
-    var width    = $(document).width();
-    var position = -(width - 2 * e.screenX) / width;
+    const width    = $(document).width();
+    const position = -(width - 2 * e.screenX) / width;
     $("#mojo-fun").css({"backgroundPosition": 0 + (position * 3) + "px 0"});
   });
 </script>
