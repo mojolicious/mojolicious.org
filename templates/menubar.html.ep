@@ -51,6 +51,12 @@
         <a class="nav-link" href="https://github.com/mojolicious/mojo/">Contribute on GitHub</a>
       </li>
     </ul>
+    <a class="navbar-brand" href="https://mojojs.org">
+      <picture>
+        <img src="<%= url_for '/mojolicious/mojojs-white.png' %>"
+          srcset="<%= url_for '/mojolicious/mojojs-white-2x.png' %> 2x">
+      </picture>
+    </a>
     <form action="https://www.google.com/cse" target="_blank" class="form-inline my-2 my-lg-0">
       %= hidden_field cx => '014527573091551588235:pwfplkjpgbi'
       %= hidden_field ie => 'UTF-8'
