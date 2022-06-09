@@ -20,9 +20,9 @@
             %= fortune
           </h1>
           <p>
-            Mojolicious is a fresh take on Perl web development, based on years of experience developing the Catalyst
-            framework, and utilizing the latest web standards and technologies. You can get started with your project
-            quickly, with a framework that grows with your needs.
+            Mojolicious is a fresh take on <b>Perl</b> web development, based on years of experience developing the
+            Catalyst framework, and utilizing the latest web standards and technologies. You can get started with your
+            project quickly, with a framework that grows with your needs.
           </p>
           <p>
             The Mojo stack provides a consistent set of components that can be used in any project. The guides cover
