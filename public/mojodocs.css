@@ -51,9 +51,6 @@ ul { list-style-type: square }
   position: relative;
   z-index: 1000;
 }
-.mojo-main {
-  max-width: 1000px;
-}
 .mojo-parent {
   float: right;
 }
@@ -179,5 +176,11 @@ h1:hover .permalink, h2:hover .permalink, h3:hover .permalink, h4:hover .permali
   .mojo-sidebar {
     border-bottom: 1px solid #e1e4e8;
     border-right: 0;
+  }
+}
+/* Fix keeping the flex layout for side+main for smaller screens */
+@media (min-width: 60rem) {
+  .mojo-main {
+    max-width: 60rem; /* 16 * 60 = 960px */
   }
 }
