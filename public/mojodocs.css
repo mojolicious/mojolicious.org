@@ -1,22 +1,26 @@
 body {
   background-color: #fff;
 }
+pre,
+pre > code,
+:not(pre) > code,
+.mojo-terminal > code {
+  font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+  font-size: 0.9rem; /* 16 * 0.9 = 14.4 */
+}
 :not(pre) > code {
   background-color: rgba(0, 0, 0, 0.04);
   border-radius: 3px;
-  font: 14px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
   padding: 0.3em;
 }
 pre {
   background-color: #fff;
   border: 1px solid #e1e4e8;
   border-radius: 6px;
-  font: 13px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
   padding: 1em;
 }
 pre > code {
   color: #24292e;
-  font: 14px SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
   line-height: 1.5em;
   text-align: left;
   white-space: pre-wrap;
@@ -24,7 +28,7 @@ pre > code {
 ul { list-style-type: square }
 .mojo-docinfo {
   border-bottom: 1px solid #e1e4e8;
-  font-size: 12px;
+  font-size: 0.9rem; /* 16 * 0.9 = 14.4 */
   padding: 0;
   padding-bottom: 0.5em;
   padding-top: 1.5em;
@@ -50,9 +54,6 @@ ul { list-style-type: square }
   float: right;
   position: relative;
   z-index: 1000;
-}
-.mojo-main {
-  max-width: 1000px;
 }
 .mojo-parent {
   float: right;
@@ -119,7 +120,7 @@ ul { list-style-type: square }
 .mojo-sidebar {
   background-color: #f6f8fa;
   color: #333;
-  font-size: 14px;
+  font-size: 0.85rem; /* 16 * 0.85 = 13.6 */
   padding-bottom: 1rem;
   padding-right: 0;
 }
@@ -179,5 +180,11 @@ h1:hover .permalink, h2:hover .permalink, h3:hover .permalink, h4:hover .permali
   .mojo-sidebar {
     border-bottom: 1px solid #e1e4e8;
     border-right: 0;
+  }
+}
+/* Fix keeping the flex layout for side+main for smaller screens */
+@media (min-width: 60rem) {
+  .mojo-main {
+    max-width: 60rem; /* 16 * 60 = 960px */
   }
 }
