@@ -37,6 +37,10 @@
           <div class="col-md">
             <ul>
               <li>
+                Most <a href="https://metacpan.org/favorite/leaderboard">popular</a> module on <b>CPAN</b>.
+                <i class="fa-solid fa-heart"></i>
+              </li>
+              <li>
                 An amazing <b>real-time web framework</b>, allowing you to easily grow single file prototypes into
                 well-structured MVC web applications.
                 <ul>
