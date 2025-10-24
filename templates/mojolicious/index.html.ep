@@ -20,9 +20,9 @@
             %= fortune
           </h1>
           <p>
-            Mojolicious is a fresh take on Perl web development, based on years of experience developing the Catalyst
-            framework, and utilizing the latest web standards and technologies. You can get started with your project
-            quickly, with a framework that grows with your needs.
+            Mojolicious is a fresh take on <b>Perl</b> web development, based on years of experience developing the
+            Catalyst framework, and utilizing the latest web standards and technologies. You can get started with your
+            project quickly, with a framework that grows with your needs.
           </p>
           <p>
             The Mojo stack provides a consistent set of components that can be used in any project. The guides cover
@@ -36,6 +36,10 @@
         <div class="row">
           <div class="col-md">
             <ul>
+              <li>
+                Most <a href="https://metacpan.org/favorite/leaderboard">popular</a> distribution on <b>CPAN</b>.
+                <i class="fa-solid fa-heart"></i>
+              </li>
               <li>
                 An amazing <b>real-time web framework</b>, allowing you to easily grow single file prototypes into
                 well-structured MVC web applications.
@@ -72,6 +76,9 @@
                 Very clean, portable and object-oriented pure-Perl API with no hidden magic and no requirements besides
                 Perl 5.26.0 (versions as old as 5.16.0 can be used too, but may require additional CPAN modules to be
                 installed)
+              </li>
+              <li>
+                Also available for <a href="https://mojojs.org">JavaScript</a>.
               </li>
               <li>
                 Fresh code based upon years of experience developing
