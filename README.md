@@ -18,10 +18,12 @@
 
 ## Deploying via Github Actions and Kubernetes
 
-The workflow job requires an environment called `Build` with two secrets:
+The workflow job requires an environment called `Build` with one secret:
 
-* `KUBE_CONFIG_DATA` - a base64 encoded kube config file, `cat ~/.kube/config | base64`
-* `WRITE_PACKAGES_TOKEN` - a Personal Access Token with permissions to write to the ghcr container repository
+* `KUBE_CONFIG_DATA` - a base64 encoded kube config file for the `github-deployer`
+  ServiceAccount from [k8s/github-deployer.yaml](k8s/github-deployer.yaml). Its token
+  does not expire and may only restart the site deployments. Build the kube config
+  from the `github-deployer-token` Secret in the `mojolicious` namespace.
 
 ## Copyright And License
 
